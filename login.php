@@ -1,4 +1,7 @@
 <?php
+include 'controllers/display.php';
+use function controllers\display\display;
+
 /*require_once 'dbconfig.php';
 
 if($user->is_loggedin()!="")
@@ -48,20 +51,9 @@ if(isset($_POST['btn-login']))
                   <?php
             }
             ?>
-            <div class="form-group">
-             <input type="text" class="form-control" name="txt_uname_email" placeholder="Username or E mail ID" required />
-            </div>
-            <div class="form-group">
-             <input type="password" class="form-control" name="txt_password" placeholder="Your Password" required />
-            </div>
-            <div class="clearfix"></div><hr />
-            <div class="form-group">
-             <button type="submit" name="btn-login" class="btn btn-block btn-primary">
-                 <i class="glyphicon glyphicon-log-in"></i>&nbsp;SIGN IN
-                </button>
-            </div>
+                <?php echo Controllers\display\display('login_form'); ?>
             <br />
-            <label>Don't have account yet? <a href="sign-up.php">Sign Up</a></label>
+            <label>Don't have account yet? <a href="register.php">Sign Up</a></label>
         </form>
        </div>
 </div>

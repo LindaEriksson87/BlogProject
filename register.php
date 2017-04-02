@@ -1,4 +1,7 @@
 <?php
+include 'controllers/display.php';
+use function controllers\display\display;
+
 /*require_once 'dbconfig.php';
 
 if($user->is_loggedin()!="")
@@ -91,23 +94,9 @@ if(isset($_POST['btn-signup']))
                  <?php
             }
             ?>
-            <div class="form-group">
-            <input type="text" class="form-control" name="txt_uname" placeholder="Enter Username" value="<?php if(isset($error)){echo $uname;}?>" />
-            </div>
-            <div class="form-group">
-            <input type="text" class="form-control" name="txt_umail" placeholder="Enter E-Mail ID" value="<?php if(isset($error)){echo $umail;}?>" />
-            </div>
-            <div class="form-group">
-             <input type="password" class="form-control" name="txt_upass" placeholder="Enter Password" />
-            </div>
-            <div class="clearfix"></div><hr />
-            <div class="form-group">
-             <button type="submit" class="btn btn-block btn-primary" name="btn-signup">
-                 <i class="glyphicon glyphicon-open-file"></i>&nbsp;SIGN UP
-                </button>
-            </div>
+           <?php echo Controllers\display\display('register_form'); ?>
             <br />
-            <label>have an account ! <a href="index.php">Sign In</a></label>
+            <label>have an account? <a href="login.php">Sign In</a></label>
         </form>
        </div>
 </div>
