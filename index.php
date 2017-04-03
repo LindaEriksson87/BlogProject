@@ -12,8 +12,7 @@ and open the template in the editor.
     <body>
         <?php
         echo "Blog Main Page Test";
-        echo "Test line 2";
-        echo "Test line 3";
+    
         
         ?>
     </body>
