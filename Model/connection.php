@@ -13,6 +13,9 @@ try {
 } catch (PDOException $e) {
 	trigger_error($e->getMessage());  
 }
+
+include_once 'userClass.php';
+$user = new USER($pdo);
 //to set error hander
 
 ?>
