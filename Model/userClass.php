@@ -21,7 +21,7 @@ class USER
            $stmt->bindparam(":last_name", $last_name);
            $stmt->bindparam(":user_name", $user_name);
            $stmt->bindparam(":email", $email);
-           $stmt->bindparam(":password", $password);            
+           $stmt->bindparam(":password", $new_password);            
            $stmt->execute(); 
    
            return $stmt; 
