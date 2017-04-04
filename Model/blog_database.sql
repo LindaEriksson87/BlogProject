@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 02, 2017 at 07:20 PM
+-- Generation Time: Apr 04, 2017 at 08:08 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -57,6 +57,7 @@ CREATE TABLE `Posts` (
 
 CREATE TABLE `Users` (
   `user_id` int(11) NOT NULL COMMENT 'Primary key',
+  `user_name` varchar(45) DEFAULT NULL,
   `first_name` varchar(45) DEFAULT NULL,
   `last_name` varchar(45) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
