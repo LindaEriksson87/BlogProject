@@ -2,28 +2,28 @@
 include 'controllers/display.php';
 use function controllers\display\display;
 
-/*require_once 'dbconfig.php';
+require_once 'model\connection.php';
 
 if($user->is_loggedin()!="")
 {
- $user->redirect('home.php');
+ $user->redirect('index.php');
 }
 
 if(isset($_POST['btn-login']))
 {
- $uname = $_POST['txt_uname_email'];
- $umail = $_POST['txt_uname_email'];
- $upass = $_POST['txt_password'];
+ $user_name = $_POST['txt_uname_email'];
+ $email = $_POST['txt_uname_email'];
+ $password = $_POST['txt_password'];
   
- if($user->login($uname,$umail,$upass))
+ if($user->login($user_name,$email,$password)==true)
  {
-  $user->redirect('home.php');
+  $user->redirect('index.php');
  }
  else
  {
-  $error = "Wrong Details !";
+  $error = "Your username or password is incorrect.";
  } 
-} */
+} 
 ?>
 
 

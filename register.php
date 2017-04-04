@@ -2,7 +2,7 @@
 include 'controllers/display.php';
 use function controllers\display\display;
 
-/*require_once 'dbconfig.php';
+require_once 'model\connection.php';
 
 if($user->is_loggedin()!="")
 {
@@ -11,44 +11,47 @@ if($user->is_loggedin()!="")
 
 if(isset($_POST['btn-signup']))
 {
-   $uname = trim($_POST['txt_uname']);
-   $umail = trim($_POST['txt_umail']);
-   $upass = trim($_POST['txt_upass']); 
+   
+   $first_name = trim($_POST['txt_fname']);
+   $last_name = trim($_POST['txt_lname']);
+   $user_name = trim($_POST['txt_uname']);
+   $email = trim($_POST['txt_umail']);
+   $password = trim($_POST['txt_upass']); 
  
-   if($uname=="") {
-      $error[] = "provide username !"; 
+   if($user_name=="") {
+      $error[] = "Please provide a username."; 
    }
-   else if($umail=="") {
-      $error[] = "provide email id !"; 
+   else if($email=="") {
+      $error[] = "Please provide an email address."; 
    }
-   else if(!filter_var($umail, FILTER_VALIDATE_EMAIL)) {
-      $error[] = 'Please enter a valid email address !';
+   else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $error[] = 'Please enter a valid email address.';
    }
-   else if($upass=="") {
-      $error[] = "provide password !";
+   else if($password=="") {
+      $error[] = "Please enter a password.";
    }
-   else if(strlen($upass) < 6){
-      $error[] = "Password must be atleast 6 characters"; 
+   else if(strlen($password) < 6){
+      $error[] = "Password must be at least 6 characters"; 
    }
    else
    {
       try
       {
-         $stmt = $DB_con->prepare("SELECT user_name,user_email FROM users WHERE user_name=:uname OR user_email=:umail");
-         $stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
+         $stmt = $pdo->prepare("SELECT user_name,email FROM users WHERE user_name=:user_name OR email=:email");
+         $stmt->execute(array(':user_name'=>$user_name, ':email'=>$email));
          $row=$stmt->fetch(PDO::FETCH_ASSOC);
     
-         if($row['user_name']==$uname) {
-            $error[] = "sorry username already taken !";
+         if($row['user_name']==$user_name) {
+            $error[] = "Username already taken.";
          }
-         else if($row['user_email']==$umail) {
-            $error[] = "sorry email id already taken !";
+         else if($row['email']==$email) {
+            $error[] = "This email address is already registered.";
          }
          else
          {
-            if($user->register($fname,$lname,$uname,$umail,$upass)) 
+            if($user->register($first_name,$last_name,$user_name,$email,$password)) 
             {
-                $user->redirect('sign-up.php?joined');
+                $user->redirect('index.php');
             }
          }
      }
@@ -58,13 +61,13 @@ if(isset($_POST['btn-signup']))
      }
   } 
 }
-*/
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Sign up : cleartuts</title>
+<title>Sign up</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css"  />
 <link rel="stylesheet" href="style.css" type="text/css"  />
 </head>
