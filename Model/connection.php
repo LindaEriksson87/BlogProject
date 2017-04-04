@@ -1,20 +1,19 @@
 <?php
 
 
-$host = "localhost";
-$username = "username";
-$password = "password";
-$password = "blog_database";
+$dsn = "mysql:host=localhost;dbname=blog_database"  ;
+$username = "root";
+$password = null;
+$options = null;
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully"; 
-    }
-catch(PDOException $e)
-    {
-    echo "Connection failed: " . $e->getMessage();
-    }
-?>
+      $pdo = new PDO($dsn, $username, $password, $options);
+      // set the PDO error mode to exception
+      $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+	trigger_error($e->getMessage());  
 }
+//to set error hander
+
+?>
+
