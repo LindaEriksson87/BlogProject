@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+require_once 'model\connection.php';
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -25,7 +22,9 @@ and open the template in the editor.
 	}
         if(false === $error)
 	{
-	$dsn = "localhost";
+
+            /*
+$dsn = "localhost";
 $username = "username";
 $password = "password";
 $dbname = "myDB";
@@ -36,8 +35,11 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
    trigger_error("Connection failed: " . $conn->connect_error);
 } 
+             * 
+             */
 //change 28-31 to reflect database info
-$cleanedComment = mysqli_real_escape_string($conn, $comment);//removes any unwanted code submitted by the user before saving to database
+            
+$cleanedComment = mysqli_real_escape_string($pdo, $comment);//removes any unwanted code submitted by the user before saving to database
 $sql = "INSERT INTO Comment (user, comment)
 VALUES ('$user','$cleanedComment')"; //include username and comments 
 
