@@ -20,7 +20,7 @@ and open the template in the editor.
 	
 	if(empty($comment))
 	{
-		$comment_error='comment section is empty. Please enter your comment.';
+		$comment_error='comment section is empty. Please enter your comment.';//comment validation
 		$error=true;
 	}
         if(false === $error)
