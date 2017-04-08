@@ -4,6 +4,8 @@ use function controllers\display\display;
 
 require_once '../model/connection.php';
 
+session_start();
+
 if($user->is_loggedin()!="")
 {
     $user->redirect('index.php');

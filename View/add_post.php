@@ -2,6 +2,8 @@
 
 require_once '../model/connection.php';
 
+session_start();
+
 if(isset($_POST['btn-post'])){
     //getting rid of whitespace
     $title     = trim($_POST['title']);
