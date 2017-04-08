@@ -2,6 +2,8 @@
 
 class POST 
 {
+    //The connection to the SQL database is set up for the class to use. 
+    //The construction of the class is done in the connection file. 
      private $db;
  
     function __construct($pdo)
