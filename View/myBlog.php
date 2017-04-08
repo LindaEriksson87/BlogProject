@@ -1,10 +1,10 @@
 <?php
 include '../controllers/display.php';
+include '../controllers/login.php';
 use function controllers\display\display;
 
 require_once '../model/connection.php';
 
-session_start();
 ?>
 <!doctype html>
 <html>
@@ -27,7 +27,7 @@ else
 }
 ?>
     
-<h2>My blog</h2>
+<h2><?= $_SESSION['username'] ?>'s blog</h2>
 
 <?php echo Controllers\display\display('add_post', ['post' => $post]); ?>
 

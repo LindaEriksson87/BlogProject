@@ -51,6 +51,7 @@ class USER
                  //When the user is successfully logged in a session ID is set for this user.
                  //This session ID can be used in other functions to call user specific content.
                 $_SESSION['user_session'] = $userRow['user_id'];
+                $_SESSION['username'] = $userRow['user_name'];
                 return true;
              }
              else
@@ -90,4 +91,3 @@ class USER
         return true;
    }
 }
-?>
