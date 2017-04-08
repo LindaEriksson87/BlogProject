@@ -1,8 +1,8 @@
 <?php
-include 'controllers/display.php';
+include '../controllers/display.php';
 use function controllers\display\display;
 
-require_once 'model\connection.php';
+require_once '../model/connection.php';
 
 if($user->is_loggedin()!="")
 {

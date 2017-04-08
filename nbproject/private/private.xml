@@ -4,13 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/BlogProject/Controllers/display.php</file>
+            <file>file:/C:/xampp/htdocs/BlogProject/View/Templates/add_post.php</file>
             <file>file:/C:/xampp/htdocs/BlogProject/Model/userClass.php</file>
-            <file>file:/C:/xampp/htdocs/BlogProject/index.php</file>
-            <file>file:/C:/xampp/htdocs/BlogProject/View/Templates/register_form.phtml</file>
             <file>file:/C:/xampp/htdocs/BlogProject/Model/connection.php</file>
-            <file>file:/C:/xampp/htdocs/BlogProject/register.php</file>
-            <file>file:/C:/xampp/htdocs/BlogProject/login.php</file>
-            <file>file:/C:/xampp/htdocs/BlogProject/View/Templates/login_form.phtml</file>
+            <file>file:/C:/xampp/htdocs/BlogProject/Model/postClass.php</file>
+            <file>file:/C:/xampp/htdocs/BlogProject/View/register.php</file>
         </group>
     </open-files>
 </project-private>

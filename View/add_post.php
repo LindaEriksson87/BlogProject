@@ -1,19 +1,24 @@
 <?php
 
-if(isset($_POST['contents'], $_POST['category'])){
+require_once '../model/connection.php';
+
+if(isset($_POST['btn-post'])){
     //getting rid of whitespace
-    $title      = trim($_POST['title']);
-    $contents   = trim($_POST['contents']);
+    $title     = trim($_POST['title']);
+    $content   = trim($_POST['content']);
    
     if (empty ($title)){
         
+        $error[] = "Please enter a title."; 
     }
     
-    if (empty($contents)){
+    if (empty($content)){
         
+        $error[] = "Please enter some text."; 
         
     }
-               
+       
+    else $post->newPost($title,$content);
 }
 
 ?>
@@ -39,8 +44,8 @@ if(isset($_POST['contents'], $_POST['category'])){
             </div>
             
             <div>
-                <label for="contents"> Contents </label>
-                <textarea name="contents" rows="15" cols="50"><?php if ( isset($_POST['contents']) ) echo $_POST['contents']; ?></textarea>
+                <label for="content"> Content </label>
+                <textarea name="content" rows="15" cols="50"><?php if ( isset($_POST['content']) ) echo $_POST['content']; ?></textarea>
             </div>
             
             <div>
@@ -52,17 +57,17 @@ if(isset($_POST['contents'], $_POST['category'])){
                 <label for="tags"> Tags </label>
                 <select name="tags"></select>
                 <?php
-                foreach ( get_tags() as $tags ) {
+                //foreach ( get_tags() as $tags ) {
                     ?>
                 <option value ="<?php echo $tags['id']; ?>"><?php echo $tags['name']; ?></option>
                 <?php
-                }
+                
                 ?>
                 
             </div>
             
             <div>
-                <input type="submit" value="Add Post">
+                <input type="submit" value="Add Post" name="btn-post">
             </div>
            
         </form>

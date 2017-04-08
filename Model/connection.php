@@ -1,6 +1,5 @@
 <?php
 
-
 $dsn = "mysql:host=localhost;dbname=blog_database"  ;
 $username = "root";
 $password = null;
@@ -16,6 +15,9 @@ try {
 
 include_once 'userClass.php';
 $user = new USER($pdo);
+
+include_once 'postClass.php';
+$post = new POST($pdo);
 //to set error hander
 
 ?>
