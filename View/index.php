@@ -30,7 +30,7 @@ else
 }
 ?>
     
-
+<div class="col-sm-8">
 <h1>Welcome to our blog!</h1>
 
 <p>Welcome paragraph goes here</p>
@@ -40,8 +40,8 @@ else
     
     *carousel of featured bloggers random*
 </div>
-
-<aside>
+</div>
+<div class="col-sm-4 well well-lg">
     <h2>Latest posts</h2>
     
     <p>List of latest posts 
@@ -75,7 +75,7 @@ else
     </p>
     
     
-</aside>
+</div>
 
 
 

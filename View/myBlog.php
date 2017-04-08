@@ -29,4 +29,6 @@ else
     
 <h2>My blog</h2>
 
+<?php echo Controllers\display\display('add_post', ['post' => $post]); ?>
+
 <?php echo Controllers\display\display('my_blog', ['post' => $post]); ?>

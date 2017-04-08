@@ -87,8 +87,7 @@ else
     echo Controllers\display\display('nav_bar_signed_out'); 
 }
 ?>
-<div class="container">
-     <div class="form-container">
+<div>
         <form method="post">
             <h2>Sign up.</h2><hr />
             <?php
@@ -114,10 +113,8 @@ else
             ?>
            <?php echo Controllers\display\display('register_form'); ?>
             <br />
-            <label>have an account? <a href="login.php">Sign In</a></label>
         </form>
-       </div>
-</div>
+ </div>
 
 </body>
 </html>
