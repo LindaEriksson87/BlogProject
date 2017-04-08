@@ -13,6 +13,9 @@ try {
 	trigger_error($e->getMessage());  
 }
 
+//set timezone
+date_default_timezone_set('Europe/London');
+
 include_once 'userClass.php';
 $user = new USER($pdo);
 
