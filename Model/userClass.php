@@ -90,4 +90,16 @@ class USER
         unset($_SESSION['user_session']);
         return true;
    }
+   
+   public function randomUser() {
+        $stmt=$this->db->prepare("SELECT user_name, user_id FROM users ORDER BY RAND() LIMIT 1");
+        $stmt->execute(); 
+	return $stmt->fetch();
+}
+
+    public function viewUser() {
+        $stmt=$this->db->prepare("SELECT user_name, user_id FROM users ORDER BY RAND() LIMIT 1");
+        $stmt->execute(); 
+	return $stmt->fetch();
+    }
 }

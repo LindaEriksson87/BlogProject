@@ -2,6 +2,7 @@
 
 include '../controllers/display.php';
 include '../controllers/login.php';
+include 'templates/randomUser.php';
 use function controllers\display\display;
 
 require_once '../model/connection.php';
@@ -40,7 +41,10 @@ carousel of featured bloggers goes here -->
 
 <div>
     <h2>Featured bloggers</h2>
-    
+
+    <p>Techno Bloggers:  <a href="viewUser.php?id=<?= $randomUserID ?>"><?= $randomUsername ?></a></p>
+    <br><br>
+
     
     *carousel of featured bloggers random*
 </div>
