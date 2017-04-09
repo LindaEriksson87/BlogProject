@@ -53,10 +53,26 @@ carousel of featured bloggers goes here -->
     <h2>Latest posts</h2>
     
   <!-- feed of latest posts -->
-   
+  <ul>
+<?php
+$stmt = $pdo->query('SELECT post_title, post_slug FROM posts ORDER BY post_id DESC LIMIT 5');
+while($row = $stmt->fetch()){
+    echo '<li><a href="'.$row['post_slug'].'">'.$row['post_title'].'</a></li>';
+}
+?>
+</ul> 
         	
-   
-    
+  <h2> Archives</h2>
+    <ul>
+<?php
+$stmt = $pdo->query("SELECT Month(date) as Month, Year(date) as Year FROM posts GROUP BY Month(date), Year(date) ORDER BY date DESC");
+while($row = $stmt->fetch()){
+    $monthName = date("F", mktime(0, 0, 0, $row['Month'], 10));
+    $slug = 'a-'.$row['Month'].'-'.$row['Year'];
+    echo "<li><a href='$slug'>$monthName</a></li>";
+}
+?>
+</ul>
     
 </div>
 
