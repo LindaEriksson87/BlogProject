@@ -11,9 +11,7 @@
 
 		<h1>Archives</h1>
 		
-
 <?php
-
 
 $stmt = $pdo->query("SELECT Month(date) as Month, Year(date) as Year,
 post_title FROM posts ORDER BY date DESC");
@@ -27,7 +25,7 @@ while($row = $stmt->fetch()){
         // reinitialize current month
         $currentMonth = 0;
         // display the current year
-        echo "<li class=\"cl-year\">{$row['Year']}</li>";
+        echo "{$row['Year']}";
         // change the current year
         $currentYear = $row['Year'];
     }
@@ -35,17 +33,17 @@ while($row = $stmt->fetch()){
     if($row['Month'] != $currentMonth) {
         // display the current month
         $monthName = date("F", mktime(0, 0, 0, $row['Month'], 10));
-        echo "<li class=\"cl-month\">$monthName</li>";
+        echo "   $monthName";
         // change the current month
         $currentMonth = $row['Month'];
     }
   // display posts within the current month
     $slug = 'a-'.$row['Month'].'-'.$row['Year'];
     echo "<li class=\"cl-posts\"><a href='$slug'>$monthName</a></li>";
-    echo '<li class="cl-posts active"><a href="c-'.$row['post_slug'].'">'.$row['post_title'].'</a></li>';
+    echo '<li class="cl-posts active"><a href="">'.$row['post_title'].'</a></li>';
 }
 ?>
-</ul>
+               
 </body>
 </html> 
 		
