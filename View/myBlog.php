@@ -1,5 +1,4 @@
 <?php
-
 include '../controllers/display.php';
 include '../controllers/login.php';
 use function controllers\display\display;
@@ -7,11 +6,9 @@ use function controllers\display\display;
 require_once '../model/connection.php';
 
 ?>
-
 <!doctype html>
 <html>
-<head><title>Blog Homepage</title></head>
-
+<head><title>My Blog</title></head>
 <!--Including Bootstrap CSS -->
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -30,33 +27,8 @@ else
 }
 ?>
     
-<div class="col-sm-8">
-<h1>Welcome to our blog!</h1>
+<h2><?= $_SESSION['username'] ?>'s blog</h2>
 
-<!-- <p>Welcome paragraph goes here</p>
+<?php echo Controllers\display\display('add_post', ['post' => $post]); ?>
 
-carousel of featured bloggers goes here -->
-
-
-<div>
-    <h2>Featured bloggers</h2>
-    
-    *carousel of featured bloggers random*
-</div>
-</div>
-<div class="col-sm-4 well well-lg">
-    <h2>Latest posts</h2>
-    
-  <!-- feed of latest posts -->
-   
-        	
-   
-    
-    
-</div>
-
-
-
-</body>
-</html>
-
+<?php echo Controllers\display\display('my_blog', ['post' => $post]); ?>

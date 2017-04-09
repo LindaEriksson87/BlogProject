@@ -1,6 +1,6 @@
 <?php
 require_once 'model\connection.php';
-
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -17,7 +17,7 @@ require_once 'model\connection.php';
 	
 	if(empty($comment))
 	{
-		$comment_error='comment section is empty. Please enter your comment.';
+		$comment_error='comment section is empty. Please enter your comment.';//comment validation
 		$error=true;
 	}
         if(false === $error)

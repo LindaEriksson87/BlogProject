@@ -9,7 +9,7 @@ if ($wordcountofblog>500) {
 }
 
 //incorrect username or password
-if ()
+//if ()
     
 //uploading wrong file type, blog picture
     // if !jpeg etc.
