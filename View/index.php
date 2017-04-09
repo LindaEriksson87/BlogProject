@@ -10,7 +10,7 @@ require_once '../model/connection.php';
 
 <!doctype html>
 <html>
-<head><title>Blog Homepage</title></head>
+<head><title>Get Into Techno</title></head>
 
 <!--Including Bootstrap CSS -->
 
@@ -37,6 +37,7 @@ else
 
 <div>
     <h2>Featured bloggers</h2>
+    
     
     *carousel of featured bloggers random*
 </div>
