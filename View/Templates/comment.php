@@ -55,8 +55,17 @@ $conn->close();
 		
 	}
         ?>
+<<<<<<< HEAD
         <p>Submitted Comments</p>
        
+=======
+        <p>Comments</p>
+        <form action="/comment_1.php" method="POST" > 
+       <textarea name="comment" rows="10" cols="40"></textarea>  
+                  
+   <input  type="submit" value="OK" /> 
+        </form>
+>>>>>>> 25c4c9ad025e156b5b8fd18d6e16de6403f087a9
     </body>
 </html>
 

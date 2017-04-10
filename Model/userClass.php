@@ -91,16 +91,33 @@ class USER
         return true;
    }
    
+   //This function randomly generates a user from the user table, and returns the name and ID as an array.
    public function randomUser() {
+       try
+        {
         $stmt=$this->db->prepare("SELECT user_name, user_id FROM users ORDER BY RAND() LIMIT 1");
         $stmt->execute(); 
 	return $stmt->fetch();
+         }
+    catch(PDOException $e)
+       {
+            echo $e->getMessage();
+       }    
 }
 
+//This function generates the information of a user searched for by ID. It returns the username, first name and last name as an array. 
     public function viewUser($user_id) {
-        $stmt=$this->db->prepare("SELECT user_name FROM users WHERE user_id=:user_id");
+        try
+        {
+        $stmt=$this->db->prepare("SELECT user_name,first_name,last_name FROM users WHERE user_id=:user_id");
         $stmt->bindparam(":user_id", $user_id);
         $stmt->execute(); 
+ 
 	return $stmt->fetch();
+    }
+    catch(PDOException $e)
+       {
+            echo $e->getMessage();
+       }    
     }
 }

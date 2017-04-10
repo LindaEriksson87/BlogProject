@@ -2,7 +2,7 @@
 
 include '../controllers/display.php';
 include '../controllers/login.php';
-include 'templates/randomUser.php';
+include 'templates/userFunctions.php';
 use function controllers\display\display;
 
 require_once '../model/connection.php';
@@ -12,6 +12,7 @@ require_once '../model/connection.php';
 <!doctype html>
 <html>
 <head><title>Get Into Techno</title></head>
+
 
 <!--Including Bootstrap CSS -->
 
@@ -41,7 +42,9 @@ carousel of featured bloggers goes here -->
 
 <div>
     <h2>Featured bloggers</h2>
-
+<!--This is a temporary line that randomly generates a user with the function from userFunctions,
+then a link is added that will take the user to the viewuser page with a GET tag at the end, the 
+GET will be id= + the ID linked to the username, this is also generated in userFunctions. -->
     <p>Techno Bloggers:  <a href="viewUser.php?id=<?= $randomUserID ?>"><?= $randomUsername ?></a></p>
     <br><br>
 
@@ -54,7 +57,7 @@ carousel of featured bloggers goes here -->
     
   <!-- feed of latest posts -->
   <ul>
-<?php
+<?php //****need View Postpage to link ******
 $stmt = $pdo->query('SELECT post_title, post_slug FROM posts ORDER BY post_id DESC LIMIT 5');
 while($row = $stmt->fetch()){
     echo '<li><a href="'.$row['post_slug'].'">'.$row['post_title'].'</a></li>';
@@ -64,7 +67,7 @@ while($row = $stmt->fetch()){
         	
   <h2> Archives</h2>
     <ul>
-<?php
+<?php //****need View Postpage to link ******
 $stmt = $pdo->query("SELECT Month(date) as Month, Year(date) as Year FROM posts GROUP BY Month(date), Year(date) ORDER BY date DESC");
 while($row = $stmt->fetch()){
     $monthName = date("F", mktime(0, 0, 0, $row['Month'], 10));

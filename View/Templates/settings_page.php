@@ -1,8 +1,6 @@
 <?php
-//The page you see if you click on a username
 include '../controllers/display.php';
 include '../controllers/login.php';
-include 'templates/userFunctions.php';
 use function controllers\display\display;
 
 require_once '../model/connection.php';
@@ -10,7 +8,7 @@ require_once '../model/connection.php';
 ?>
 <!doctype html>
 <html>
-<head><title>Get Into Techno</title></head>
+<head><title>Get into Techno</title></head>
 <!--Including Bootstrap CSS -->
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -28,9 +26,17 @@ else
     echo Controllers\display\display('nav_bar_signed_out'); 
 }
 ?>
+<body>
+    <header>Settings</header>
     
-<!--This title calls the username created in the userFunctions file.-->    
-<h2><?= $username ?>'s blog</h2>
-
-<!--This part uses the display function to call in the content in the user blog template-->
-<?php echo Controllers\display\display('user_blog', ['post' => $post]); ?>
+    <div>
+        <h3>Upload image</h3>
+        
+        <h3>Update name</h3>
+        <h3>Update email</h3>
+        <h3>Add Biography</h3>
+    </div>  
+    
+  
+</body>
+</html>

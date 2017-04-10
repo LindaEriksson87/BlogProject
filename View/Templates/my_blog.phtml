@@ -1,5 +1,8 @@
 <?php
-
+/*Creating a variable that calls the read all method in the post class. 
+ * The read all method is based on reading the posts for the user that is currently logged in. (in the SESSION)
+ * This code will then echo the Title, Content and Date Posted, in that order. 
+ */
 $posts = $post->readAll();
 
 foreach($posts as $post):?>
