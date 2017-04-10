@@ -97,8 +97,9 @@ class USER
 	return $stmt->fetch();
 }
 
-    public function viewUser() {
-        $stmt=$this->db->prepare("SELECT user_name, user_id FROM users ORDER BY RAND() LIMIT 1");
+    public function viewUser($user_id) {
+        $stmt=$this->db->prepare("SELECT user_name FROM users WHERE user_id=:user_id");
+        $stmt->bindparam(":user_id", $user_id);
         $stmt->execute(); 
 	return $stmt->fetch();
     }

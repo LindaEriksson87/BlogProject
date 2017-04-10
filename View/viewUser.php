@@ -27,7 +27,7 @@ else
 }
 ?>
     
-<h2><?= $_SESSION['username'] ?>'s blog</h2>
+<h2><?php $user->viewUser($_GET["id"]) ?>'s blog</h2>
 
 
-<?php echo Controllers\display\display('my_blog', ['post' => $post]); ?>
+<?php echo Controllers\display\display('user_blog', ['post' => $post]); ?>
