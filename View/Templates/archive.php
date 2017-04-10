@@ -37,7 +37,7 @@ while($row = $stmt->fetch()){
         // change the current month
         $currentMonth = $row['Month'];
     }
-  // display posts within the current month
+  // display posts within the current month -**** need to add ViewPost code****
     $slug = 'a-'.$row['Month'].'-'.$row['Year'];
     echo "<li class=\"cl-posts\"><a href='$slug'>$monthName</a></li>";
     echo '<li class="cl-posts active"><a href="">'.$row['post_title'].'</a></li>';

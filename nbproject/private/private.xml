@@ -2,7 +2,29 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group/>
+=======
         <group>
+<<<<<<< HEAD
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/settings_page.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/comment.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/Model/blog_database.sql</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/add_post.phtml</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/nav_bar_signed_in.phtml</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/my_blog.phtml</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/Model/userClass.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/register.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/Controllers/display.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/update_name.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/index.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/myBlog.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/Model/connection.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/upload_image.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/blogger_carousel.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/archive.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/homepage.php</file>
+=======
             <file>file:/C:/xampp/htdocs/BlogProject/View/search.php</file>
             <file>file:/C:/xampp/htdocs/BlogProject/Model/userClass.php</file>
             <file>file:/C:/xampp/htdocs/BlogProject/View/viewUser.php</file>
@@ -12,6 +34,8 @@
             <file>file:/C:/xampp/htdocs/BlogProject/Model/postClass.php</file>
             <file>file:/C:/xampp/htdocs/BlogProject/View/myBlog.php</file>
             <file>file:/C:/xampp/htdocs/BlogProject/View/Templates/userFunctions.php</file>
+>>>>>>> da34d0d30496cd697e4e81135b44015606bfdc7e
         </group>
+>>>>>>> origin/master
     </open-files>
 </project-private>
