@@ -1,6 +1,8 @@
 <?php
 class USER
 {
+    //The connection to the SQL database is set up for the class to use. 
+    //The construction of the class is done in the connection file. 
     private $db;
  
     function __construct($pdo)
@@ -8,10 +10,12 @@ class USER
       $this->db = $pdo;
     }
  
+    //A function for registering a new user, the arguments are passed from register.php
     public function register($first_name,$last_name,$user_name,$email,$password)
     {
        try
-       {
+       {   //The build in password_hash functions turns the given password into a scribbled code.
+           //This password needs to be unscribbled again with the password_verify function later used for logging in.
            $new_password = password_hash($password, PASSWORD_DEFAULT);
    
            $stmt = $this->db->prepare("INSERT INTO users(user_name,first_name,last_name,email,password) 
@@ -31,7 +35,8 @@ class USER
            echo $e->getMessage();
        }    
     }
- 
+    
+    //This function tests the arguments provided in login.php, the user can log in with either the username or email.
     public function login($user_name,$email,$password)
     {
        try
@@ -43,7 +48,10 @@ class USER
           {
              if(password_verify($password, $userRow['password']))
              {
+                 //When the user is successfully logged in a session ID is set for this user.
+                 //This session ID can be used in other functions to call user specific content.
                 $_SESSION['user_session'] = $userRow['user_id'];
+                $_SESSION['username'] = $userRow['user_name'];
                 return true;
              }
              else
@@ -58,6 +66,7 @@ class USER
        }
    }
  
+   //This is a function to simply check if a user is logged in or not. 
    public function is_loggedin()
    {
       if(isset($_SESSION['user_session']))
@@ -65,17 +74,33 @@ class USER
          return true;
       }
    }
- 
+   
+   //This function will redirect a user to the url passed in 
+   //as an argument from wherever the function is called, e.g. login.php
+   
    public function redirect($url)
    {
        header("Location: $url");
    }
  
+   //This function destroys the user session and therefore logs out the user.
    public function logout()
    {
         session_destroy();
         unset($_SESSION['user_session']);
         return true;
    }
+   
+   public function randomUser() {
+        $stmt=$this->db->prepare("SELECT user_name, user_id FROM users ORDER BY RAND() LIMIT 1");
+        $stmt->execute(); 
+	return $stmt->fetch();
 }
-?>
+
+    public function viewUser($user_id) {
+        $stmt=$this->db->prepare("SELECT user_name FROM users WHERE user_id=:user_id");
+        $stmt->bindparam(":user_id", $user_id);
+        $stmt->execute(); 
+	return $stmt->fetch();
+    }
+}

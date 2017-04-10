@@ -1,0 +1,16 @@
+<?php
+
+$posts = $post->readUser($_GET["id"]);
+
+foreach($posts as $post):?>
+ 
+<h4>
+<?= $post[1];?>
+</h4>
+<p>
+<?= $post[2];?>
+</p>
+<p>
+<?= $post[3];?>
+</p>
+<?php endforeach; ?>

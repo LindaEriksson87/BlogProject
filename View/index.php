@@ -1,64 +1,80 @@
+<?php
+
+include '../controllers/display.php';
+include '../controllers/login.php';
+include 'templates/randomUser.php';
+use function controllers\display\display;
+
+require_once '../model/connection.php';
+
+?>
 
 <!doctype html>
 <html>
-<head><title>Blog Homepage</title></head>
+<head><title>Get Into Techno</title></head>
+
+<!--Including Bootstrap CSS -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <body>
     
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Bloggers</a></li>
-            <li><a href="#">Register</a></li>
-            <li><a href="#">Login</a></li>
-        </ul>
-        
-    </nav>
+<?php 
 
+// Displaying the nav bar with a login form or logout button depending on if the user session is set or not.
+if($user->is_loggedin()!="")
+{
+    echo Controllers\display\display('nav_bar_signed_in'); 
+}
+else 
+{
+    echo Controllers\display\display('nav_bar_signed_out'); 
+}
+?>
+    
+<div class="col-sm-8">
 <h1>Welcome to our blog!</h1>
 
-<p>Welcome paragraph goes here</p>
+<!-- <p>Welcome paragraph goes here</p>
+
+carousel of featured bloggers goes here -->
+
 
 <div>
     <h2>Featured bloggers</h2>
+
+    <p>Techno Bloggers:  <a href="viewUser.php?id=<?= $randomUserID ?>"><?= $randomUsername ?></a></p>
+    <br><br>
+
     
     *carousel of featured bloggers random*
 </div>
-
-<aside>
+</div>
+<div class="col-sm-4 well well-lg">
     <h2>Latest posts</h2>
     
-    <p>List of latest posts 
-   
-        	<?php // feed of latest posts
-		$temp = $wp_query; $wp_query= null;
-		$wp_query = new WP_Query(); $wp_query->query('posts_per_page=5' . '&paged='.$paged);
-		while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
-
-		<h2><a href="<?php the_permalink(); ?>" title="Read more"><?php the_title(); ?></a></h2>
-		<?php the_excerpt(); ?>
-
-		<?php endwhile; ?>
-
-		<?php if ($paged > 1) { ?>
-
-		<nav id="nav-posts">
-			<div class="prev"><?php next_posts_link('&laquo; Previous Posts'); ?></div>
-			<div class="next"><?php previous_posts_link('Newer Posts &raquo;'); ?></div>
-		</nav>
-
-		<?php } else { ?>
-
-		<nav id="nav-posts">
-			<div class="prev"><?php next_posts_link('&laquo; Previous Posts'); ?></div>
-		</nav>
-
-		<?php } ?>
-
-		<?php wp_reset_postdata(); ?>
-    </p>
+  <!-- feed of latest posts -->
+  <ul>
+<?php
+$stmt = $pdo->query('SELECT post_title, post_slug FROM posts ORDER BY post_id DESC LIMIT 5');
+while($row = $stmt->fetch()){
+    echo '<li><a href="'.$row['post_slug'].'">'.$row['post_title'].'</a></li>';
+}
+?>
+</ul> 
+        	
+  <h2> Archives</h2>
+    <ul>
+<?php
+$stmt = $pdo->query("SELECT Month(date) as Month, Year(date) as Year FROM posts GROUP BY Month(date), Year(date) ORDER BY date DESC");
+while($row = $stmt->fetch()){
+    $monthName = date("F", mktime(0, 0, 0, $row['Month'], 10));
+    $slug = 'a-'.$row['Month'].'-'.$row['Year'];
+    echo "<li><a href='$slug'>$monthName</a></li>";
+}
+?>
+</ul>
     
-    
-</aside>
+</div>
 
 
 
