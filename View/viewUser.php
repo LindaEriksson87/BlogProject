@@ -28,7 +28,8 @@ else
 }
 ?>
     
+<!--This title calls the username created in the userFunctions file.-->    
 <h2><?= $username ?>'s blog</h2>
 
-
+<!--This part uses the display function to call in the content in the user blog template-->
 <?php echo Controllers\display\display('user_blog', ['post' => $post]); ?>

@@ -91,6 +91,7 @@ class USER
         return true;
    }
    
+   //This function randomly generates a user from the user table, and returns the name and ID as an array.
    public function randomUser() {
        try
         {
@@ -104,6 +105,7 @@ class USER
        }    
 }
 
+//This function generates the information of a user searched for by ID. It returns the username, first name and last name as an array. 
     public function viewUser($user_id) {
         try
         {
