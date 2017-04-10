@@ -2,6 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/C:/xampp/htdocs/BlogProject/View/search.php</file>
+            <file>file:/C:/xampp/htdocs/BlogProject/Model/userClass.php</file>
+            <file>file:/C:/xampp/htdocs/BlogProject/View/viewUser.php</file>
+            <file>file:/C:/xampp/htdocs/BlogProject/View/index.php</file>
+            <file>file:/C:/xampp/htdocs/BlogProject/View/Templates/my_blog.phtml</file>
+            <file>file:/C:/xampp/htdocs/BlogProject/View/Templates/user_blog.phtml</file>
+            <file>file:/C:/xampp/htdocs/BlogProject/Model/postClass.php</file>
+            <file>file:/C:/xampp/htdocs/BlogProject/View/myBlog.php</file>
+            <file>file:/C:/xampp/htdocs/BlogProject/View/Templates/userFunctions.php</file>
+        </group>
+>>>>>>> origin/master
     </open-files>
 </project-private>

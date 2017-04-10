@@ -2,7 +2,7 @@
 
 include '../controllers/display.php';
 include '../controllers/login.php';
-include 'templates/randomUser.php';
+include 'templates/userFunctions.php';
 use function controllers\display\display;
 
 require_once '../model/connection.php';
