@@ -6,9 +6,15 @@ if (isset($_POST['title'], $_POST['content'], $_POST['tags'], $_POST['musicplaye
 //getting rid of whitespace
     $title     = trim($_POST['title']);
     $content   = trim($_POST['content']);
+<<<<<<< Updated upstream
     $tags      = trim($_POST['tags']);
 
 if (empty ($title)){
+=======
+    //$tags      = trim($_POST['tags']);
+    
+    if (empty ($title)){
+>>>>>>> Stashed changes
         
         $error[] = "Please enter a title."; 
     }
@@ -18,8 +24,12 @@ if (empty ($title)){
         $error[] = "Please enter some text."; 
         
     }
-       
-    else $post->newPost($title,$content);
+    if (empty($tags)){
+        
+        $error[] = "Please enter some tags."; 
+        
+    }   
+    else $post->newPost($title,$content,$tags);
 }
 }
 
@@ -69,12 +79,16 @@ if(isset($_POST['btn-post'])){
             </div>
             
             <div>
+<<<<<<< Updated upstream
                 <label for="image">Image</label>
                 <input type="image" name="title" value="<?php if ( isset($_POST['image']) ) echo $_POST['image']; ?>">                
             </div>
             
             <div>
                 <label for="content"> Content </label>
+=======
+                <label for="content"> Content </label> <p>
+>>>>>>> Stashed changes
                 <textarea name="content" rows="15" cols="50"><?php if ( isset($_POST['content']) ) echo $_POST['content']; ?></textarea>
             </div>
             
@@ -85,14 +99,9 @@ if(isset($_POST['btn-post'])){
             
             <div>
                 <label for="tags"> Tags </label>
-                <select name="tags"></select>
-                <?php
-                //foreach ( get_tags() as $tags ) {
-                    ?>
-                <option value ="<?php echo $tags['id']; ?>"><?php echo $tags['name']; ?></option>
-                <?php
+                <textarea name="content" rows="1" cols="30"><?php if ( isset($_POST['tags']) ) echo $_POST['tags']; ?></textarea>
+               <!-- <option value ="<?php echo $tags['id']; ?>"><?php echo $tags['name']; ?></option> -->
                 
-                ?>
                 
             </div>
             
