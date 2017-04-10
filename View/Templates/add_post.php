@@ -39,6 +39,11 @@ if(isset($_POST['contents'], $_POST['category'])){
             </div>
             
             <div>
+                <label for="image">Image</label>
+                <input type="image" name="title" value="<?php if ( isset($_POST['image']) ) echo $_POST['image']; ?>">                
+            </div>
+            
+            <div>
                 <label for="contents"> Contents </label>
                 <textarea name="contents" rows="15" cols="50"><?php if ( isset($_POST['contents']) ) echo $_POST['contents']; ?></textarea>
             </div>
