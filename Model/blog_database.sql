@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 09, 2017 at 07:43 PM
+-- Generation Time: Apr 10, 2017 at 11:56 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `comments` (
   `comment_id` int(25) NOT NULL,
   `comment_content` varchar(300) DEFAULT NULL,
-  `date` datetime NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `user_id` int(25) NOT NULL COMMENT 'FOREIGN KEY',
   `post_id` int(25) NOT NULL COMMENT 'FOREIGN KEY'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -44,7 +44,7 @@ CREATE TABLE `posts` (
   `post_id` int(25) NOT NULL,
   `post_title` varchar(50) DEFAULT NULL,
   `post_content` varchar(500) DEFAULT NULL,
-  `date` datetime NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `post_slug` varchar(225) NOT NULL,
   `user_id` varchar(100) NOT NULL COMMENT 'FOREIGN KEY',
   `tags` int(25) NOT NULL
@@ -55,11 +55,11 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`post_id`, `post_title`, `post_content`, `date`, `post_slug`, `user_id`, `tags`) VALUES
-(1, 'Test', 'Testing', '2017-04-08 19:44:27', 'test', '', 0),
-(2, 'Test', 'Testing', '2017-04-08 19:44:58', 'test2', '', 0),
-(3, 'Linda', 'Test post with session', '2017-04-08 20:24:27', 'linda', '4', 0),
-(4, 'New Post', 'Another Post by Linda for Testing.', '2017-04-08 22:19:46', 'new-post', '4', 0),
-(5, 'test', 'testttfyfx,aulchlhbik', '2017-04-09 16:20:57', 'test-3', '5', 0);
+(1, 'Test', 'Testing', '2017-04-08 18:44:27', 'test', '', 0),
+(2, 'Test', 'Testing', '2017-04-08 18:44:58', 'test2', '', 0),
+(3, 'Linda', 'Test post with session', '2017-04-08 19:24:27', 'linda', '4', 0),
+(4, 'New Post', 'Another Post by Linda for Testing.', '2017-04-08 21:19:46', 'new-post', '4', 0),
+(5, 'test', 'testttfyfx,aulchlhbik', '2017-04-09 15:20:57', 'test-3', '5', 0);
 
 -- --------------------------------------------------------
 
