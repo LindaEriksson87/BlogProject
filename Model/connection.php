@@ -23,5 +23,6 @@ include_once 'postClass.php';
 $post = new POST($pdo);
 //to set error hander
 
+
 ?>
 

@@ -1,0 +1,17 @@
+<?php
+
+$sanitizedID = filter_input(INPUT_GET, 'id',FILTER_SANITIZE_ENCODED);
+$posts = $post->readUser($sanitizedID);
+
+foreach($posts as $post):?>
+ 
+<h4>
+<?= $post[1];?>
+</h4>
+<p>
+<?= $post[2];?>
+</p>
+<p>
+<?= $post[3];?>
+</p>
+<?php endforeach; ?>

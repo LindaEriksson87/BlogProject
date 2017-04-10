@@ -46,4 +46,20 @@ class POST
             echo $e->getMessage();
        }    
     }
+    
+    public function readUser($user_id)
+    {
+        try
+        {
+            $stmt = $this->db->prepare("SELECT * FROM posts WHERE user_id=:user_id");
+            $stmt->bindparam(":user_id", $user_id);
+            $stmt->execute();
+            
+            return $stmt;
+        }
+        catch(PDOException $e)
+       {
+            echo $e->getMessage();
+       }    
+    }
 }

@@ -1,3 +1,21 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Apr 09, 2017 at 07:43 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 7.0.13
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
 -- Database: `blog_database`
 --
@@ -27,6 +45,7 @@ CREATE TABLE `posts` (
   `post_title` varchar(50) DEFAULT NULL,
   `post_content` varchar(500) DEFAULT NULL,
   `date` datetime NOT NULL,
+  `post_slug` varchar(225) NOT NULL,
   `user_id` varchar(100) NOT NULL COMMENT 'FOREIGN KEY',
   `tags` int(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -35,11 +54,12 @@ CREATE TABLE `posts` (
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`post_id`, `post_title`, `post_content`, `date`, `user_id`, `tags`) VALUES
-(1, 'Test', 'Testing', '2017-04-08 19:44:27', '', 0),
-(2, 'Test', 'Testing', '2017-04-08 19:44:58', '', 0),
-(3, 'Linda', 'Test post with session', '2017-04-08 20:24:27', '4', 0),
-(4, 'New Post', 'Another Post by Linda for Testing.', '2017-04-08 22:19:46', '4', 0);
+INSERT INTO `posts` (`post_id`, `post_title`, `post_content`, `date`, `post_slug`, `user_id`, `tags`) VALUES
+(1, 'Test', 'Testing', '2017-04-08 19:44:27', 'test', '', 0),
+(2, 'Test', 'Testing', '2017-04-08 19:44:58', 'test2', '', 0),
+(3, 'Linda', 'Test post with session', '2017-04-08 20:24:27', 'linda', '4', 0),
+(4, 'New Post', 'Another Post by Linda for Testing.', '2017-04-08 22:19:46', 'new-post', '4', 0),
+(5, 'test', 'testttfyfx,aulchlhbik', '2017-04-09 16:20:57', 'test-3', '5', 0);
 
 -- --------------------------------------------------------
 
@@ -64,7 +84,8 @@ INSERT INTO `users` (`user_id`, `user_name`, `first_name`, `last_name`, `email`,
 (1, 'leriksson', 'Linda', 'Eriksson', 'linda.nibelheim@gmail.com', 'testing'),
 (2, 'Win', 'Winnie', 'The Pooh', 'winnie@sherwood.com', '$2y$10$2uSEMLbilVbsw'),
 (3, 'Tigg', 'Tigger', 'McTiggface', 'tigger@sherwood.com', '$2y$10$GktostWGZ8R3VPjfzmZpuOp.OpwfJF/cS.RQ3bEcnr0nlbo7mZWMK'),
-(4, 'linda', 'Linda', 'E', 'linda@mail.com', '$2y$10$2aNyIXKZJSgjvN3GEEc6TO0AnweslZsWH3ygnZp9V6SV1z5pIaPve');
+(4, 'linda', 'Linda', 'E', 'linda@mail.com', '$2y$10$2aNyIXKZJSgjvN3GEEc6TO0AnweslZsWH3ygnZp9V6SV1z5pIaPve'),
+(5, 'lejohnson', 'Lee', 'Johnson', 'lejohnson@tom.com', '$2y$10$aL1M6oBbEhXeB9XPSEOeRuV.1W31tAu6nV0.RoMWvzZna9kZ4HPpW');
 
 --
 -- Indexes for dumped tables
@@ -104,12 +125,12 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `post_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary key', AUTO_INCREMENT=5;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary key', AUTO_INCREMENT=6;
 --
 -- Constraints for dumped tables
 --

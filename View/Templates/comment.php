@@ -14,7 +14,7 @@ and open the template in the editor.
         // put your code here
         ?>
         <p>Comments</p>
-        <form action="/submit.php" method="POST" > 
+        <form action="/comment_1.php" method="POST" > 
        <textarea name="comment" rows="10" cols="40"></textarea>  
                   
    <input  type="submit" value="OK" /> 

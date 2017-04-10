@@ -90,4 +90,32 @@ class USER
         unset($_SESSION['user_session']);
         return true;
    }
+   
+   public function randomUser() {
+       try
+        {
+        $stmt=$this->db->prepare("SELECT user_name, user_id FROM users ORDER BY RAND() LIMIT 1");
+        $stmt->execute(); 
+	return $stmt->fetch();
+         }
+    catch(PDOException $e)
+       {
+            echo $e->getMessage();
+       }    
+}
+
+    public function viewUser($user_id) {
+        try
+        {
+        $stmt=$this->db->prepare("SELECT user_name,first_name,last_name FROM users WHERE user_id=:user_id");
+        $stmt->bindparam(":user_id", $user_id);
+        $stmt->execute(); 
+ 
+	return $stmt->fetch();
+    }
+    catch(PDOException $e)
+       {
+            echo $e->getMessage();
+       }    
+    }
 }
