@@ -1,6 +1,7 @@
 <?php
 include '../controllers/display.php';
 include '../controllers/login.php';
+include 'templates/userFunctions.php';
 use function controllers\display\display;
 
 require_once '../model/connection.php';
@@ -27,7 +28,7 @@ else
 }
 ?>
     
-<h2><?php $user->viewUser($_GET["id"]) ?>'s blog</h2>
+<h2><?= $username ?>'s blog</h2>
 
 
 <?php echo Controllers\display\display('user_blog', ['post' => $post]); ?>

@@ -1,6 +1,7 @@
 <?php
 
-$posts = $post->readUser($_GET["id"]);
+$sanitizedID = filter_input(INPUT_GET, 'id',FILTER_SANITIZE_ENCODED);
+$posts = $post->readUser($sanitizedID);
 
 foreach($posts as $post):?>
  
