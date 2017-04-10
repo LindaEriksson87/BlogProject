@@ -1,8 +1,8 @@
 <?php
-/*
+
 require_once '../model/connection.php';
 
-if (isset($_POST['title'], $_POST['content'], $_POST['tags'], $_POST['musicplayer'], $_POST['image'] )){
+if (isset $_POST['btn-post'], ($_POST['title'], $_POST['content'], $_POST['tags'], $_POST['musicplayer'], $_POST['image'] )){
 //getting rid of whitespace
     $title     = trim($_POST['title']);
     $content   = trim($_POST['content']);
@@ -19,11 +19,13 @@ if (empty ($title)){
         $error[] = "Please enter a title."; 
     }
     
-    if (empty($content)){
-        
-        $error[] = "Please enter some text."; 
-        
+    if (empty($content)) {
+
+        $error[] = "Please enter some text.";
+    } else {
+        $post->newPost($title, $content);
     }
+<<<<<<< HEAD
     if (empty($tags)){
         
         $error[] = "Please enter some tags."; 
@@ -31,20 +33,18 @@ if (empty ($title)){
     }   
     else $post->newPost($title,$content,$tags);
 }
+=======
+>>>>>>> origin/master
 }
+
 
 if (strlength($title) > 250) {
     $errors = 'Please shorten your title, it is too long (250 character limit).';
-
+}
 if (strlength($content > 2000) {
     $errors = 'Please shorten your blog post, it is too long (2000 character limit).';
-
-
-//RW - not sure what the below is? has someone else typed this?:
-if(isset($_POST['btn-post'])){
-   
 }
-*/
+
 ?>
 
 <!DOCTYPE html>
@@ -99,8 +99,18 @@ if(isset($_POST['btn-post'])){
             
             <div>
                 <label for="tags"> Tags </label>
+<<<<<<< HEAD
                 <textarea name="content" rows="1" cols="30"><?php if ( isset($_POST['tags']) ) echo $_POST['tags']; ?></textarea>
                <!-- <option value ="<?php echo $tags['id']; ?>"><?php echo $tags['name']; ?></option> -->
+=======
+                <select name="tags"></select>
+                <?php
+                //foreach ( get_tags() as $tags ) {
+                    ?>
+                <!-- this is if we are to use a drop down of prexisting tags -->
+                <option value ="<?php echo $tags['id']; ?>"><?php echo $tags['name']; ?></option>
+                <?php
+>>>>>>> origin/master
                 
                 
             </div>
