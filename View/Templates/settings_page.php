@@ -37,6 +37,6 @@ else
         <h3>Add Biography</h3>
     </div>  
     
-    
+  
 </body>
 </html>
