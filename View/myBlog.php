@@ -27,8 +27,11 @@ else
 }
 ?>
     
+<!--This title calls the username for the currently logged in user set in SESSION.--> 
 <h2><?= $_SESSION['username'] ?>'s blog</h2>
 
+<!--This part uses the display function to call in the content in the form needed to post new content-->
 <?php echo Controllers\display\display('add_post', ['post' => $post]); ?>
 
+<!--This part uses the display function to call in the content in the user my_blog template-->
 <?php echo Controllers\display\display('my_blog', ['post' => $post]); ?>

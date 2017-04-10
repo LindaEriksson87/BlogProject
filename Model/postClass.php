@@ -11,6 +11,11 @@ class POST
       $this->db = $pdo;
     }
  
+    
+    /*This is the method to create a new blog post. The post will be added with 
+     * a title, content, the current time and date and the logged in user ID. 
+     * Tags are currently commented out as they are not yet working. 
+     */
     public function newPost($title,$content)
     {
        try
@@ -31,6 +36,8 @@ class POST
        }    
     }
     
+    
+    //This is a method to read all the posts in the database written by the logged in user. 
     public function readAll()
     {
         try
@@ -47,6 +54,7 @@ class POST
        }    
     }
     
+    //This is a method to read all posts in the database written by a user searched for by ID. 
     public function readUser($user_id)
     {
         try
