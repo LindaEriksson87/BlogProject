@@ -1,4 +1,5 @@
 <?php
+//The page you see when you're logged in
 include '../controllers/display.php';
 include '../controllers/login.php';
 use function controllers\display\display;
