@@ -13,11 +13,18 @@ if($user->is_loggedin()!="")
 
 if(isset($_POST['btn-signup']))
 {
+   $filteredFirstname = filter_input(INPUT_POST,'txt_fname', FILTER_SANITIZE_SPECIAL_CHARS);
+   $first_name = trim($filteredFirstname);
    
-   $first_name = trim($_POST['txt_fname']);
-   $last_name = trim($_POST['txt_lname']);
-   $user_name = trim($_POST['txt_uname']);
-   $email = trim($_POST['txt_umail']);
+   $filteredLastname = filter_input(INPUT_POST,'txt_lname', FILTER_SANITIZE_SPECIAL_CHARS);
+   $last_name = trim($filteredLastname);
+   
+   $filteredUsername = filter_input(INPUT_POST,'txt_uname', FILTER_SANITIZE_SPECIAL_CHARS);
+   $user_name = trim($filteredUsername);
+   
+   $filteredEmail = filter_input(INPUT_POST,'txt_umail', FILTER_SANITIZE_EMAIL);
+   $email = trim($filteredEmail);
+   
    $password = trim($_POST['txt_upass']); 
  
    if($user_name=="") {

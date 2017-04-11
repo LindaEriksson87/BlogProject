@@ -1,4 +1,5 @@
 <?php
+//The page you see if you click on a username
 include '../controllers/display.php';
 include '../controllers/login.php';
 include 'templates/userFunctions.php';
