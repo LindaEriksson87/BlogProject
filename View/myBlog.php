@@ -46,5 +46,5 @@ else
     </div>
 
     <div class="col-sm-4 well well-lg">
-        <?php echo Controllers\display\display('archive'); ?>
+        <?php echo Controllers\display\display('archive', ['pdo' => $pdo]); ?>
     </div>
