@@ -44,7 +44,7 @@ else
 <!--This part uses the display function to call in the content in the user my_blog template-->
         <?php echo Controllers\display\display('my_blog', ['post' => $post]); ?>
     </div>
-
+       
     <div class="col-sm-4 well well-lg">
         <?php echo Controllers\display\display('archive', ['pdo' => $pdo]); ?>
     </div>
