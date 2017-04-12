@@ -25,7 +25,7 @@ class POST
            $stmt->bindparam(":title", $title);
            $stmt->bindparam(":content", $content);
            $stmt->bindparam(":user_id", $_SESSION['user_session']);
-           //$stmt->bindparam(":tags", $tags);   //TODO: Use tag ID from the tags table      
+           $stmt->bindparam(":tags", $tags);   //TODO: Use tag ID from the tags table      
            $stmt->execute();
            
            return $stmt; 
