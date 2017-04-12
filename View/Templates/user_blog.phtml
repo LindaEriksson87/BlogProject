@@ -9,13 +9,14 @@ $posts = $post->readUser($sanitizedID);
 
 foreach($posts as $post):?>
  
-<h4>
+<div class="panel panel-default">
+  <div class="panel-heading">
 <?= $post[1];?>
-</h4>
-<p>
+</div>
+<div class="panel-body">
 <?= $post[2];?>
-</p>
-<p>
+</div>
+<span class="badge">
 <?= $post[3];?>
-</p>
+</div>
 <?php endforeach; ?>

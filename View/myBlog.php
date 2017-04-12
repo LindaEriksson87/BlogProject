@@ -14,6 +14,7 @@ require_once '../model/connection.php';
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="CSS/blogCSS.css">
+<link href="https://fonts.googleapis.com/css?family=Geostar+Fill|Stalinist+One" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <body>
@@ -43,7 +44,7 @@ else
 <!--This part uses the display function to call in the content in the user my_blog template-->
         <?php echo Controllers\display\display('my_blog', ['post' => $post]); ?>
     </div>
-    
+
     <div class="col-sm-4 well well-lg">
         <?php echo Controllers\display\display('archive'); ?>
     </div>

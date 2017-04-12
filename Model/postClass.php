@@ -42,7 +42,7 @@ class POST
     {
         try
         {
-            $stmt = $this->db->prepare("SELECT * FROM posts WHERE user_id=:user_id");
+            $stmt = $this->db->prepare("SELECT * FROM posts WHERE user_id=:user_id ORDER BY date DESC");
             $stmt->bindparam(":user_id", $_SESSION['user_session']);
             $stmt->execute();
             
@@ -59,7 +59,7 @@ class POST
     {
         try
         {
-            $stmt = $this->db->prepare("SELECT * FROM posts WHERE user_id=:user_id");
+            $stmt = $this->db->prepare("SELECT * FROM posts WHERE user_id=:user_id ORDER BY date DESC");
             $stmt->bindparam(":user_id", $user_id);
             $stmt->execute();
             
