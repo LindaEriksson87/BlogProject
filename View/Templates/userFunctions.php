@@ -18,3 +18,12 @@ $viewUser = $user->viewUser($sanitizedID);
 $username = $viewUser[0];
 $userFirstName = $viewUser[1];
 $userLastName = $viewUser[2];
+
+/*Defining variables for viewing a specific post through a get request. 
+When clicking on a post title you'll be redirected to the page with the id of that post. 
+The following variables will change depending on that ID. */
+
+$viewPost = $post->viewPost($sanitizedID);
+$postTitle = $viewPost[0];
+$postID = $viewPost[1];
+$postUserID = $viewPost[2];

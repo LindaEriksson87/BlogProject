@@ -31,14 +31,10 @@ else
 }
 ?>
     
-    <div class="col-sm-12">
-<!--This title calls the username created in the userFunctions file.-->    
-<h2><?= $username ?>'s blog</h2>
-    </div>
-
-    <div class="col-sm-8">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8" >
 <!--This part uses the display function to call in the content in the user blog template-->
-        <?php echo Controllers\display\display('user_blog', ['post' => $post]); ?>
+        <?php echo Controllers\display\display('user_post', ['post' => $post, 'user' => $user]); ?>
     </div>
-
+    <div class="col-sm-2"></div>
     

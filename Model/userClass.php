@@ -120,4 +120,19 @@ class USER
             echo $e->getMessage();
        }    
     }
+    
+        public function getUsername($user_id) {
+        try
+        {
+        $stmt=$this->db->prepare("SELECT user_name FROM users WHERE user_id=:user_id");
+        $stmt->bindparam(":user_id", $user_id);
+        $stmt->execute(); 
+ 
+	return $stmt->fetch();
+    }
+    catch(PDOException $e)
+       {
+            echo $e->getMessage();
+       }    
+    }
 }

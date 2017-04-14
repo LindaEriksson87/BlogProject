@@ -89,19 +89,36 @@ class POST
        }    
     }
 
+    //This function generates the title and post_ID user searched for by ID. It returns the username, first name and last name as an array. 
+    public function viewPost($post_id) {
+        try
+        {
+        $stmt=$this->db->prepare("SELECT post_title, post_content, date, user_id FROM posts WHERE post_id=:post_id");
+        $stmt->bindparam(":post_id", $post_id);
+        $stmt->execute(); 
+ 
+	return $stmt->fetch();
+    }
+    catch(PDOException $e)
+       {
+            echo $e->getMessage();
+       }    
+    }
+
+    
     //This is a function to get the list of posts for the logged in user for the archive.
-    public function currentArchive()
+    public function currentArchiveDates()
     {
         try
         {
-        $stmt = $this->db->prepare("SELECT Month(date) as Month, Year(date) as Year, post_title, post_id
+        $stmt = $this->db->prepare("SELECT DISTINCT Month(date) as Month, Year(date) as Year
                                     FROM posts WHERE user_id = :user_id ORDER BY date DESC");
         
         
         $stmt->bindparam(":user_id", $_SESSION['user_session']);
         $stmt->execute();
             
-            return $stmt->fetch();
+            return $stmt->fetchall();
         }
         catch(PDOException $e)
        {
