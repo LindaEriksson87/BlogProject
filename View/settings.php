@@ -51,12 +51,7 @@ else
                 <label for="email">Email</label>
                 <input class="form-control" type="text" name="email" value="<?php if ( isset($_POST['email']) ) echo $_POST['email']; ?>">
                </div>
-        
-        <h3>Add Biography</h3>
-            <div class="form-group">
-                <label for="bioraphy">Name</label>
-                <input class="form-control" type="text" name="biography" value="<?php if ( isset($_POST['biography']) ) echo $_POST['biography']; ?>">
-            </div>
+       
 
         <h3>Update email</h3>
         <div><h3>Add Biography</h3>
