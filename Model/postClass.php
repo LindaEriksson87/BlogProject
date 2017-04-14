@@ -22,10 +22,10 @@ class POST
        {$stmt = $this->db->prepare("INSERT INTO posts(post_title,post_content,date,user_id) 
                                                        VALUES(:title,:content,NOW(),:user_id)");
               
-           $stmt->bindparam(":title", $title);
-           $stmt->bindparam(":content", $content);
-           $stmt->bindparam(":user_id", $_SESSION['user_session']);
-           $stmt->bindparam(":tags", $tags);   //TODO: Use tag ID from the tags table      
+           $stmt->bindParam(":title", $title);
+           $stmt->bindParam(":content", $content);
+           $stmt->bindParam(":user_id", $_SESSION['user_session']);
+           $stmt->bindParam(":tags", $tags);   //TODO: Use tag ID from the tags table      
            $stmt->execute();
            
            return $stmt; 
@@ -40,14 +40,15 @@ class POST
     {
        try
        {$stmt = $this->db->prepare("UPDATE posts
-                                    SET post_title = :post_title, post_content = :post_title
+                                    SET post_title=:post_title, post_content=:post_content
                                     WHERE post_id=:post_id");
        
-           $stmt->bindparam(":post_title", $title);
-           $stmt->bindparam(":post_content", $content);
-           $stmt->bindparam(":post_id", $postID);  
+           $stmt->bindParam(":post_title", $title);
+           $stmt->bindParam(":post_content", $content);
+           $stmt->bindParam(":post_id", $postID);  
            $stmt->execute();
            
+           print "postcontent".$postID;
            return $stmt; 
        }
        catch(PDOException $e)
@@ -114,7 +115,7 @@ class POST
         try
         {
         $stmt=$this->db->prepare("SELECT post_title, post_content, date, user_id FROM posts WHERE post_id=:post_id");
-        $stmt->bindparam(":post_id", $post_id);
+        $stmt->bindParam(":post_id", $post_id);
         $stmt->execute(); 
  
 	return $stmt->fetch();

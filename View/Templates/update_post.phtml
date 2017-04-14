@@ -31,6 +31,8 @@ if (empty ($title)){
 
     else {
         $post->updatePost($title, $content, $ID);
+        header('Location: viewPost.php?id='.$ID);
+        exit;
     }
 }
 
@@ -68,42 +70,20 @@ if (empty ($title)){
             
             <div class="form-group">
                 <label for="title">Title</label>
-                <input class="form-control" type="text" name="title" value="<?= $postTitle ?>">
+                <input class="form-control" type="text" name="title" value="<?=$postTitle?>">
             </div>
             
-            <div class="form-group">
-                <label for="image">Image</label>
-                <input type="image" name="title" value="<?php if ( isset($_POST['image']) ) echo $_POST['image']; ?>">                
-            </div>
             
             <div class="form-group">
                 <label for="content"> Content </label>
-                <textarea class="form-control" name="content" rows="10"><?= $postContent ?></textarea>
+                <textarea class="form-control" name="content" rows="10"><?=$postContent?></textarea>
             </div>
-            
-            <div class="form-group">
-                <label for="musicplayer"> Music Player </label>
-                <input type="text" name="musicplayer"></input>             
-            </div>
-            
-            <div class="form-group">
-                <label for="tags"> Tags </label>
-                <textarea class="form-control" name="content" rows="1"></textarea>
-                </div>
-                <?php
-                //foreach ( get_tags() as $tags ) {
-                    ?>
-                <!-- this is if we are to use a drop down of prexisting tags -->
-                <option value ="<?php echo $tags['id']; ?>"><?php echo $tags['name']; ?></option>
-                <?php
-                
-                ?>
+           
                 
                 <div>
                 <input type="submit" value="Update Post" name="btn-post">
                 </div>
                        </form>
             
-<?php print_r($_POST) ?>
     </body>
 </html>
