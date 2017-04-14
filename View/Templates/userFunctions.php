@@ -25,5 +25,7 @@ The following variables will change depending on that ID. */
 
 $viewPost = $post->viewPost($sanitizedID);
 $postTitle = $viewPost[0];
-$postID = $viewPost[1];
-$postUserID = $viewPost[2];
+$postContent = $viewPost[1];
+$postID = $viewPost[2];
+$postUserID = $viewPost[3];
+

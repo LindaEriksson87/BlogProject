@@ -36,6 +36,26 @@ class POST
        }    
     }
     
+        public function updatePost($title,$content,$postID)
+    {
+       try
+       {$stmt = $this->db->prepare("UPDATE posts
+                                    SET post_title = :post_title, post_content = :post_title
+                                    WHERE post_id=:post_id");
+       
+           $stmt->bindparam(":post_title", $title);
+           $stmt->bindparam(":post_content", $content);
+           $stmt->bindparam(":post_id", $postID);  
+           $stmt->execute();
+           
+           return $stmt; 
+       }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }    
+    }
+    
     
     //This is a method to read all the posts in the database written by the logged in user. 
     public function readAll()

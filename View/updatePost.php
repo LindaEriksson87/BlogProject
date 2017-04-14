@@ -7,8 +7,6 @@ use function controllers\display\display;
 
 require_once '../model/connection.php';
 
-$thisID = filter_input(INPUT_GET, 'id',FILTER_SANITIZE_ENCODED);
-
 ?>
 <!doctype html>
 <html>
@@ -18,8 +16,6 @@ $thisID = filter_input(INPUT_GET, 'id',FILTER_SANITIZE_ENCODED);
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="CSS/blogCSS.css">
 <link href="https://fonts.googleapis.com/css?family=Geostar+Fill|Stalinist+One" rel="stylesheet">
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-
 <body>
     
 <?php 
@@ -38,9 +34,7 @@ else
     <div class="col-sm-2"></div>
     <div class="col-sm-8" >
 <!--This part uses the display function to call in the content in the user blog template-->
-        <?php echo Controllers\display\display('user_post', ['post' => $post, 'user' => $user]); ?>
-<br>
-<button onclick="window.location.href='updatePost.php?id='+<?=$thisID ?>">Update Post</button>
+        <?php echo Controllers\display\display('update_post', ['post' => $post, 'user' => $user]); ?>
     </div>
     <div class="col-sm-2"></div>
     

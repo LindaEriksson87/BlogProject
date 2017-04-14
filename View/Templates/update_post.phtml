@@ -1,14 +1,14 @@
 <?php
 
 require_once '../model/connection.php';
+include 'userFunctions.php';
 
-//The below should be redundant as long as the button is pushed. 
-//$_POST['title'], $_POST['content'], $_POST['tags'], $_POST['musicplayer'], $_POST['image'] 
 
 if (isset ($_POST['btn-post'])){
 //getting rid of whitespace
     $title     = trim($_POST['title']);
     $content   = trim($_POST['content']);
+    $ID = $postID;
    // $tags      = trim($_POST['tags']);
 
 if (empty ($title)){
@@ -30,7 +30,7 @@ if (empty ($title)){
     }
 
     else {
-        $post->newPost($title, $content);
+        $post->updatePost($title, $content, $ID);
     }
 }
 
@@ -54,24 +54,21 @@ if (empty ($title)){
     </head>
 
     <body>
-        <div class="container">
-        <button class="btn btn-secondary col-sm-4" type="button" data-toggle="collapse" data-target="#post" aria-expanded="false" aria-controls="collapseExample">
-            New Post</button><br><br><br>
         
+           
         <?php
         //gives a list of errors under 'Add Post' heading, if user makes an error
         if ( isset($errors) && ! empty($errors)){
             echo '<ul><li>', implode('</li><li>', $errors), '</li></ul>';
         }
         ?>
-       <div id="post" class="collapse">
         <form class ="col-sm-8 well well-lg" action="" method="post">
             
             
             
             <div class="form-group">
                 <label for="title">Title</label>
-                <input class="form-control" type="text" name="title" value="<?php if ( isset($_POST['title']) ) echo $_POST['title']; ?>">
+                <input class="form-control" type="text" name="title" value="<?= $postTitle ?>">
             </div>
             
             <div class="form-group">
@@ -81,7 +78,7 @@ if (empty ($title)){
             
             <div class="form-group">
                 <label for="content"> Content </label>
-                <textarea class="form-control" name="content" rows="10"><?php if ( isset($_POST['content']) ) echo $_POST['content']; ?></textarea>
+                <textarea class="form-control" name="content" rows="10"><?= $postContent ?></textarea>
             </div>
             
             <div class="form-group">
@@ -99,16 +96,14 @@ if (empty ($title)){
                 <!-- this is if we are to use a drop down of prexisting tags -->
                 <option value ="<?php echo $tags['id']; ?>"><?php echo $tags['name']; ?></option>
                 <?php
-
+                
                 ?>
                 
                 <div>
-                <input type="submit" value="Add Post" name="btn-post">
+                <input type="submit" value="Update Post" name="btn-post">
                 </div>
                        </form>
-            </div>
- 
-        </div>
-
+            
+<?php print_r($_POST) ?>
     </body>
 </html>
