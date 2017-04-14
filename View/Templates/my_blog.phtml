@@ -9,7 +9,7 @@ foreach($posts as $post):?>
 
 <div class="panel panel-default">
   <div class="panel-heading">
-<?= $post[1];?>
+      <a href="viewPost.php?id=<?= $post[0]; ?>"><?= $post[1];?></a>
   </div>
     <div class="panel-body">
 <?= $post[2];?>
