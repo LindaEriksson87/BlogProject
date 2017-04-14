@@ -8,8 +8,6 @@ require_once '../model/connection.php';
 if (isset ($_POST['btn-post'])){
 //getting rid of whitespace
     $biography   = trim($_POST['biography']);
-   // $tags      = trim($_POST['tags']);
-
     
     if (empty($biography)) {
 
@@ -22,7 +20,7 @@ if (isset ($_POST['btn-post'])){
     }
 
     else {
-        $post->newPost($biography);
+        $addBiography->addBiography($biography);
     }
 }
 
