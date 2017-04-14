@@ -88,4 +88,24 @@ class POST
             echo $e->getMessage();
        }    
     }
+
+    //This is a function to get the list of posts for the logged in user for the archive.
+    public function currentArchive()
+    {
+        try
+        {
+        $stmt = $this->db->prepare("SELECT Month(date) as Month, Year(date) as Year, post_title, post_id
+                                    FROM posts WHERE user_id = :user_id ORDER BY date DESC");
+        
+        
+        $stmt->bindparam(":user_id", $_SESSION['user_session']);
+        $stmt->execute();
+            
+            return $stmt->fetch();
+        }
+        catch(PDOException $e)
+       {
+            echo $e->getMessage();
+       }    
+    }
 }

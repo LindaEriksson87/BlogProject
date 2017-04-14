@@ -14,12 +14,13 @@
 <?php
 
 $stmt = $pdo->query("SELECT Month(date) as Month, Year(date) as Year,
-post_title FROM posts ORDER BY date DESC");
+post_title, post_id FROM posts WHERE user_id = :user_id ORDER BY date DESC");
+
 // you will store current month here to control when the month changes
 $currentMonth = 0;
 // you will store current year here to control when the year changes
 $currentYear = 0;
-while($row = $stmt->fetch()){
+while($row = $post->currentArchive()){
     // if the year changes you have to display another year
     if($row['Year'] != $currentYear) {
         // reinitialize current month
