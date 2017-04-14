@@ -20,7 +20,7 @@ if (isset ($_POST['btn-post'])){
     }
 
     else {
-        $addBiography->addBiography($biography);
+        $user->postBio($biography);
     }
 }
 
