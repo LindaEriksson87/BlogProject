@@ -41,6 +41,4 @@ else
         <?php echo Controllers\display\display('user_blog', ['post' => $post]); ?>
     </div>
 
-    <div class="col-sm-4 well well-lg">
-        <?php echo Controllers\display\display('archive', ['pdo' => $pdo]); ?>
-    </div>
+    
