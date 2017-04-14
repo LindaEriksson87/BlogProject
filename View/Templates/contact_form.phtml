@@ -1,0 +1,24 @@
+<form class="form-horizontal"method="post">
+    <div class="form-group col-sm-12">
+        <label class="control-label" for="firstname">Full Name:</label>
+            <div>
+            <input type="text" class="form-control" id="firstname" name="txt_fullname" placeholder="Full Name" value="<?php if(isset($error)){echo $fname;}?>" />
+            </div>
+
+            <label class="control-label" for="email">Email:</label>
+            <div>
+            <input type="email" class="form-control" id="email" name="txt_email" placeholder="Enter email" value="<?php if(isset($error)){echo $umail;}?>" />
+            </div>
+            
+            <label class="control-label" for="email">Message</label>
+           
+      <input class="form-control" id="message" name="txt_message" type="text" placeholder="Message" value="<?php if(isset($error)){echo $message;}?>"/>
+      </div>
+            <br>
+            <div class="clearfix"></div><hr />
+        <div class="form-group col-sm-4">
+             <button type="submit" class="btn btn-block btn-primary" name="btn-send">
+                 <i class="glyphicon glyphicon-open-file"></i>&nbsp;Send
+                </button>
+            </div>
+  </form>
