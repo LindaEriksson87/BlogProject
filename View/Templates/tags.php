@@ -1,5 +1,5 @@
 <?php require_once '../../model/connection.php';?>
-<?php 'include ../../Model/postClass.php;'?>
+<?php include '../../Model/postClass.php;'?>
 
 <!DOCTYPE html>
 
