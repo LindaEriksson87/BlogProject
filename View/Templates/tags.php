@@ -38,7 +38,7 @@
             <?php 
             if(true === $isSubmitted)
             {            
-                $sanitizedTag = $sanitizedTag; //mysqli_real_escape_string($pdo, $searchterm);//removes any unwanted code submitted by the user before saving to database
+                $tagname = $sanitizedTag; //mysqli_real_escape_string($pdo, $sterm);//removes any unwanted code submitted by the user before saving to database
                 $sql = "SELECT user_id, user_name, first_name, last_name 
                 FROM blog_database.users
                 where user_name like '%$sanitizedTag%' or first_name like '%$sanitizedTag%' or last_name like '%$sanitizedTag%';"; 
