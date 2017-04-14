@@ -1,7 +1,7 @@
 <?php
 include '../controllers/display.php';
 include '../controllers/login.php';
-use function controllers\display\display;
+
 
 require_once '../model/connection.php';
 
@@ -57,6 +57,34 @@ else
                 <label for="bioraphy">Name</label>
                 <input class="form-control" type="text" name="biography" value="<?php if ( isset($_POST['biography']) ) echo $_POST['biography']; ?>">
             </div>
+
+        <h3>Update email</h3>
+        <div><h3>Add Biography</h3>
+        <div class="container">
+        
+        <?php
+        //gives a list of errors under 'Add Biography' heading, if user makes an error
+        if ( isset($errors) && ! empty($errors)){
+            echo '<ul><li>', implode('</li><li>', $errors), '</li></ul>';
+        }
+        ?>
+       
+            
+
+           
+            <div class="form-group">
+                <label for="biography"> Biography </label>
+                <textarea class="form-control" name="content" rows="3"><?php if ( isset($_POST['biography']) ) echo $_POST['biography']; ?></textarea>
+            </div>
+        
+                <div>
+                <input type="submit" value="Add Biography" name="btn-post">
+                </div>
+                       </form>
+            </div>
+ 
+        </div>
+
     </div>  
     
   

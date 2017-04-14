@@ -2,6 +2,35 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/add_post.phtml</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/Model/blog_database.sql</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/myBlog.php</file>
+        </group>
+>>>>>>> 31a049eca5602c28b7b2c4380ac9524576215dbf
+=======
+        <group/>
+>>>>>>> 0f036ced3e4f00a53b54add06dfd3f5d89cb89a0
+=======
+        <group>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/upload_image.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/comment.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/Model/postClass.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/user_blog.phtml</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/userFunctions.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/update_name.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/index.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/viewPost.php</file>
+        </group>
+>>>>>>> 288dd022e1da28c85614eaaa347efe0b1b9c451e
+=======
+        <group/>
+>>>>>>> Stashed changes
     </open-files>
 </project-private>

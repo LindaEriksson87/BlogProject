@@ -2,7 +2,6 @@
 
 // filename: upload.processor.php 
 
-// first let's set some variables 
 
 // make a note of the current working directory, relative to root. 
 $directory_self = str_replace(basename($_SERVER['PHP_SELF']), '', $_SERVER['PHP_SELF']); 
@@ -19,7 +18,7 @@ $uploadSuccess = 'http://' . $_SERVER['HTTP_HOST'] . $directory_self . 'upload.s
 // fieldname used within the file <input> of the HTML form 
 $fieldname = 'profile_' . $_SESSION['user_session']; 
 
-// Now let's deal with the upload 
+//Upload 
 
 // possible PHP upload errors 
 $errors = array(1 => 'php.ini max file size exceeded', 

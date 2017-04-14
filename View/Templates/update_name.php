@@ -1,10 +1,11 @@
-?php 
+<?php 
    session_start();
     if (!session_is_registered(user))
   {
    header("location:login.php");
 }
 ?>
+
 <?php
 include '../config/config.php';
 

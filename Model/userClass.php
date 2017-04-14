@@ -135,4 +135,53 @@ class USER
             echo $e->getMessage();
        }    
     }
+    
+     public function postBio($bio)
+    {
+       try
+       {$stmt = $this->db->prepare("INSERT INTO users(bio) 
+                                    VALUES(:bio) WHERE user_id=:user_id");
+           $stmt->bindparam(":bio", $bio);   
+           $stmt->bindparam(":user_id", $_SESSION['user_session']);
+           $stmt->execute();
+           
+           return $stmt; 
+       }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }    
+    }
+    
+    public function thisUserBio()
+    {
+       try
+       {$stmt = $this->db->prepare("SELECT bio FROM users WHERE user_id=:user_id");
+              
+           $stmt->bindparam(":user_id", $_SESSION['user_session']);    
+           $stmt->execute();
+           
+           return $stmt; 
+       }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }    
+    }
+    
+        public function UserIDBio($user_id)
+    {
+       try
+       {$stmt = $this->db->prepare("SELECT bio FROM users WHERE user_id=:user_id");
+              
+           $stmt->bindparam(":user_id", $user_id);    
+           $stmt->execute();
+           
+           return $stmt; 
+       }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }    
+    }
 }
