@@ -31,18 +31,19 @@ else
     
     <div>
         <h3>Upload image</h3>
-        
+         <div class="form-group">
         <form action="upload.php" method="post" enctype="multipart/form-data">
     Select image to upload:
     <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
+    <input type="submit" value="<?php if ( isset($_POST['image']) ) echo $_POST['image']; ?>" name="submit">
 </form>
+         </div>
         <!--RW - for posting a profile picture 
           <div id="post" class="collapse">
             <form class ="col-sm-8 well well-lg" action="" method="post">
                 <div class="form-group">
                 <label for="image">Image</label>
-                <input type="image" name="title" value="<?php if ( isset($_POST['image']) ) echo $_POST['image']; ?>">                
+                <input type="image" name="title" value="               
                 </div>
           </div>
         -->
