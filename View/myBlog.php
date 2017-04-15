@@ -42,7 +42,7 @@ else
         
     <div class="col-sm-8">
 <!--This part uses the display function to call in the content in the form needed to post new content-->
-        <?php echo Controllers\display\display('add_post', ['post' => $post]); ?>
+        <?php echo Controllers\display\display('upload', ['post' => $post]); ?>
 
 <!--This part uses the display function to call in the content in the user my_blog template-->
         <?php echo Controllers\display\display('my_blog', ['post' => $post]); ?>

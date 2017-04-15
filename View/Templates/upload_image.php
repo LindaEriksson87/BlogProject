@@ -1,4 +1,5 @@
-<?php 
+
+ <?php 
 
 // make a note of the current working directory, relative to root. 
 $directory_self = str_replace(basename($_SERVER['PHP_SELF']), '', $_SERVER['PHP_SELF']); 
@@ -62,3 +63,5 @@ header('Location: ' . $uploadSuccess);
 // to output an HTML error page if the file upload fails 
 
 ?> 
+
+
