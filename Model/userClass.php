@@ -218,4 +218,24 @@ class USER
            echo $e->getMessage();
        }    
     }
+    
+        public function promoteUser($userID)
+    {
+       try
+       {$stmt = $this->db->prepare("UPDATE users
+                                    SET admin='2'
+                                    WHERE user_id=:user_id");
+         
+           $stmt->bindparam(":user_id", $userID);
+           $stmt->execute();
+           
+           return $stmt; 
+       }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }    
+    }
+    
+    
 }

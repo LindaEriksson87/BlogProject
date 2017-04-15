@@ -1,9 +1,9 @@
 <?php
 
-require_once '../model/connection.php';
+//require_once '../model/connection.php';
 //RW line 5-6
-require_once 'View/myBlog.php';
-require_once 'Model/upload.php';
+//require_once 'View/myBlog.php';
+//include 'upload.php';
 
 if (isset ($_POST['btn-post'])){
 //getting rid of whitespace
@@ -70,13 +70,7 @@ if (empty ($title)){
                 <input class="form-control" type="text" name="title" value="<?php if ( isset($_POST['title']) ) echo $_POST['title']; ?>">
             </div>
             
-            <div class="form-group" action="upload.php" method="post" enctype="multipart/form-data">
-                Select image to upload:
-                <label for="image">Image</label>
-                <input type="file" name="fileToUpload" id="fileToUpload">
-                <input type="submit" value="Upload Image" name="submit">
-                <!-- <input type="image" name="image" value=" <?php //if ( isset($_POST['image']) ) echo $_POST['image']; ?>"> -->
-            </div>
+            <?php echo Controllers\display\display('upload'); ?>
                     
             
             <div class="form-group">
