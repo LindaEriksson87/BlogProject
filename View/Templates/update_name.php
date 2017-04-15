@@ -10,11 +10,11 @@
 include '../config/config.php';
 
 
- $firstname = $_POST['firstname'];
- $lastname = $_POST['lastname'];
+ $firstname = $_POST['first_name'];
+ $lastname = $_POST['last_name'];
  $sessions = $_SESSION['user'];
 
-  $sql = "UPDATE user_info SET name = '$firstname', lastname = '$lastname', WHERE username = '$sessions'";
+  $sql = "UPDATE user_info SET first_name = '$firstname', last_name = '$lastname', WHERE username = '$sessions'";
   $result= mysql_query($sql);
 
   if($result){
