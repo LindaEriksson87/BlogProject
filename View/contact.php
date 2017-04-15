@@ -10,7 +10,7 @@ require_once '../model/connection.php';
 /*if($user->is_loggedin()!="")
 {
     $user->redirect('index.php');
-}*/
+}
 
 if(isset($_POST['btn-send']))
 {
@@ -38,8 +38,8 @@ if(isset($_POST['btn-send']))
    }
   else {
       echo "Message has been sent";
-  }// May need to add additional code
-}
+  }*/// May need to add additional code
+
 ?>
 
 <!doctype html>
