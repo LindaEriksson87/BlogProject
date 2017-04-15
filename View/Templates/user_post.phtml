@@ -6,17 +6,17 @@
 
 $sanitizedID = filter_input(INPUT_GET, 'id',FILTER_SANITIZE_ENCODED);
 $posts = $post->viewPost($sanitizedID);
-$userID = $posts[3];
+$userID = $posts[4];
 $thisUser = $user->getUsername($userID);
 ?>
 <div class="panel panel-default">
   <div class="panel-heading">
-      <b><?= $posts[0];?></b> by <a href="viewUser.php?id=<?= $userID ?>"><?=$thisUser[0]?></a>
+      <b><?= $posts[1];?></b> by <a href="viewUser.php?id=<?= $userID ?>"><?=$thisUser[0]?></a>
 </div>
 <div class="panel-body">
-<?= $posts[1];?>
+<?= $posts[2];?>
 </div>
 </div>
 <span class="badge">
-<?= $posts[2];?>
+<?= $posts[3];?>
 </span><br><br>

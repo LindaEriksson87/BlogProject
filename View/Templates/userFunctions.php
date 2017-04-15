@@ -24,7 +24,9 @@ When clicking on a post title you'll be redirected to the page with the id of th
 The following variables will change depending on that ID. */
 
 $viewPost = $post->viewPost($sanitizedID);
-$postTitle = $viewPost[0];
-$postContent = $viewPost[1];
-$postID = $viewPost[3];
-//$postUserID = $viewPost[4];
+$postID = $viewPost[0];
+$postTitle = $viewPost[1];
+$postContent = $viewPost[2];
+$postDate = $viewPost[3];
+$userID = $viewPost[4];
+

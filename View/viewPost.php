@@ -36,11 +36,17 @@ else
 ?>
     
     <div class="col-sm-2"></div>
-    <div class="col-sm-8" >
+        <div class="col-sm-8" >
 <!--This part uses the display function to call in the content in the user blog template-->
-        <?php echo Controllers\display\display('user_post', ['post' => $post, 'user' => $user]); ?>
-<br>
-<button onclick="window.location.href='updatePost.php?id='+<?=$thisID ?>">Update Post</button>
-    </div>
+            <?php echo Controllers\display\display('user_post', ['post' => $post, 'user' => $user]); ?>
+                <br>
+
+            <?php if ($userID == $_SESSION['user_session']){ ?>
+                
+               <?php echo Controllers\display\display('delete_update_buttons', ['post' => $post, 'user' => $user, 'thisID' => $thisID]);
+                
+            } ?>
+        </div>
+    
     <div class="col-sm-2"></div>
     
