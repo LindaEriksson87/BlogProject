@@ -8,8 +8,9 @@ use function controllers\display\display;
 require_once '../model/connection.php';
 
 ?>
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  
 <head><title>Get Into Techno</title></head>
 <!--Including Bootstrap CSS -->
 
@@ -45,3 +46,4 @@ else
         <?php echo Controllers\display\display('user_other', ['usernameID' => $usernameID, 'userBioID' => $userBioID]); ?>
         <?php echo Controllers\display\display('archive', ['pdo' => $pdo]); ?>
     </div>
+</html>

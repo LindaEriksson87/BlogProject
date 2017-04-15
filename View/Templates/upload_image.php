@@ -1,4 +1,5 @@
-<?php 
+
+ <?php 
 
 // filename: upload.processor.php 
 
@@ -65,3 +66,5 @@ header('Location: ' . $uploadSuccess);
 // to output an HTML error page if the file upload fails 
 
 ?> 
+
+
