@@ -14,10 +14,24 @@ require_once '../model/connection.php';
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Register</title>
+<title>Admin</title>
 <!--Including Bootstrap CSS -->
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+        <script>
+            function confirmDelete() {
+                var txt;
+                var r = confirm("Are you sure you want to delete this user?");
+                if (r == true) {
+                    window.location.href='templates/admin_delete.php?id='+<?=$user[1] ?>;
+                } else {
+                    return false;
+            }
+        }
+        </script>
+</head>
 <body>
     
 <?php 
@@ -33,7 +47,9 @@ else
 }
 
 foreach ($userList as $user){ ?>
-<li> <a href="viewUser.php?id=<?=$user[1]?>"><?= $user[0]?></a></li>
+<a href="viewUser.php?id=<?=$user[1]?>"><?= $user[0]?></a> 
+    
+    <br>
 <?php } ?>
 
 </body>
