@@ -26,7 +26,7 @@ CREATE TABLE `posts` (
   `post_id` int(25) NOT NULL,
   `post_title` varchar(50) DEFAULT NULL,
   `post_content` varchar(500) DEFAULT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `post_slug` varchar(225) NOT NULL,
   `user_id` varchar(100) NOT NULL COMMENT 'FOREIGN KEY',
   `tags` int(25) NOT NULL
@@ -39,11 +39,11 @@ CREATE TABLE `posts` (
 INSERT INTO `posts` (`post_id`, `post_title`, `post_content`, `date`, `post_slug`, `user_id`, `tags`) VALUES
 (1, 'Test', 'Testing', '2017-04-08 18:44:27', 'test', '', 0),
 (2, 'Test', 'Testing', '2017-04-08 18:44:58', 'test2', '', 0),
-(3, 'Linda', 'Test post with session', '2017-02-08 20:24:27', 'linda', '4', 0),
-(4, 'New Post', 'Another Post by Linda for Testing.', '2016-03-08 22:19:46', 'new-post', '4', 0),
+(4, 'New update', 'Test post with session', '2017-04-14 22:00:26', 'new-post', '4', 0),
 (5, 'test', 'testttfyfx,aulchlhbik', '2017-04-09 15:20:57', 'test-3', '5', 0),
-(6, 'Techo 4 life', 'Text text text text', '2017-04-12 21:21:20', '', '4', 0),
-(7, 'Yo', 'BFace checking in', '2017-04-12 21:59:14', '', '6', 0);
+(6, 'Techo 4 life', 'Untz untz untz', '2017-04-12 21:21:20', '', '4', 0),
+(7, 'Yo', 'BFace checking in', '2017-04-12 21:59:14', '', '6', 0),
+(11, 'Happy Easter', 'Find some eggs.', '2017-04-15 00:01:42', '', '4', 0);
 
 -- --------------------------------------------------------
 
@@ -111,7 +111,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `post_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `users`
 --
