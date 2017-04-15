@@ -30,7 +30,7 @@
                 echo '<input type="text" value="'.$tagname.'" name="Key Tags"/>';
         ?>
             
-            <input  type="submit" value="OK" /> 
+            <input  type="tag" value="OK" /> 
         </form>
         
         <p>Results</p>

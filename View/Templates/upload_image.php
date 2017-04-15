@@ -1,9 +1,6 @@
 
  <?php 
 
-// filename: upload.processor.php 
-
-
 // make a note of the current working directory, relative to root. 
 $directory_self = str_replace(basename($_SERVER['PHP_SELF']), '', $_SERVER['PHP_SELF']); 
 
