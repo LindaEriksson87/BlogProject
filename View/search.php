@@ -69,7 +69,7 @@ else
                 $cleanedsearchterm = $searchterm; //mysqli_real_escape_string($pdo, $searchterm);//removes any unwanted code submitted by the user before saving to database
                 $sql = "SELECT user_id, user_name, first_name, last_name 
                 FROM blog_database.users
-                where user_name like '%$cleanedsearchterm%' or first_name like '%$cleanedsearchterm%' or last_name like '%$cleanedsearchterm%';"; 
+                where user_name <> 'Admin' and user_name like '%$cleanedsearchterm%' or user_name <> 'Admin' and first_name like '%$cleanedsearchterm%' or user_name <> 'Admin' and last_name like '%$cleanedsearchterm%';"; 
 
                 $stmt = $pdo->query($sql);
                 echo '<ul>';

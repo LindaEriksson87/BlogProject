@@ -46,3 +46,8 @@ $userBioID = $viewBioID[0];
 $viewUsername = $user->getUsername($sanitizedID);
 $usernameID = $viewUsername[0];
 
+/*List all users*/
+
+$userList = $user->allUsers();
+$allUsernames = $userList[0];
+$allUserID = $userList[1];

@@ -95,9 +95,24 @@ class USER
    public function randomUser() {
        try
         {
-        $stmt=$this->db->prepare("SELECT user_name, user_id FROM users ORDER BY RAND() LIMIT 1");
+        $stmt=$this->db->prepare("SELECT user_name, user_id FROM users WHERE user_name <> 'Admin' ORDER BY RAND() LIMIT 1");
+       
         $stmt->execute(); 
 	return $stmt->fetch();
+         }
+    catch(PDOException $e)
+       {
+            echo $e->getMessage();
+       }    
+}
+
+   public function allUsers() {
+       try
+        {
+        $stmt=$this->db->prepare("SELECT user_name, user_id FROM users WHERE user_name <> 'Admin'");
+       
+        $stmt->execute(); 
+	return $stmt->fetchAll();
          }
     catch(PDOException $e)
        {
@@ -110,7 +125,7 @@ class USER
         try
         {
         $stmt=$this->db->prepare("SELECT user_name,first_name,last_name FROM users WHERE user_id=:user_id");
-        $stmt->bindparam(":user_id", $user_id);
+        $stmt->bindParam(":user_id", $user_id);
         $stmt->execute(); 
  
 	return $stmt->fetch();
