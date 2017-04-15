@@ -1,4 +1,12 @@
-<?php require_once '../model/connection.php'; ?>
+<?php 
+include '../controllers/display.php';
+include '../controllers/login.php';
+include 'templates/userFunctions.php';
+use function controllers\display\display;
+
+require_once '../model/connection.php';
+
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -10,9 +18,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    </head>   
-<body>
-    
+</head>   
+<body>    
 <?php 
 
 // Displaying the nav bar with a login form or logout button depending on if the user session is set or not.
@@ -43,18 +50,18 @@ else
 	}
         
         ?>
+    <div class="container col-sm-2"></div>
+    <div class="container col-sm-8">
+        <div class="form-group">
+            <label for ='searchbox'>Search for a user:</label><br>
+            <form class='' action='' method='POST'><br>
+                <input class='form-control' type='text' value ='<?=$searchterm?>' name='searchbox'><br><br>
+                <input class='btn' type='submit' value='Search'><br>
+            </form>
+        </div>
+
         
-        <p>Search</p>
-        <form action="search.php" method="POST" > 
-            
-        <?php 
-                echo '<input type="text" value="'.$searchterm.'" name="searchbox"/>';
-        ?>
-            
-            <input  type="submit" value="OK" /> 
-        </form>
-        
-        <p>Results</p>
+        <label>Results</label>
         
             <?php 
             if(true === $isSubmitted)
@@ -70,7 +77,7 @@ else
                 while($row = $stmt->fetch()){
                     $text = $row['user_name'].' - '.$row['first_name'].' '.$row['last_name'] ;
                     $id = $row['user_id'];
-                    $href='user.php?id='.$id;
+                    $href='viewUser.php?id='.$id;
                     echo '<li><a href="'.$href.'">'.$text.'</a></li>';
                 }
                 
@@ -78,7 +85,9 @@ else
             }
      
             ?>
-    </body>
+    </div>
+        <div class="container col-sm-2"></div>
+</body>
 </html>
 
 

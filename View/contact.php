@@ -39,6 +39,7 @@ if(isset($_POST['btn-send']))
   else {
       echo "Message has been sent";
   }// May need to add additional code
+}
 ?>
 
 <!doctype html>
