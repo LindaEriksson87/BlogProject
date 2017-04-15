@@ -42,10 +42,10 @@ carousel of featured bloggers goes here -->
 
 <div>
     <h2>Featured bloggers</h2>
-<!--This is a temporary line that randomly generates a user with the function from userFunctions,
+<!--This code randomly generates a user with the function from userFunctions,
 then a link is added that will take the user to the viewuser page with a GET tag at the end, the 
-GET will be id= + the ID linked to the username, this is also generated in userFunctions. -->
-    <p>Techno Bloggers:  <a href="viewUser.php?id=<?= $randomUserID ?>"><?= $randomUsername ?></a></p>
+GET will be id= + the ID linked to the username, this is also generated in userFunctions. After the name follows the bio for that user -->
+<p><a href="viewUser.php?id=<?= $randomUserID ?>"><?= $randomUsername ?></a><br><?=$randomUserBio?></p>
     <br><br>
 
     

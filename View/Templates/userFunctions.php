@@ -36,5 +36,7 @@ $viewBio = $user->thisUserBio();
 $thisUserBio = $viewBio[0];
 
 //For user accessed by ID
+$viewRandomBio = $user->userIDBio($randomUserID);
+$randomUserBio = $viewRandomBio[0];
 $viewBioID = $user->userIDBio($sanitizedID);
 $userBioID = $viewBioID[0];
