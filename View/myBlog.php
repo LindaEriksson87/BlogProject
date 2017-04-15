@@ -2,6 +2,7 @@
 //The page you see when you're logged in
 include '../controllers/display.php';
 include '../controllers/login.php';
+include 'templates/userFunctions.php';
 use function controllers\display\display;
 
 require_once '../model/connection.php';
@@ -46,5 +47,6 @@ else
     </div>
        
     <div class="col-sm-4 well well-lg">
+        <?php echo Controllers\display\display('user_loggedIn', ['thisUserBio' => $thisUserBio]); ?>
         <?php echo Controllers\display\display('archive', ['pdo' => $pdo]); ?>
     </div>

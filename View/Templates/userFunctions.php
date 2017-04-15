@@ -40,3 +40,9 @@ $viewRandomBio = $user->userIDBio($randomUserID);
 $randomUserBio = $viewRandomBio[0];
 $viewBioID = $user->userIDBio($sanitizedID);
 $userBioID = $viewBioID[0];
+
+/* Get a username by ID */
+
+$viewUsername = $user->getUsername($sanitizedID);
+$usernameID = $viewUsername[0];
+
