@@ -30,3 +30,11 @@ $postContent = $viewPost[2];
 $postDate = $viewPost[3];
 $userID = $viewPost[4];
 
+/*Defining variables for viewing a user's biography. */
+//For logged in user
+$viewBio = $user->thisUserBio();
+$thisUserBio = $viewBio[0];
+
+//For user accessed by ID
+$viewBioID = $user->userIDBio($sanitizedID);
+$userBioID = $viewBioID[0];

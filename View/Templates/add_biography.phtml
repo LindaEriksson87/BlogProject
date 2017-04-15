@@ -1,0 +1,72 @@
+<?php
+
+require_once '../model/connection.php';
+include 'templates/userFunctions.php';
+
+//The below should be redundant as long as the button is pushed. 
+//$_POST['biography']
+
+if (isset ($_POST['btn-bio'])){
+//getting rid of whitespace
+    $biography   = trim($_POST['biography']);
+    
+    if (empty($biography)) {
+
+        $error[] = "Please enter some text.";
+    } 
+    
+    
+    if (strlen($biography) > 500) {
+    $errors = 'Please shorten your blog post, it is too long (500 character limit).';
+    }
+
+    else {
+        $user->updateBio($biography);
+    }
+}
+
+
+
+
+?>
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        
+        <style> 
+            label {display: block}
+        </style>
+        
+        <title> Add bio </title>
+    </head>
+
+    <body>
+<h3>Update email</h3>
+        <div><h3>Add Biography</h3>
+        <div class="container">
+        
+        <?php
+        //gives a list of errors under 'Add Biography' heading, if user makes an error
+        if ( isset($errors) && ! empty($errors)){
+            echo '<ul><li>', implode('</li><li>', $errors), '</li></ul>';
+        }
+        ?>
+       
+            
+
+           
+            <div class="form-group">
+                <label for="biography"> Biography </label>
+                <textarea class="form-control" name="biography" rows="3"><?php if ( isset($_POST['biography']) ) {echo $_POST['biography'];} else {echo $thisUserBio;}; ?></textarea>
+            </div>
+        
+                <div>
+                <input type="submit" value="Add Biography" name="btn-bio">
+                </div>
+                       </form>
+            </div>
+ 
+        </div>

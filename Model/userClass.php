@@ -153,6 +153,25 @@ class USER
        }    
     }
     
+    public function updateBio($bio)
+    {
+       try
+       {$stmt = $this->db->prepare("UPDATE users
+                                    SET bio=:bio
+                                    WHERE user_id=:user_id");
+       
+           $stmt->bindparam(":bio", $bio);   
+           $stmt->bindparam(":user_id", $_SESSION['user_session']);
+           $stmt->execute();
+           
+           return $stmt; 
+       }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }    
+    }
+    
     public function thisUserBio()
     {
        try
@@ -161,7 +180,7 @@ class USER
            $stmt->bindparam(":user_id", $_SESSION['user_session']);    
            $stmt->execute();
            
-           return $stmt; 
+           return $stmt->fetch(); 
        }
        catch(PDOException $e)
        {
@@ -177,7 +196,7 @@ class USER
            $stmt->bindparam(":user_id", $user_id);    
            $stmt->execute();
            
-           return $stmt; 
+           return $stmt->fetch(); 
        }
        catch(PDOException $e)
        {

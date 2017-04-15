@@ -48,7 +48,6 @@ class POST
            $stmt->bindParam(":post_id", $postID);  
            $stmt->execute();
            
-           print "postcontent".$postID;
            return $stmt; 
        }
        catch(PDOException $e)
