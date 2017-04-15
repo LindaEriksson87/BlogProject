@@ -58,20 +58,22 @@ CREATE TABLE `users` (
   `last_name` varchar(45) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
-  `bio` varchar(500) DEFAULT NULL
+  `bio` varchar(500) DEFAULT NULL,
+  `admin` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_name`, `first_name`, `last_name`, `email`, `password`, `bio`) VALUES
-(1, 'leriksson', 'Linda', 'Eriksson', 'linda.nibelheim@gmail.com', 'testing', NULL),
-(2, 'Win', 'Winnie', 'The Pooh', 'winnie@sherwood.com', '$2y$10$2uSEMLbilVbsw', NULL),
-(3, 'Tigg', 'Tigger', 'McTiggface', 'tigger@sherwood.com', '$2y$10$GktostWGZ8R3VPjfzmZpuOp.OpwfJF/cS.RQ3bEcnr0nlbo7mZWMK', NULL),
-(4, 'linda', 'Linda', 'E', 'linda@mail.com', '$2y$10$2aNyIXKZJSgjvN3GEEc6TO0AnweslZsWH3ygnZp9V6SV1z5pIaPve', NULL),
-(5, 'lejohnson', 'Lee', 'Johnson', 'lejohnson@tom.com', '$2y$10$aL1M6oBbEhXeB9XPSEOeRuV.1W31tAu6nV0.RoMWvzZna9kZ4HPpW', NULL),
-(6, 'BFace', 'Boaty', 'McBoatface', 'boat@boatface.com', '$2y$10$aZ9fxhoOMNj9CtuGlte5JeECfByZP3Pj12beZWB4RoMJY14401bP.', NULL);
+INSERT INTO `users` (`user_id`, `user_name`, `first_name`, `last_name`, `email`, `password`, `bio`, `admin`) VALUES
+(1, 'leriksson', 'Linda', 'Eriksson', 'linda.nibelheim@gmail.com', 'testing', NULL, NULL),
+(2, 'Win', 'Winnie', 'The Pooh', 'winnie@sherwood.com', '$2y$10$2uSEMLbilVbsw', NULL, NULL),
+(3, 'Tigg', 'Tigger', 'McTiggface', 'tigger@sherwood.com', '$2y$10$GktostWGZ8R3VPjfzmZpuOp.OpwfJF/cS.RQ3bEcnr0nlbo7mZWMK', NULL, NULL),
+(4, 'linda', 'Linda', 'E', 'linda@mail.com', '$2y$10$2aNyIXKZJSgjvN3GEEc6TO0AnweslZsWH3ygnZp9V6SV1z5pIaPve', 'Linda''s biography text', NULL),
+(5, 'lejohnson', 'Lee', 'Johnson', 'lejohnson@tom.com', '$2y$10$aL1M6oBbEhXeB9XPSEOeRuV.1W31tAu6nV0.RoMWvzZna9kZ4HPpW', NULL, NULL),
+(6, 'BFace', 'Boaty', 'McBoatface', 'boat@boatface.com', '$2y$10$aZ9fxhoOMNj9CtuGlte5JeECfByZP3Pj12beZWB4RoMJY14401bP.', NULL, NULL),
+(7, 'Admin', 'Admin', 'Account', 'admin@getintotechno.com', '$2y$10$ElSMtcEmRQXAuVrHyEglP.nVa9LjCkdeJd0goWZw7.w/f5QKvhBxW', NULL, 3);
 
 --
 -- Indexes for dumped tables
@@ -116,7 +118,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary key', AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary key', AUTO_INCREMENT=8;
 --
 -- Constraints for dumped tables
 --
