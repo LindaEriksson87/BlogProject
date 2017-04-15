@@ -5,13 +5,13 @@ if(isset($_POST['email'])) {
     $email_to = "lejohnson75@gmail.com";
     $email_subject = "Contact Get Into Techno";
  
-    function died($error) {
+    function trigger_error($error) {
         // your error code can go here
         echo "We are very sorry, but there were error(s) found with the form you submitted. ";
         echo "These errors appear below.<br /><br />";
         echo $error."<br /><br />";
         echo "Please go back and fix these errors.<br /><br />";
-        die();
+        trigger_error();
     }
  
  
@@ -19,7 +19,7 @@ if(isset($_POST['email'])) {
     if(!isset($_POST['txt_fullname']) ||
         !isset($_POST['txt_email']) ||
         !isset($_POST['txt_message'])) {
-        died('We are sorry, but there appears to be a problem with the form you submitted.');       
+        trigger_error('We are sorry, but there appears to be a problem with the form you submitted.');       
     }
  
      
