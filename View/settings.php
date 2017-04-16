@@ -1,10 +1,8 @@
 <?php
 include '../controllers/display.php';
 include '../controllers/login.php';
-
-
 require_once '../model/connection.php';
-
+//The settings page needs to have all fields working, and it needs to be designed and have bootstrap added. 
 ?>
 <!doctype html>
 <html>
