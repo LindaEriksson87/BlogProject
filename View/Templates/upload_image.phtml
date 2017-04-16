@@ -1,5 +1,15 @@
 
  <?php 
+ 
+require_once '../model/connection.php';
+include 'templates/userFunctions.php';
+include '../config/config.php';
+
+session_start();
+if (!session_is_registered(user))
+  {
+   header("location:login.php");
+}
 
 // make a note of the current working directory, relative to root. 
 $directory_self = str_replace(basename($_SERVER['PHP_SELF']), '', $_SERVER['PHP_SELF']); 
@@ -62,6 +72,18 @@ header('Location: ' . $uploadSuccess);
 // The following function is an error handler which is used 
 // to output an HTML error page if the file upload fails 
 
-?> 
+?>
+
+<form>
+    <div>
+        <h3>Upload image</h3>
+        
+         <div class="form-group">
+        <form action="upload_image.php" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
+    <?php if ( isset($_POST['image']) ) echo $_POST['image']; ?>
+</form>
 
 
