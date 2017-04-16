@@ -23,6 +23,17 @@ include 'templates/userFunctions.php';
   mysql_close();
   ?>
 
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        
+        <style> 
+            label {display: block}
+        </style>
+
   <div class="form-group">
                 <label for="firstName"> Update First Name </label>
                 <textarea class="form-control" name="firstName" rows="3"><?php if ( isset($_POST['firstName']) ) {echo $_POST['firstName'];} else {echo $thisUserFirstName;}; ?></textarea>
@@ -49,3 +60,5 @@ include 'templates/userFunctions.php';
             </div>
  
         </div>
+</body>
+</html>
