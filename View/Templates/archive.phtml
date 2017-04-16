@@ -1,4 +1,4 @@
-<?php //require_once '../../model/connection.php'; ?>
+<?php require_once '../model/connection.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,41 +9,25 @@
 
 
 
-		<h1>Archives</h1>
+		<h1>Archive</h1>
 		
 <?php
-
-$stmt = $pdo->query("SELECT Month(date) as Month, Year(date) as Year,
-post_title, post_id FROM posts WHERE user_id = :user_id ORDER BY date DESC");
-
-// you will store current month here to control when the month changes
-$currentMonth = 0;
-// you will store current year here to control when the year changes
-$currentYear = 0;
-while($row = $post->currentArchive()){
-    // if the year changes you have to display another year
-    if($row['Year'] != $currentYear) {
-        // reinitialize current month
-        $currentMonth = 0;
-        // display the current year
-        echo "{$row['Year']}";
-        // change the current year
-        $currentYear = $row['Year'];
+if (isset ($_GET['id'])){
+    
+    $currentUser = filter_input(INPUT_GET, 'id',FILTER_SANITIZE_ENCODED);
+        
+    } else {
+    
+    $currentUser = $_SESSION['user_session'];
+    
     }
-    // if the month changes you have to display another month
-    if($row['Month'] != $currentMonth) {
-        // display the current month
-        $monthName = date("F", mktime(0, 0, 0, $row['Month'], 10));
-        echo "   $monthName";
-        // change the current month
-        $currentMonth = $row['Month'];
-    }
-  // display posts within the current month -**** need to add ViewPost code****
-    $slug = 'a-'.$row['Month'].'-'.$row['Year'];
-    //echo "<li class=\"cl-posts\"><a href='$slug'>$monthName</a></li>";
-    //$id = $row['post_id'];
-    echo '<li class="cl-posts active"><a href= "../myBlog.php?id='.'post_id'.'">'.$row['post_title'].'</a></li>';
+    
+$stmt = $pdo->query('SELECT Month (date) as Month, Year(date) as Year,post_title, post_id FROM posts WHERE user_id="'.$currentUser.'" ORDER BY date DESC LIMIT 10');
+
+while($row = $stmt->fetch()){
+    echo '<li><a href="viewPost.php?id='.$row['post_id'].'">'.$row['post_title'].'</a></li>';
 }
+
 ?>
                
 </body>

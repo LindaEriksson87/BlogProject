@@ -12,14 +12,15 @@ require_once '../model/connection.php';
 ?>
 <!doctype html>
 <html>
-<head><title>Get Into Techno</title></head>
+<head><title>Get Into Techno</title>
 <!--Including Bootstrap CSS -->
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="CSS/blogCSS.css">
+<link rel="stylesheet" href="CSS/additionalCSS.css">
 <link href="https://fonts.googleapis.com/css?family=Geostar+Fill|Stalinist+One" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
 <body>
     
 <?php 
@@ -37,7 +38,7 @@ else
    
     <div class="col-sm-12">
 <!--This title calls the username for the currently logged in user set in SESSION.--> 
-        <h2><?= $_SESSION['username'] ?>'s blog</h2>
+        <h2 class='tech-center'><?= $_SESSION['username'] ?>'s blog</h2>
     </div>
         
     <div class="col-sm-8">

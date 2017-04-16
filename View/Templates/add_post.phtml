@@ -66,8 +66,8 @@
             
             <div class="form-group">
                 <label for="tags"> Tags </label>
-                <textarea class="form-control" name="tags" rows="1"></textarea>
-                </div>
+                <textarea class="form-control" name="tags" rows="1"><?php if ( isset($_POST['tags']) ) echo $_POST['tags']; ?></textarea>
+            </div>
                 <?php
                 //foreach ( get_tags() as $tags ) {
                     ?>

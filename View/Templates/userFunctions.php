@@ -46,6 +46,11 @@ $userBioID = $viewBioID[0];
 $viewUsername = $user->getUsername($sanitizedID);
 $usernameID = $viewUsername[0];
 
+/* Get a user level for logged in user*/
+
+$viewUserLevel = $user->getAdminLevel($_SESSION['user_session']);
+$adminLevel = $viewUserLevel[0];
+
 /*List all users*/
 
 $userList = $user->allUsers();

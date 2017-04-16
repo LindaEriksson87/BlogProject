@@ -14,6 +14,9 @@ $thisUser = $user->getUsername($userID);
       <b><?= $posts[1];?></b> by <a href="viewUser.php?id=<?= $userID ?>"><?=$thisUser[0]?></a>
 </div>
 <div class="panel-body">
+    <?php if($posts['image'] != NULL) { ?>
+        <a href="../Model/blogimageuploads/<?=$posts['image'];?>" target="_blank"><img src="../Model/blogimageuploads/<?=$posts['image'];?>" width="150" class="img-thumbnail img-responsive pull-left img-rightmargin" /></a>
+        <?php } ?>
 <?= $posts[2];?>
 </div>
 </div>

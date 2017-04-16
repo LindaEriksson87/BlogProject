@@ -16,7 +16,7 @@ $thisID = filter_input(INPUT_GET, 'id',FILTER_SANITIZE_ENCODED);
 <!--Including Bootstrap CSS -->
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="CSS/CSSfrontpage.css">
+<link rel="stylesheet" href="CSS/additionalCSS.css">
 <link href="https://fonts.googleapis.com/css?family=Geostar+Fill|Stalinist+One" rel="stylesheet">
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
@@ -40,8 +40,7 @@ else
 <!--This part uses the display function to call in the content in the user blog template-->
             <?php echo Controllers\display\display('user_post', ['post' => $post, 'user' => $user]); ?>
                 <br>
-
-            <?php if ($userID == $_SESSION['user_session']){ ?>
+            <?php if ($userID == $_SESSION['user_session'] || $adminLevel > 1){ ?>
                 
                <?php echo Controllers\display\display('delete_update_buttons', ['post' => $post, 'user' => $user, 'thisID' => $thisID]);
                 
