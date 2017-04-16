@@ -46,7 +46,10 @@ INSERT INTO `posts` (`post_id`, `post_title`, `post_content`, `date`, `post_slug
 (7, 'Yo', 'BFace checking in', '2017-04-12 21:59:14', '', '6', 0, NULL),
 (11, 'Happy Easter', 'Find some eggs.', '2017-04-15 00:01:42', '', '4', 0, NULL),
 (17, 'With picture', 'With picture', '2017-04-15 21:42:26', '', '4', 0, NULL),
-(29, 'image test', 'image test', '2017-04-15 23:39:57', '', '4', 0, '14922995971825058f2af4decc9e.jpg');
+(29, 'This is a Monkey', 'Monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey', '2017-04-15 23:39:57', '', '4', 0, '14922995971825058f2af4decc9e.jpg'),
+(30, 'Tigger''s first post', 'Whohohoooo', '2017-04-16 02:43:04', '', '3', 0, NULL),
+(31, 'Tigger''s second post', 'Lalallala', '2017-04-16 02:45:54', '', '3', 0, ''),
+(32, 'Tigger''s picture', 'This is me.', '2017-04-16 02:46:34', '', '3', 0, '14923107941060658f2db0ac9959.jpg');
 
 -- --------------------------------------------------------
 
@@ -70,10 +73,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `first_name`, `last_name`, `email`, `password`, `bio`, `admin`) VALUES
-(1, 'leriksson', 'Linda', 'Eriksson', 'linda.nibelheim@gmail.com', 'testing', NULL, NULL),
-(2, 'Win', 'Winnie', 'The Pooh', 'winnie@sherwood.com', '$2y$10$2uSEMLbilVbsw', NULL, NULL),
 (3, 'Tigg', 'Tigger', 'McTiggface', 'tigger@sherwood.com', '$2y$10$GktostWGZ8R3VPjfzmZpuOp.OpwfJF/cS.RQ3bEcnr0nlbo7mZWMK', NULL, NULL),
-(4, 'linda', 'Linda', 'E', 'linda@mail.com', '$2y$10$2aNyIXKZJSgjvN3GEEc6TO0AnweslZsWH3ygnZp9V6SV1z5pIaPve', 'Linda''s biography text', NULL),
+(4, 'linda', 'Linda', 'E', 'linda@mail.com', '$2y$10$2aNyIXKZJSgjvN3GEEc6TO0AnweslZsWH3ygnZp9V6SV1z5pIaPve', 'Linda''s biography text', 2),
 (5, 'lejohnson', 'Lee', 'Johnson', 'lejohnson@tom.com', '$2y$10$aL1M6oBbEhXeB9XPSEOeRuV.1W31tAu6nV0.RoMWvzZna9kZ4HPpW', NULL, NULL),
 (6, 'BFace', 'Boaty', 'McBoatface', 'boat@boatface.com', '$2y$10$aZ9fxhoOMNj9CtuGlte5JeECfByZP3Pj12beZWB4RoMJY14401bP.', NULL, NULL),
 (7, 'Admin', 'Admin', 'Account', 'admin@getintotechno.com', '$2y$10$ElSMtcEmRQXAuVrHyEglP.nVa9LjCkdeJd0goWZw7.w/f5QKvhBxW', NULL, 3),
@@ -117,12 +118,12 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `post_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary key', AUTO_INCREMENT=9;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary key', AUTO_INCREMENT=10;
 --
 -- Constraints for dumped tables
 --

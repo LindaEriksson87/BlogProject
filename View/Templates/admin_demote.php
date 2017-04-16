@@ -8,6 +8,6 @@ but this page will never show up as they are immediately redirected back after t
 session is destroyed. */
 
 //testing 
-$user->promoteUser($sanitizedID);
+$user->demoteUser($sanitizedID);
 header('Location: ../admin.php');
 exit;

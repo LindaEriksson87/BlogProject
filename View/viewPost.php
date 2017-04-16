@@ -40,8 +40,7 @@ else
 <!--This part uses the display function to call in the content in the user blog template-->
             <?php echo Controllers\display\display('user_post', ['post' => $post, 'user' => $user]); ?>
                 <br>
-
-            <?php if ($userID == $_SESSION['user_session']){ ?>
+            <?php if ($userID == $_SESSION['user_session'] || $adminLevel > 1){ ?>
                 
                <?php echo Controllers\display\display('delete_update_buttons', ['post' => $post, 'user' => $user, 'thisID' => $thisID]);
                 
