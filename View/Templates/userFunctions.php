@@ -24,11 +24,12 @@ When clicking on a post title you'll be redirected to the page with the id of th
 The following variables will change depending on that ID. */
 
 $viewPost = $post->viewPost($sanitizedID);
-$postID = $viewPost[0];
-$postTitle = $viewPost[1];
-$postContent = $viewPost[2];
-$postDate = $viewPost[3];
-$userID = $viewPost[4];
+$postID = $viewPost['post_id'];
+$postTitle = $viewPost['post_title'];
+$postContent = $viewPost['post_content'];
+$postDate = $viewPost['date'];
+$userID = $viewPost['user_id'];
+$postTags = $viewPost['tags'];
 
 /*Defining variables for viewing a user's biography. */
 //For logged in user

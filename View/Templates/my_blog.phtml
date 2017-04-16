@@ -18,6 +18,19 @@ foreach($posts as $post):?>
         <?php } ?>
 <?= $post['post_content'];?>
     </div>
+    <div class='panel-footer'>
+        <?php if($post['tags'] != ''){
+            
+            $tagsArray=explode(',',$post['tags']); 
+            foreach ($tagsArray as $tag){
+                echo $tag . "";
+            }
+        }
+        
+        
+        
+        ?>
+    </div>
 </div>
 <span class="badge"> 
 <?= $post[3];?>

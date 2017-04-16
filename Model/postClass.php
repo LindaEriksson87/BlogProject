@@ -115,7 +115,7 @@ class POST
     public function viewPost($post_id) {
         try
         {
-        $stmt=$this->db->prepare("SELECT post_id, post_title, post_content, date, user_id, image FROM posts WHERE post_id=:post_id");
+        $stmt=$this->db->prepare("SELECT post_id, post_title, post_content, date, user_id, image, tags FROM posts WHERE post_id=:post_id");
         $stmt->bindParam(":post_id", $post_id);
         $stmt->execute(); 
  

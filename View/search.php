@@ -35,11 +35,13 @@ else
 
         
         $isSubmitted = $_SERVER['REQUEST_METHOD'] == 'POST';
-        $searchterm = '';
+        $searchtermUser = '';
+        $searchtermTag = '';
         
         if($isSubmitted){
             
-            $searchterm = trim($_POST['searchbox']);
+            
+            
 
             $error = false;
 
@@ -52,13 +54,12 @@ else
 	}
         
         ?>
-    <div class="container col-sm-2"></div>
-    <div class="container col-sm-8">
+    <div class="container well well-lg col-sm-8">
         <div class="form-group">
             <label for ='searchbox'>Search for a user:</label><br>
             <form class='' action='' method='POST'><br>
-                <input class='form-control' type='text' value ='<?=$searchterm?>' name='searchbox'><br><br>
-                <input class='btn' type='submit' value='Search'><br>
+                <input class='form-control' type='text' value ='<?=$searchtermUser ?>' name='searchUser'><br><br>
+                <input class='btn' type='submit' value='Search for User' name='btn-user'><br>
             </form>
         </div>
 
@@ -66,12 +67,13 @@ else
         <label>Results</label>
         
             <?php 
-            if(true === $isSubmitted)
+            if(isset ($_POST['btn-user']))
             {            
-                $cleanedsearchterm = $searchterm; //mysqli_real_escape_string($pdo, $searchterm);//removes any unwanted code submitted by the user before saving to database
+                $searchtermUser = trim($_POST['searchUser']);
+                $cleanedSearchtermUser = $searchtermUser; //mysqli_real_escape_string($pdo, $searchterm);//removes any unwanted code submitted by the user before saving to database
                 $sql = "SELECT user_id, user_name, first_name, last_name 
                 FROM blog_database.users
-                where user_name <> 'Admin' and user_name like '%$cleanedsearchterm%' or user_name <> 'Admin' and first_name like '%$cleanedsearchterm%' or user_name <> 'Admin' and last_name like '%$cleanedsearchterm%';"; 
+                where user_name <> 'Admin' and user_name like '%$cleanedSearchtermUser%' or user_name <> 'Admin' and first_name like '%$cleanedSearchtermUser%' or user_name <> 'Admin' and last_name like '%$cleanedSearchtermUser%';"; 
 
                 $stmt = $pdo->query($sql);
                 echo '<ul>';
@@ -91,8 +93,48 @@ else
             }
      
             ?>
+    
+        
+    <div class="form-group">
+            <label for ='searchbox'>Search for a tag:</label><br>
+            <form class='' action='' method='POST'><br>
+                <input class='form-control' type='text' value ='<?=$searchtermTag?>' name='searchTag'><br><br>
+                <input class='btn' type='submit' value='Search for Tag' name='btn-tag'><br>
+            </form>
+        </div>
+
+        
+        <label>Results</label>
+        
+            <?php 
+            if(isset ($_POST['btn-tag']))
+            {            
+                $searchtermTag = trim($_POST['searchTag']);
+                $cleanedSearchtermTag = $searchtermTag; //mysqli_real_escape_string($pdo, $searchterm);//removes any unwanted code submitted by the user before saving to database
+                $sql = "SELECT post_title, post_id, user_name
+                FROM blog_database.posts
+                INNER JOIN blog_database.users ON posts.user_id = users.user_id
+                WHERE tags LIKE '%$cleanedSearchtermTag%';"; 
+
+                $stmt = $pdo->query($sql);
+                echo '<ul>';
+                
+                while($row = $stmt->fetch()){
+                    $text = $row['post_title'].' - '.$row['user_name'];
+                    $id = $row['post_id'];
+                    $href='viewPost.php?id='.$id;
+                    echo '<li><a href="'.$href.'">'.$text.'</a></li>';
+                }
+                
+                echo '</ul>';
+            }
+            //RW - no results found error message
+            if (empty($href) && !empty($isSubmitted)) { 
+                echo 'No results found'; 
+            }
+     
+            ?>
     </div>
-        <div class="container col-sm-2"></div>
         
         <script>
         <!-- Button trigger modal -->
