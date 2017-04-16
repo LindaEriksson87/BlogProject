@@ -1,82 +1,48 @@
 <?php
-if(isset($_POST['email'])) {
- 
-    // email to send to & subject line
-    $email_to = "lejohnson75@gmail.com";
-    $email_subject = "Contact Get Into Techno";
- 
-    function trigger_error($error) {
-        // your error code can go here
-        echo "We are very sorry, but there were error(s) found with the form you submitted. ";
-        echo "These errors appear below.<br /><br />";
-        echo $error."<br /><br />";
-        echo "Please go back and fix these errors.<br /><br />";
-        trigger_error();
-    }
- 
- 
-    // validation expected data exists
-    if(!isset($_POST['txt_fullname']) ||
-        !isset($_POST['txt_email']) ||
-        !isset($_POST['txt_message'])) {
-        trigger_error('We are sorry, but there appears to be a problem with the form you submitted.');       
-    }
- 
-     
- 
-    $full_name = $_POST['txt_fullname']; // required
-    $email_from = $_POST['txt_email']; // required
-    $message = $_POST['txt_message']; // required
- 
-    $error_message = "";
-    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
- 
-  if(!preg_match($email_exp,$email_from)) {
-    $error_message .= 'The Email Address you entered does not appear to be valid.<br />';
-  }
- 
-    $string_exp = "/^[A-Za-z .'-]+$/";
- 
-  if(!preg_match($string_exp,$first_name)) {
-    $error_message .= 'The Full Name you entered does not appear to be valid.<br />';
-  }
- 
- 
-  if(strlen($message) < 2) {
-    $error_message .= 'The Comments you entered do not appear to be valid.<br />';
-  }
- 
-  if(strlen($error_message) > 0) {
-    died($error_message);
-  }
- 
-    $email_message = "Form details below.\n\n";
- 
-     
-    function clean_string($string) {
-      $bad = array("content-type","bcc:","to:","cc:","href");
-      return str_replace($bad,"",$string);
-    }
- 
-     
- 
-    $email_message .= "Full Name: ".clean_string($full_name)."\n";
-    $email_message .= "Email: ".clean_string($email_from)."\n";
-    $email_message .= "Message: ".clean_string($message)."\n";
- 
-// create email headers
-$headers = 'From: '.$email_from."\r\n".
-'Reply-To: '.$email_from."\r\n" .
-'X-Mailer: PHP/' . phpversion();
-@mail($email_to, $email_subject, $email_message, $headers);  
-?>
- 
-<!-- include your own success html here -->
- 
-<h1>Thank you for contacting Get Into Techno. We will be in touch with you very soon.</h1>
- 
-<?php
- 
-}
-?>
 
+// configure
+$from = '';
+$sendTo = 'lejohnson75@gmail.com';
+$subject = 'New message from Get Into Techno contact form';
+$fields = array('name' => 'Name', 'surname' => 'Surname', 'phone' => 'Phone', 'email' => 'Email', 'message' => 'Message'); // array variable name => Text to appear in the email
+$okMessage = 'Contact form successfully submitted. Thank you, I will get back to you soon!';
+$errorMessage = 'There was an error while submitting the form. Please try again later';
+
+// let's do the sending
+
+try
+{
+    $emailText = "You have new message from Get Into Techno contact form\n=============================\n";
+
+    foreach ($_POST as $key => $value) {
+
+        if (isset($fields[$key])) {
+            $emailText .= "$fields[$key]: $value\n";
+        }
+    }
+
+    $headers = array('Content-Type: text/plain; charset="UTF-8";',
+        'From: ' . $from,
+        'Reply-To: ' . $from,
+        'Return-Path: ' . $from,
+    );
+    
+    mail($sendTo, $subject, $emailText, implode("\n", $headers));
+
+    $responseArray = array('type' => 'success', 'message' => $okMessage);
+}
+catch (\Exception $e)
+{
+    $responseArray = array('type' => 'danger', 'message' => $errorMessage);
+}
+
+if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+    $encoded = json_encode($responseArray);
+
+    header('Content-Type: application/json');
+
+    echo $encoded;
+}
+else {
+    echo $responseArray['message'];
+}
