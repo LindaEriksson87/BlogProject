@@ -30,16 +30,20 @@ if(isset($_POST['btn-signup']))
    if($user_name=="") {
       $error[] = "Please provide a username."; 
    }
-   else if($email=="") {
-      $error[] = "Please provide an email address."; 
+   
+   if($email=="") {
+      $error[] = "Please enter a valid email address."; 
    }
-   else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+   
+   if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $error[] = 'Please enter a valid email address.';
    }
-   else if($password=="") {
+   
+   if($password=="") {
       $error[] = "Please enter a password.";
    }
-   else if(strlen($password) < 6){
+   
+   if(strlen($password) < 6){
       $error[] = "Password must be at least 6 characters"; 
    }
    else
@@ -53,6 +57,8 @@ if(isset($_POST['btn-signup']))
          if($row['user_name']==$user_name) {
             $error[] = "Username already taken.";
          }
+         // the already registered email error is displaying even if the field is blank 
+         
          else if($row['email']==$email) {
             $error[] = "This email address is already registered.";
          }
