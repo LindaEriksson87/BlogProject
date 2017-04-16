@@ -53,14 +53,23 @@ else
                <div class="form-group">
                 <label for="firstname">First Name</label>
                 <input class="form-control" type="text" name="firstname" value="<?php if ( isset($_POST['firstname']) ) echo $_POST['firstname']; ?>">
+                <div>
+                <input type="submit" value="Update First Name" name="btn-firstname">
+                </div>
                 <label for="lastname">Last Name</label>
                 <input class="form-control" type="text" name="lastname" value="<?php if ( isset($_POST['lastname']) ) echo $_POST['lastname']; ?>">
+                <div>
+                <input type="submit" value="Update Last Name" name="btn-lastname">
+                </div>
                </div>
         
         <h3>Update Email</h3>
                <div class="form-group">
                 <label for="email">Email</label>
                 <input class="form-control" type="text" name="email" value="<?php if ( isset($_POST['email']) ) echo $_POST['email']; ?>">
+                <div>
+                <input type="submit" value="Update Email" name="btn-email">
+                </div>
                </div>
        
 
