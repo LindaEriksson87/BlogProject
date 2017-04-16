@@ -74,7 +74,7 @@ else
 
 <h1>Contact</h1>
 
-<p>Some text</p>
+<p>If you want to get in touch with the webmaster, fill in the form below...</p>
 
 <div class="col-sm-8">
         <form method="post">
