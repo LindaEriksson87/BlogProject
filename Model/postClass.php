@@ -16,7 +16,7 @@ class POST
      * a title, content, the current time and date and the logged in user ID. 
      * Tags are currently commented out as they are not yet working. 
      */
-    public function newPost($title,$content,$image='',$tags)
+    public function newPost($title,$content, $image='')
     {
        try
        {$stmt = $this->db->prepare("INSERT INTO posts(post_title,post_content,date,user_id,tags image) 
