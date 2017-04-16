@@ -29,50 +29,13 @@ else
 <body>
     <header>Settings</header>
     
-    <div>
-        <h3>Upload image</h3>
-        
-         <div class="form-group">
-        <form action="upload_image.php" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
-    <?php if ( isset($_POST['image']) ) echo $_POST['image']; ?>
-</form>
-         </div>
-        <!--RW - for posting a profile picture 
-          <div id="post" class="collapse">
-            <form class ="col-sm-8 well well-lg" action="" method="post">
-                <div class="form-group">
-                <label for="image">Image</label>
-                <input type="image" name="title" value="">                
-                </div>
-          </div>
-        -->
-        <h3>Update name</h3>
-               <div class="form-group">
-                <label for="firstname">First Name</label>
-                <input class="form-control" type="text" name="firstname" value="<?php if ( isset($_POST['firstname']) ) echo $_POST['firstname']; ?>">
-                <div>
-                <input type="submit" value="Update First Name" name="btn-firstname">
-                </div>
-                <label for="lastname">Last Name</label>
-                <input class="form-control" type="text" name="lastname" value="<?php if ( isset($_POST['lastname']) ) echo $_POST['lastname']; ?>">
-                <div>
-                <input type="submit" value="Update Last Name" name="btn-lastname">
-                </div>
-               </div>
-        
-        <h3>Update Email</h3>
-               <div class="form-group">
-                <label for="email">Email</label>
-                <input class="form-control" type="text" name="email" value="<?php if ( isset($_POST['email']) ) echo $_POST['email']; ?>">
-                <div>
-                <input type="submit" value="Update Email" name="btn-email">
-                </div>
-               </div>
-       
+    
+       <?php echo Controllers\display\display('upload_image', ['user' => $user, 'post'=>$post]); ?>
 
+       <?php echo Controllers\display\display('update_email', ['user' => $user, 'post'=>$post]); ?> 
+        
+        <?php echo Controllers\display\display('update_name', ['user' => $user, 'post'=>$post]); ?>
+        
         <?php echo Controllers\display\display('add_biography', ['user' => $user, 'post'=>$post]); ?>
 
     </div>  
