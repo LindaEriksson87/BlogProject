@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['email'])) {
+if(isset($_POST['txt_email'])) {
  
     // email to send to & subject line
     $email_to = "lejohnson75@gmail.com";
