@@ -1,3 +1,21 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Apr 16, 2017 at 10:01 AM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 7.0.13
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
 -- Database: `blog_database`
 --
@@ -27,7 +45,6 @@ CREATE TABLE `posts` (
   `post_title` varchar(150) DEFAULT NULL,
   `post_content` varchar(5000) DEFAULT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `post_slug` varchar(225) NOT NULL,
   `user_id` varchar(100) NOT NULL COMMENT 'FOREIGN KEY',
   `tags` int(25) NOT NULL,
   `image` varchar(500) DEFAULT NULL
@@ -37,19 +54,19 @@ CREATE TABLE `posts` (
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`post_id`, `post_title`, `post_content`, `date`, `post_slug`, `user_id`, `tags`, `image`) VALUES
-(1, 'Test', 'Testing', '2017-04-08 18:44:27', 'test', '', 0, NULL),
-(2, 'Test', 'Testing', '2017-04-08 18:44:58', 'test2', '', 0, NULL),
-(4, 'New update', 'Test post with session', '2017-04-14 22:00:26', 'new-post', '4', 0, NULL),
-(5, 'test', 'testttfyfx,aulchlhbik', '2017-04-09 15:20:57', 'test-3', '5', 0, NULL),
-(6, 'Techo 4 life', 'Untz untz untz', '2017-04-12 21:21:20', '', '4', 0, NULL),
-(7, 'Yo', 'BFace checking in', '2017-04-12 21:59:14', '', '6', 0, NULL),
-(11, 'Happy Easter', 'Find some eggs.', '2017-04-15 00:01:42', '', '4', 0, NULL),
-(17, 'With picture', 'With picture', '2017-04-15 21:42:26', '', '4', 0, NULL),
-(29, 'This is a Monkey', 'Monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey', '2017-04-15 23:39:57', '', '4', 0, '14922995971825058f2af4decc9e.jpg'),
-(30, 'Tigger''s first post', 'Whohohoooo', '2017-04-16 02:43:04', '', '3', 0, NULL),
-(31, 'Tigger''s second post', 'Lalallala', '2017-04-16 02:45:54', '', '3', 0, ''),
-(32, 'Tigger''s picture', 'This is me.', '2017-04-16 02:46:34', '', '3', 0, '14923107941060658f2db0ac9959.jpg');
+INSERT INTO `posts` (`post_id`, `post_title`, `post_content`, `date`, `user_id`, `tags`, `image`) VALUES
+(1, 'Test', 'Testing', '2017-04-08 17:44:27', '', 0, NULL),
+(2, 'Test', 'Testing', '2017-04-08 17:44:58', '', 0, NULL),
+(4, 'New update', 'Test post with session', '2017-04-14 21:00:26', '4', 0, NULL),
+(5, 'test', 'testttfyfx,aulchlhbik', '2017-04-09 14:20:57', '5', 0, NULL),
+(6, 'Techo 4 life', 'Untz untz untz', '2017-04-12 20:21:20', '4', 0, NULL),
+(7, 'Yo', 'BFace checking in', '2017-04-12 20:59:14', '6', 0, NULL),
+(11, 'Happy Easter', 'Find some eggs.', '2017-04-14 23:01:42', '4', 0, NULL),
+(17, 'With picture', 'With picture', '2017-04-15 20:42:26', '4', 0, NULL),
+(29, 'This is a Monkey', 'Monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey  monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey monkey', '2017-04-15 22:39:57', '4', 0, '14922995971825058f2af4decc9e.jpg'),
+(30, 'Tigger''s first post', 'Whohohoooo', '2017-04-16 01:43:04', '3', 0, NULL),
+(31, 'Tigger''s second post', 'Lalallala', '2017-04-16 01:45:54', '3', 0, ''),
+(32, 'Tigger''s picture', 'This is me.', '2017-04-16 01:46:34', '3', 0, '14923107941060658f2db0ac9959.jpg');
 
 -- --------------------------------------------------------
 
