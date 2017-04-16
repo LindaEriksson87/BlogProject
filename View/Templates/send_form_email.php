@@ -3,7 +3,7 @@ if(isset($_POST['email'])) {
  
     // email to send to & subject line
     $email_to = "lejohnson75@gmail.com";
-    $email_subject = "Contact Get Into Techno";
+    $email_subject = "A Message to Get Into Techno";
  
     function died($error) {
         // your error code can go here
@@ -25,10 +25,10 @@ if(isset($_POST['email'])) {
  
      
  
-    $first_name = $_POST['first_name']; // required
-    $last_name = $_POST['last_name']; // required
-    $email_from = $_POST['email']; // required
-    $message = $_POST['message']; // required
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name']; 
+    $email_from = $_POST['email']; 
+    $message = $_POST['message']; 
  
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
