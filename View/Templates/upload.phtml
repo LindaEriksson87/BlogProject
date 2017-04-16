@@ -47,7 +47,7 @@ if (isset ($_POST['btn-post'])) {
         echo "Sorry, your file was not uploaded.";
         }
     
-        else {
+        else if ($uploadOk == 1){
         move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
         }
         }
@@ -59,12 +59,12 @@ if (isset ($_POST['btn-post'])) {
 
     if (empty ($title)){
         
-        $error[] = "Please enter a title."; 
+    $errors = "Please enter a title."; 
     }
     
     if (empty($content)) {
 
-        $error[] = "Please enter some text.";
+    $errors = "Please enter some text.";
     } 
     
     if (strlen($title) > 250) {
@@ -79,7 +79,11 @@ if (isset ($_POST['btn-post'])) {
     $errors = 'Tags cannot be longer than 100 characters.';
     }
     
-    else {
+    if (isset($errors)) {
+        echo $errors;
+    }
+    
+    else if (!isset($errors)) {
         $post->newPost($title, $content, $newFileName, $tags);
     }
 }
