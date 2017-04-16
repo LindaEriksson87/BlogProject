@@ -1,4 +1,4 @@
-<?php //require_once '../../model/connection.php'; ?>
+<?php require_once '../model/connection.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,11 +9,11 @@
 
 
 
-		<h1>Archives</h1>
+		<h1>Archive</h1>
 		
 <?php
 
-$stmt = $pdo->query("SELECT Month(date) as Month, Year(date) as Year,
+/*$stmt = $pdo->query("SELECT Month(date) as Month, Year(date) as Year,
 post_title, post_id FROM posts WHERE user_id = :user_id ORDER BY date DESC");
 
 // you will store current month here to control when the month changes
@@ -43,7 +43,7 @@ while($row = $post->currentArchive()){
     //echo "<li class=\"cl-posts\"><a href='$slug'>$monthName</a></li>";
     //$id = $row['post_id'];
     echo '<li class="cl-posts active"><a href= "../myBlog.php?id='.'post_id'.'">'.$row['post_title'].'</a></li>';
-}
+}*/
 ?>
                
 </body>
