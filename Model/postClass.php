@@ -16,15 +16,16 @@ class POST
      * a title, content, the current time and date and the logged in user ID. 
      * Tags are currently commented out as they are not yet working. 
      */
-    public function newPost($title,$content)
+    public function newPost($title,$content,$image='')
     {
        try
-       {$stmt = $this->db->prepare("INSERT INTO posts(post_title,post_content,date,user_id) 
-                                                       VALUES(:title,:content,NOW(),:user_id)");
+       {$stmt = $this->db->prepare("INSERT INTO posts(post_title,post_content,date,user_id, image) 
+                                                       VALUES(:title,:content,NOW(),:user_id,:image)");
               
            $stmt->bindParam(":title", $title);
            $stmt->bindParam(":content", $content);
            $stmt->bindParam(":user_id", $_SESSION['user_session']);
+           $stmt->bindParam(":image", $image);
            //$stmt->bindParam(":tags", $tags);   //TODO: Use tag ID from the tags table      
            $stmt->execute();
            
@@ -113,7 +114,7 @@ class POST
     public function viewPost($post_id) {
         try
         {
-        $stmt=$this->db->prepare("SELECT post_id, post_title, post_content, date, user_id FROM posts WHERE post_id=:post_id");
+        $stmt=$this->db->prepare("SELECT post_id, post_title, post_content, date, user_id, image FROM posts WHERE post_id=:post_id");
         $stmt->bindParam(":post_id", $post_id);
         $stmt->execute(); 
  

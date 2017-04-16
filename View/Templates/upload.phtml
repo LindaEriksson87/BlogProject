@@ -14,9 +14,12 @@ if (isset ($_POST['btn-post'])) {
 
     
     if (($_FILES["image"]['name']) != "") {
-        
+        $temp = explode(".", $_FILES["image"]["name"]);
+        $uniqueSaveName=time().uniqid(rand());
+        $newFileName = $uniqueSaveName .  '.' . end($temp);
+       
         $target_dir = "../Model/blogimageuploads/";
-        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        $target_file = $target_dir . $newFileName;
         $uploadOk = 1;
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         $check = getimagesize($_FILES["image"]["tmp_name"]);
@@ -73,7 +76,7 @@ if (isset ($_POST['btn-post'])) {
     }
 
     else {
-        $post->newPost($title, $content);
+        $post->newPost($title, $content, $newFileName);
     }
 }
 
