@@ -3,9 +3,6 @@
 require_once '../model/connection.php';
 include 'templates/userFunctions.php';
 
-
-
-
  $email = $_POST['email'];
  $sessions = $_SESSION['user'];
 
@@ -27,6 +24,22 @@ include 'templates/userFunctions.php';
   mysql_close();
   ?>
 
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        
+        <style> 
+            label {display: block}
+        </style>
+        
+        <title> Add bio </title>
+    </head>
+    
+    <body
+
    <div class="form-group">
                 <label for="email"> Update Email </label>
                 <textarea class="form-control" name="email" rows="3"><?php if ( isset($_POST['email']) ) {echo $_POST['email'];} else {echo $thisUserEmail;}; ?></textarea>
@@ -39,3 +52,5 @@ include 'templates/userFunctions.php';
             </div>
  
         </div>
+</body>   
+</html>
