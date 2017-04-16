@@ -12,7 +12,6 @@
 		<h1>Archives</h1>
 		
 <?php
-
 $stmt = $pdo->query('SELECT Month (date) as Month, Year(date) as Year,post_title, post_id, user_id FROM posts ORDER BY date ASC LIMIT 10');
 while($row = $stmt->fetch()){
     echo '<li><a href="viewPost.php?id='.$row['post_id'].'">'.$row['post_title'].'</a></li>';
