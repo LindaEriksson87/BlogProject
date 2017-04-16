@@ -55,7 +55,7 @@ if (isset ($_POST['btn-post'])) {
         //getting rid of whitespace
     $title     = trim($_POST['title']);
     $content   = trim($_POST['content']);
-   // $tags      = trim($_POST['tags']);
+    $tags      = trim($_POST['tags']);
 
     if (empty ($title)){
         
@@ -71,12 +71,16 @@ if (isset ($_POST['btn-post'])) {
     $errors = 'Please shorten your title, it is too long (250 character limit).';
     }
     
-    if (strlen($content) > 2000) {
-    $errors = 'Please shorten your blog post, it is too long (2000 character limit).';
+    if (strlen($content) > 5000) {
+    $errors = 'Please shorten your blog post, it is too long (5000 character limit).';
     }
 
+    if (strlen($tags) > 100) {
+    $errors = 'Tags cannot be longer than 100 characters.';
+    }
+    
     else {
-        $post->newPost($title, $content, $newFileName);
+        $post->newPost($title, $content, $newFileName, $tags);
     }
 }
 

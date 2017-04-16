@@ -48,7 +48,7 @@
             <div class="form-group">
                 <label for="content"> Content </label>
                 <textarea class="form-control" name="content" rows="10"><?php if ( isset($_POST['content']) ) echo $_POST['content']; ?></textarea>
-                <p> (2000 characters max.) </p>
+                <p> (5000 characters max.) </p>
             </div>
             
                <div class='form-group'>
@@ -67,15 +67,9 @@
             <div class="form-group">
                 <label for="tags"> Tags </label>
                 <textarea class="form-control" name="tags" rows="1"><?php if ( isset($_POST['tags']) ) echo $_POST['tags']; ?></textarea>
+                <p> Separate each tag with a comma. </p>
             </div>
-                <?php
-                //foreach ( get_tags() as $tags ) {
-                    ?>
-                <!-- this is if we are to use a drop down of prexisting tags -->
-                <option value ="<?php //echo $tags['id']; ?>"><?php //echo $tags['name']; ?></option>
-                <?php
 
-                ?>
                 
                 <div>
                 <input type="submit" value="Add Post" name="btn-post">
