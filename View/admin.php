@@ -6,8 +6,6 @@ use function controllers\display\display;
 
 require_once '../model/connection.php';
 
-
-
 ?>
 
 <!doctype html>
