@@ -20,6 +20,16 @@ foreach($posts as $post):?>
         <?php } ?>
 <?= $post['post_content'];?>
     </div>
+    <div class='panel-footer'>
+        <?php if($post['tags'] != ''){
+            
+            $tagsArray=explode(',',$post['tags']); 
+            foreach ($tagsArray as $tag){
+                ?> <a href="search.php?tag=<?= $tag; ?>"> <?= $tag; ?></a><?php echo "";
+            }
+        }
+        ?>
+    </div>
 </div>
 <span class="badge"> 
 <?= $post[3];?>

@@ -54,12 +54,13 @@ else
 	}
         
         ?>
-    <div class="container well well-lg col-sm-8">
+    <div class='container'>
+    <div class="row well well-lg col-sm-10 justify-content-center">
         <div class="form-group">
-            <label for ='searchbox'>Search for a user:</label><br>
+            <label for ='searchUser'>Search for a user:</label><br>
             <form class='' action='' method='POST'><br>
                 <input class='form-control' type='text' value ='<?=$searchtermUser ?>' name='searchUser'><br><br>
-                <input class='btn' type='submit' value='Search for User' name='btn-user'><br>
+                <input class='btn btn-info' type='submit' value='Search for User' name='btn-user'><br>
             </form>
         </div>
 
@@ -87,6 +88,7 @@ else
                 
                 echo '</ul>';
             }
+            
             //RW - no results found error message
             if (empty($href) && !empty($isSubmitted)) { 
                 echo 'No results found'; 
@@ -94,12 +96,12 @@ else
      
             ?>
     
-        
+        <hr>
     <div class="form-group">
-            <label for ='searchbox'>Search for a tag:</label><br>
+            <label for ='searchTag'>Search for a tag:</label><br>
             <form class='' action='' method='POST'><br>
                 <input class='form-control' type='text' value ='<?=$searchtermTag?>' name='searchTag'><br><br>
-                <input class='btn' type='submit' value='Search for Tag' name='btn-tag'><br>
+                <input class='btn btn-info' type='submit' value='Search for Tag' name='btn-tag'><br>
             </form>
         </div>
 
@@ -111,7 +113,7 @@ else
             {            
                 $searchtermTag = trim($_POST['searchTag']);
                 $cleanedSearchtermTag = $searchtermTag; //mysqli_real_escape_string($pdo, $searchterm);//removes any unwanted code submitted by the user before saving to database
-                $sql = "SELECT post_title, post_id, user_name
+                $sql = "SELECT post_title, post_id, user_name, tags
                 FROM blog_database.posts
                 INNER JOIN blog_database.users ON posts.user_id = users.user_id
                 WHERE tags LIKE '%$cleanedSearchtermTag%';"; 
@@ -120,13 +122,37 @@ else
                 echo '<ul>';
                 
                 while($row = $stmt->fetch()){
-                    $text = $row['post_title'].' - '.$row['user_name'];
+                    $text = $row['user_name'].' - '.$row['post_title'].' - '.$row['tags'];
                     $id = $row['post_id'];
                     $href='viewPost.php?id='.$id;
                     echo '<li><a href="'.$href.'">'.$text.'</a></li>';
                 }
                 
                 echo '</ul>';
+            }
+            
+            
+            else if (isset ($_GET['tag'])){
+                
+                $searchtermTag = trim($_GET['tag']);
+                $cleanedSearchtermTag = $searchtermTag; //mysqli_real_escape_string($pdo, $searchterm);//removes any unwanted code submitted by the user before saving to database
+                $sql = "SELECT post_title, post_id, user_name, tags
+                FROM blog_database.posts
+                INNER JOIN blog_database.users ON posts.user_id = users.user_id
+                WHERE tags LIKE '%$cleanedSearchtermTag%';"; 
+
+                $stmt = $pdo->query($sql);
+                echo '<ul>';
+                
+                while($row = $stmt->fetch()){
+                    $text = $row['user_name'].' - '.$row['post_title'].' - '.$row['tags'];
+                    $id = $row['post_id'];
+                    $href='viewPost.php?id='.$id;
+                    echo '<li><a href="'.$href.'">'.$text.'</a></li>';
+                }
+                
+                echo '</ul>';
+                
             }
             //RW - no results found error message
             if (empty($href) && !empty($isSubmitted)) { 
@@ -135,7 +161,7 @@ else
      
             ?>
     </div>
-        
+    </div>    
         <script>
         <!-- Button trigger modal -->
  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">

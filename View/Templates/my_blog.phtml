@@ -23,12 +23,9 @@ foreach($posts as $post):?>
             
             $tagsArray=explode(',',$post['tags']); 
             foreach ($tagsArray as $tag){
-                echo $tag . "";
+                ?> <a href="search.php?tag=<?= $tag; ?>"> <?= $tag; ?></a><?php echo "";
             }
         }
-        
-        
-        
         ?>
     </div>
 </div>

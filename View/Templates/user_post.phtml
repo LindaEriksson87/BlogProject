@@ -10,15 +10,25 @@ $userID = $posts[4];
 $thisUser = $user->getUsername($userID);
 ?>
 <div class="panel panel-default">
-  <div class="panel-heading">
+    <div class="panel-heading">
       <b><?= $posts[1];?></b> by <a href="viewUser.php?id=<?= $userID ?>"><?=$thisUser[0]?></a>
-</div>
-<div class="panel-body">
-    <?php if($posts['image'] != NULL) { ?>
-        <a href="../Model/blogimageuploads/<?=$posts['image'];?>" target="_blank"><img src="../Model/blogimageuploads/<?=$posts['image'];?>" width="150" class="img-thumbnail img-responsive pull-left img-rightmargin" /></a>
-        <?php } ?>
-<?= $posts[2];?>
-</div>
+    </div>
+    <div class="panel-body">
+        <?php if($posts['image'] != NULL) { ?>
+            <a href="../Model/blogimageuploads/<?=$posts['image'];?>" target="_blank"><img src="../Model/blogimageuploads/<?=$posts['image'];?>" width="150" class="img-thumbnail img-responsive pull-left img-rightmargin" /></a>
+            <?php } ?>
+    <?= $posts[2];?>
+    </div>
+    <div class='panel-footer'>
+        <?php if($posts['tags'] != ''){
+            
+            $tagsArray=explode(',',$posts['tags']); 
+            foreach ($tagsArray as $tag){
+                ?> <a href="search.php?tag=<?= $tag; ?>"> <?= $tag; ?></a><?php echo "";
+            }
+        }
+        ?>
+    </div>
 </div>
 <span class="badge">
 <?= $posts[3];?>
