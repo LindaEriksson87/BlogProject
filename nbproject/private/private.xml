@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/contact_form.phtml</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/Model/blog_database.sql</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/BlogProject/View/Templates/send_form_email.php</file>
         </group>
     </open-files>
