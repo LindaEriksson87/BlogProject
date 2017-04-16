@@ -43,11 +43,12 @@ else
 
             $error = false;
 
-            if(empty($searchterm))
+            //RW - have commented below out because currently it's quite useful to make an empty search as it shows all users
+            /*if(empty($searchterm))
             {
                 $searchterm_error='searchbar section is empty. Please enter your search term.';//comment validation
                 $error=true;
-            }
+            } */
 	}
         
         ?>
@@ -83,6 +84,10 @@ else
                 }
                 
                 echo '</ul>';
+            }
+            //RW - no results found error message
+            if (empty($href) && !empty($isSubmitted)) { 
+                echo 'No results found'; 
             }
      
             ?>
