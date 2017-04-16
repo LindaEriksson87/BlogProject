@@ -1,12 +1,9 @@
 <?php
-
 include '../controllers/display.php';
 include '../controllers/login.php';
 include 'templates/userFunctions.php';
 use function controllers\display\display;
-
 require_once '../model/connection.php';
-
 ?>
 
 <!doctype html>
@@ -22,7 +19,6 @@ require_once '../model/connection.php';
 <body>
     
 <?php 
-
 // Displaying the nav bar with a login form or logout button depending on if the user session is set or not.
 if($user->is_loggedin()!="")
 {
@@ -38,7 +34,6 @@ else
 <h1>Welcome to our blog!</h1>
 
 <!-- <p>Welcome paragraph goes here</p>
-
 carousel of featured bloggers goes here -->
 
 
@@ -73,4 +68,3 @@ while($row = $stmt->fetch()){
 
 </body>
 </html>
-
