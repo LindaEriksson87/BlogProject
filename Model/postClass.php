@@ -16,17 +16,17 @@ class POST
      * a title, content, the current time and date and the logged in user ID. 
      * Tags are currently commented out as they are not yet working. 
      */
-    public function newPost($title,$content,$image='')
+    public function newPost($title,$content,$image='',$tags)
     {
        try
-       {$stmt = $this->db->prepare("INSERT INTO posts(post_title,post_content,date,user_id, image) 
-                                                       VALUES(:title,:content,NOW(),:user_id,:image)");
+       {$stmt = $this->db->prepare("INSERT INTO posts(post_title,post_content,date,user_id,tags image) 
+                                                       VALUES(:title,:content,NOW(),:user_id,:tags,:image)");
               
            $stmt->bindParam(":title", $title);
            $stmt->bindParam(":content", $content);
            $stmt->bindParam(":user_id", $_SESSION['user_session']);
            $stmt->bindParam(":image", $image);
-           //$stmt->bindParam(":tags", $tags);   //TODO: Use tag ID from the tags table      
+           $stmt->bindParam(":tags", $tags);   //TODO: Use tag ID from the tags table      
            $stmt->execute();
            
            return $stmt; 
@@ -37,16 +37,17 @@ class POST
        }    
     }
     
-        public function updatePost($title,$content,$postID)
+        public function updatePost($title,$content,$postID,$tags)
     {
        try
        {$stmt = $this->db->prepare("UPDATE posts
-                                    SET post_title=:post_title, post_content=:post_content
+                                    SET post_title=:post_title, post_content=:post_content, tags=:tags
                                     WHERE post_id=:post_id");
        
            $stmt->bindParam(":post_title", $title);
            $stmt->bindParam(":post_content", $content);
            $stmt->bindParam(":post_id", $postID);  
+           $stmt->bindParam(":tags", $tags);
            $stmt->execute();
            
            return $stmt; 
