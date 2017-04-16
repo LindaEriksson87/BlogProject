@@ -27,7 +27,6 @@ h4 {
 body {
   margin: 0;
   padding: 0;
-  text-align: center;
   font-family: 'Roboto', sans-serif;
   color: #222;
   background: #f7f5f0;
@@ -50,7 +49,7 @@ a:hover {
   min-height: 30px;
   padding: 10px;
   position: fixed;
-  text-align: center;
+
 }
 .nav {
   display: flex;

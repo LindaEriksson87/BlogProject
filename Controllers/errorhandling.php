@@ -3,27 +3,35 @@
 error_reporting(E_ALL);
 
 
-//limit for word count
-if ($wordcountofblog>500) {
-    trigger_error("Your blog post is too long - trim and try again! Max. 500 words.");
-}
+//limit for word count - the commented out code below is now in the upload.phtml file.
+// if ($wordcountofblog>2000) {
+//    trigger_error("Your blog post is too long - trim and try again! Max. 2000 characters.");
+// }
 
 //incorrect username or password
-//if ()
+    //INSERT CODE HERE
+
+
+//password too short 
   
 $passwordcharacters= "$2y$10$2aNyIXKZJSgjvN3GEEc6TO0AnweslZsWH3ygnZp9V6SV1z5pIaPve, NULL";
 if ($passwordchracters<=5) {
   trigger_error("Your password must include a minimum of 5 characters");
 }
 
- 
+
+//invalid email address
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    trigger_error("This is not a valid email address, please try again.");
+}
+
+  
 //uploading wrong file type, blog picture
-    // if !jpeg etc.
+    // RW this is in the add_post.php file
 
 
-
-
-
+//Image size is too large - this is now in upload.phtml
 
 
 

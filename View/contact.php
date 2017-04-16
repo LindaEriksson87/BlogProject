@@ -51,7 +51,8 @@ if(isset($_POST['btn-send']))
 <!--Including Bootstrap CSS -->
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  crossorigin="anonymous">
-
+<link rel="stylesheet" href="CSS/additionalCSS.css">
+<link href="https://fonts.googleapis.com/css?family=Geostar+Fill|Stalinist+One" rel="stylesheet">
 </head>
 
 
@@ -71,7 +72,7 @@ else
 ?>
     
 
-<h1>Contact Page</h1>
+<h1>Contact</h1>
 
 <p>Some text</p>
 

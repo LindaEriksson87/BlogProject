@@ -109,7 +109,7 @@ class USER
    public function allUsers() {
        try
         {
-        $stmt=$this->db->prepare("SELECT user_name, user_id FROM users WHERE user_name <> 'Admin'");
+        $stmt=$this->db->prepare("SELECT user_name, user_id , admin FROM users WHERE user_name <> 'Admin'");
        
         $stmt->execute(); 
 	return $stmt->fetchAll();
@@ -141,6 +141,21 @@ class USER
         {
         $stmt=$this->db->prepare("SELECT user_name FROM users WHERE user_id=:user_id");
         $stmt->bindparam(":user_id", $user_id);
+        $stmt->execute(); 
+ 
+	return $stmt->fetch();
+    }
+    catch(PDOException $e)
+       {
+            echo $e->getMessage();
+       }    
+    }
+    
+    public function getAdminLevel($userID) {
+        try
+        {
+        $stmt=$this->db->prepare("SELECT admin FROM users WHERE user_id=:user_id");
+        $stmt->bindParam(":user_id", $userID);
         $stmt->execute(); 
  
 	return $stmt->fetch();
@@ -226,6 +241,24 @@ class USER
                                     SET admin='2'
                                     WHERE user_id=:user_id");
          
+           $stmt->bindParam(":user_id", $userID);
+           $stmt->execute();
+           
+           return $stmt; 
+       }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }    
+    }
+    
+    public function demoteUser($userID)
+    {
+       try
+       {$stmt = $this->db->prepare("UPDATE users
+                                    SET admin=NULL
+                                    WHERE user_id=:user_id");
+         
            $stmt->bindparam(":user_id", $userID);
            $stmt->execute();
            
@@ -237,5 +270,21 @@ class USER
        }    
     }
     
+    public function deleteUser($userID)
+    {
+       try
+       {$stmt = $this->db->prepare("DELETE FROM users 
+                                    WHERE user_id=:user_id");
+         
+           $stmt->bindparam(":user_id", $userID);
+           $stmt->execute();
+           
+           return $stmt; 
+       }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }    
+    }
     
 }

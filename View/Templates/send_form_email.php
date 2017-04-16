@@ -3,30 +3,32 @@ if(isset($_POST['email'])) {
  
     // email to send to & subject line
     $email_to = "lejohnson75@gmail.com";
-    $email_subject = "Contact Get Into Techno";
+    $email_subject = "A Message to Get Into Techno";
  
-    function trigger_error($error) {
+    function died($error) {
         // your error code can go here
         echo "We are very sorry, but there were error(s) found with the form you submitted. ";
         echo "These errors appear below.<br /><br />";
         echo $error."<br /><br />";
         echo "Please go back and fix these errors.<br /><br />";
-        trigger_error();
+        die();
     }
  
  
     // validation expected data exists
-    if(!isset($_POST['txt_fullname']) ||
-        !isset($_POST['txt_email']) ||
-        !isset($_POST['txt_message'])) {
-        trigger_error('We are sorry, but there appears to be a problem with the form you submitted.');       
+    if(!isset($_POST['first_name']) ||
+        !isset($_POST['last_name']) ||
+        !isset($_POST['email']) ||
+        !isset($_POST['message'])) {
+        died('We are sorry, but there appears to be a problem with the form you submitted.');       
     }
  
      
  
-    $full_name = $_POST['txt_fullname']; // required
-    $email_from = $_POST['txt_email']; // required
-    $message = $_POST['txt_message']; // required
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name']; 
+    $email_from = $_POST['email']; 
+    $message = $_POST['message']; 
  
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
@@ -36,9 +38,12 @@ if(isset($_POST['email'])) {
   }
  
     $string_exp = "/^[A-Za-z .'-]+$/";
- 
   if(!preg_match($string_exp,$first_name)) {
-    $error_message .= 'The Full Name you entered does not appear to be valid.<br />';
+    $error_message .= 'The First Name you entered does not appear to be valid.<br />';
+  }
+  
+  if(!preg_match($string_exp,$last_name)) {
+    $error_message .= 'The Last Name you entered does not appear to be valid.<br />';
   }
  
  
@@ -60,7 +65,8 @@ if(isset($_POST['email'])) {
  
      
  
-    $email_message .= "Full Name: ".clean_string($full_name)."\n";
+    $email_message .= "First Name: ".clean_string($first_name)."\n";
+    $email_message .= "Last Name: ".clean_string($last_name)."\n";
     $email_message .= "Email: ".clean_string($email_from)."\n";
     $email_message .= "Message: ".clean_string($message)."\n";
  
@@ -71,12 +77,9 @@ $headers = 'From: '.$email_from."\r\n".
 @mail($email_to, $email_subject, $email_message, $headers);  
 ?>
  
-<!-- include your own success html here -->
- 
 <h1>Thank you for contacting Get Into Techno. We will be in touch with you very soon.</h1>
  
 <?php
  
 }
 ?>
-
