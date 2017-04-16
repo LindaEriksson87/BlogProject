@@ -3,7 +3,7 @@ if(isset($_POST['email'])) {
  
     // email to send to & subject line
     $email_to = "lejohnson75@gmail.com";
-    $email_subject = "Contact Get Into Techno";
+    $email_subject = "A Message to Get Into Techno";
  
     function died($error) {
         // your error code can go here
@@ -11,24 +11,24 @@ if(isset($_POST['email'])) {
         echo "These errors appear below.<br /><br />";
         echo $error."<br /><br />";
         echo "Please go back and fix these errors.<br /><br />";
-        trigger_error();
+        die();
     }
  
  
     // validation expected data exists
     if(!isset($_POST['first_name']) ||
         !isset($_POST['last_name']) ||
-            !isset($_POST['email']) ||
+        !isset($_POST['email']) ||
         !isset($_POST['message'])) {
         died('We are sorry, but there appears to be a problem with the form you submitted.');       
     }
  
      
  
-    $first_name = $_POST['first_name']; // required
-    $last_name = $_POST['last_name']; // required
-    $email_from = $_POST['email']; // required
-    $message = $_POST['message']; // required
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name']; 
+    $email_from = $_POST['email']; 
+    $message = $_POST['message']; 
  
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
@@ -38,7 +38,6 @@ if(isset($_POST['email'])) {
   }
  
     $string_exp = "/^[A-Za-z .'-]+$/";
- 
   if(!preg_match($string_exp,$first_name)) {
     $error_message .= 'The First Name you entered does not appear to be valid.<br />';
   }
