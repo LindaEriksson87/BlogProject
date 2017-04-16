@@ -2,13 +2,8 @@
 
 require_once '../model/connection.php';
 include 'templates/userFunctions.php';
-include '../config/config.php';
 
-session_start();
-if (!session_is_registered(user))
-  {
-   header("location:login.php");
-}
+
 
 
  $email = $_POST['email'];
