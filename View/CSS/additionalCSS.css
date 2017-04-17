@@ -22,3 +22,10 @@ and open the template in the editor.
 .img-rightmargin {
     margin-right: 20px; 
 }
+
+.feat-blog {
+    border-width: 2px !important;
+    background-color: #A29C9B !important;
+    background-image: none !important;
+    min-height: 200px !important;
+}

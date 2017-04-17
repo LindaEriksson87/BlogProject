@@ -8,14 +8,17 @@ require_once '../model/connection.php';
 
 <!doctype html>
 <html>
-<head><title>Get Into Techno</title></head>
+<head><title>Get Into Techno</title>
 
 
 <!--Including Bootstrap CSS -->
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="CSS/additionalCSS.css">
-<link href="https://fonts.googleapis.com/css?family=Geostar+Fill|Stalinist+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Geostar+Fill|Raleway|Roboto|Stalinist+One" rel="stylesheet"
+
+
+</head>
 <body>
     
 <?php 
@@ -37,17 +40,7 @@ else
 carousel of featured bloggers goes here -->
 
 
-<div>
-    <h2>Featured bloggers</h2>
-<!--This code randomly generates a user with the function from userFunctions,
-then a link is added that will take the user to the viewuser page with a GET tag at the end, the 
-GET will be id= + the ID linked to the username, this is also generated in userFunctions. After the name follows the bio for that user -->
-<p><a href="viewUser.php?id=<?= $randomUserID ?>"><?= $randomUsername ?></a><br><?=$randomUserBio?></p>
-    <br><br>
 
-    
-    *carousel of featured bloggers random*
-</div>
 </div>
 <div class="col-sm-4 well well-lg">
     <h2>Latest posts</h2>
@@ -62,6 +55,19 @@ while($row = $stmt->fetch()){
 ?>
 </ul> 
         	
+</div>
+    
+    <div class="col-sm-12 border-radius feat-blog" >
+    <h4 class="tech-center">Featured blogger</h4>
+<!--This code randomly generates a user with the function from userFunctions,
+then a link is added that will take the user to the viewuser page with a GET tag at the end, the 
+GET will be id= + the ID linked to the username, this is also generated in userFunctions. After the name follows the bio for that user -->
+<div class="col-sm-4"><a href="viewUser.php?id=<?= $randomUserID ?>"><?= $randomUsername ?></a><br><br>
+    <?php echo Controllers\display\display('user_image_random',['user' => $user, 'post' => $post, 'randomUserID' => $randomUserID]); ?>
+    <?=$randomUserBio?></div>
+<br><br><br>
+
+    
 </div>
 
 
