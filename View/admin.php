@@ -63,6 +63,10 @@ foreach ($userList as &$users){ ?><tr>
     </table>
     </div>
     </div>
+    
+        <div class='col-sm-12'>
+    <?php echo Controllers\display\display('footer') ?>
+    </div>
 </body>
 </html>
 

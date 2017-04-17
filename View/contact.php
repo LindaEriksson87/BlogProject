@@ -155,5 +155,8 @@ else
             <br />
         </form>
  </div>
+    <div class='col-sm-12'>
+    <?php echo Controllers\display\display('footer') ?>
+    </div>
 </body>
 </html>
