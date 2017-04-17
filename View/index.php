@@ -76,10 +76,17 @@ GET will be id= + the ID linked to the username, this is also generated in userF
 
     
 </div>
+
     
     <div class="col-sm-12 border-radius feat-blog">  
 <img src="../Model/blogimages/concertbanner.png" alt="technorave" style="width:100%; height:45%;">
     </div>
   
+
+<div class="col-sm-12">
+    <?php echo Controllers\display\display('footer') ?></div>
+
+
+
 </body>
 </html>

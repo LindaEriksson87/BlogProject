@@ -69,7 +69,7 @@ a:hover {
   transition: all .5s;
 }
 .nav a:hover {
-  color: white
+  color: #28CE0E !important;
 }
 
 header {
