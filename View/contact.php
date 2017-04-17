@@ -1,12 +1,4 @@
 <?php
-
-include '../controllers/display.php';
-include '../controllers/login.php';
-include 'templates/userFunctions.php';
-use function controllers\display\display;
-
-require_once '../model/connection.php';
-
 if(isset($_POST['email'])) {
  
     // email to send to & subject line
@@ -83,10 +75,14 @@ $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_from."\r\n" .
 'X-Mailer: PHP/' . phpversion();
 @mail($email_to, $email_subject, $email_message, $headers);  
-}
 ?>
  
 <h1>Thank you for contacting Get Into Techno. We will be in touch with you very soon.</h1>
+ 
+<?php
+ 
+}
+?>
  
 
 
