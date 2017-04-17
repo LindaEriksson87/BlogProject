@@ -11,5 +11,6 @@
         
 
     <h4 class='tech-center'>About <?=$usernameID?></h4>
+    <?php echo Controllers\display\display('user_image',['user' => $user, 'post' => $post, 'sanitizedID' => $sanitizedID]); ?>
     <?=$userBioID?>
 		

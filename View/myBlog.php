@@ -50,6 +50,10 @@ else
     </div>
        
     <div class="col-sm-4 well well-lg">
-        <?php echo Controllers\display\display('user_loggedIn', ['thisUserBio' => $thisUserBio]); ?>
+        
+        <?php echo Controllers\display\display('user_loggedIn', ['user' => $user, 'post' => $post, 'thisUserBio' => $thisUserBio]); ?>
+        <hr>
+        <div class='col-sm-12'>
         <?php echo Controllers\display\display('archive', ['pdo' => $pdo]); ?>
+        </div>
     </div>

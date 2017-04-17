@@ -31,6 +31,10 @@ if(isset($_POST['btn-signup']))
       $error[] = "Please provide a username."; 
    }
    
+   if($user_name > 15) {
+      $error[] = "Usernames must be shorter than than 15 characters."; 
+   }
+   
    if($email=="") {
       $error[] = "Please enter a valid email address."; 
    }

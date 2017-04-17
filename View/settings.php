@@ -168,7 +168,7 @@ else
 ?>
 <div>
         <form method="post">
-            <h2>My Settings</h2><hr />
+            <h2 class='tech-center'>My Settings</h2><hr />
             <?php
             if(isset($error))
             {
@@ -185,7 +185,9 @@ else
             <div class='col-sm-4 well well-lg'>
             <?php echo Controllers\display\display('my_image',['user' => $user, 'post' => $post]); ?>
             <?php echo Controllers\display\display('upload_image',['user' => $user, 'post' => $post]); ?>
+            <div class='col-sm-12'>   
             <?php echo Controllers\display\display('update_biography',['user' => $user, 'post' => $post, 'thisUserBio' => $thisUserBio]); ?>
+            </div>
             </div>
             <div class='col-sm-4 well well-lg'>
             <?php echo Controllers\display\display('update_form',['user' => $user, 'post' => $post, 'thisUserUsername' => $thisUserUsername, 'thisUserFirstName' => $thisUserFirstName, 'thisUserLastName' => $thisUserLastName , 'thisUserEmail' => $thisUserEmail]); ?>
