@@ -86,6 +86,61 @@ if(isset($_POST['btn-password']))
          }
 }
 
+if(isset($_POST['btn-bio']))
+    
+{
+   $biography = trim($_POST['bio']); 
+    
+
+   if(strlen($biography) > 300){
+      $error[] = "Bio cannot be longer than 300 characters."; 
+   }
+   else if ($user->updateBio($biography))
+         {
+            header("Refresh:0");  
+         }
+}
+
+if (isset($_POST['btn-img'])){
+    if (($_FILES["image"]['name']) != "") {
+        $temp = explode(".", $_FILES["image"]["name"]);
+        $newFileName = $_SESSION['user_session'] .  '.' . end($temp);
+       
+        $target_dir = "../Model/profileimageuploads/";
+        $target_file = $target_dir . $newFileName;
+        $uploadOk = 1;
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        if($check !== false) {
+            $uploadOk = 1;
+        } else {
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES["image"]["size"] > 500000) {
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+        }
+
+        // Allow certain file formats
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif" ) {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+        }
+    
+        else if ($uploadOk == 1){
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+        }
+    }
+}
+
 ?>
 <!doctype html>
 <html>
@@ -127,7 +182,15 @@ else
                }
             }
             ?>
-           <?php echo Controllers\display\display('update_form',['user' => $user, 'post' => $post, 'thisUserUsername' => $thisUserUsername, 'thisUserFirstName' => $thisUserFirstName, 'thisUserLastName' => $thisUserLastName , 'thisUserEmail' => $thisUserEmail]); ?>
+            <div class='col-sm-4 well well-lg'>
+            <?php echo Controllers\display\display('my_image',['user' => $user, 'post' => $post]); ?>
+            <?php echo Controllers\display\display('upload_image',['user' => $user, 'post' => $post]); ?>
+            <?php echo Controllers\display\display('update_biography',['user' => $user, 'post' => $post, 'thisUserBio' => $thisUserBio]); ?>
+            </div>
+            <div class='col-sm-4 well well-lg'>
+            <?php echo Controllers\display\display('update_form',['user' => $user, 'post' => $post, 'thisUserUsername' => $thisUserUsername, 'thisUserFirstName' => $thisUserFirstName, 'thisUserLastName' => $thisUserLastName , 'thisUserEmail' => $thisUserEmail]); ?>
+            </div>
+            
             <br />
         </form>
  </div>

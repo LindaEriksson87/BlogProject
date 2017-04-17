@@ -6,7 +6,7 @@ include 'templates/userFunctions.php';
 ?>
 
 <?php
-
+/*
 $newFileNamebio = '';
 
 if (isset ($_POST['btn-post'])) {
@@ -56,29 +56,14 @@ if (isset ($_POST['btn-post'])) {
         }
         }
 }
-    ?>
+   */ ?>
 
 <!DOCTYPE html>
 
-<html lang="en">
-
-    <head>
-        <meta charset="utf-8">
-        
-        <style> 
-            label {display: block}
-        </style>
-    <body>
-        <h3>Upload image</h3>
-        
-         <div class="form-group">
-        <form action="upload_image.phtml" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload"><?php if ( isset($_POST['image']) ) echo $_POST['image']; ?>
-        </form>   
-    
-         </div>
- 
-        </div>
-    </body>
-</html>
+<div class='form-group'>
+    <form class='form-control' action="" method="post" enctype="multipart/form-data">
+                    <label for="image">Image</label>
+                    <input type='file' name='image'/>
+                    <input type="submit" value="Upload Image" name="btn-img">
+    </form>
+</div>

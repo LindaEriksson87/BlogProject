@@ -1,0 +1,4 @@
+<?php 
+if(file_exists("../Model/profileimageuploads/{$_SESSION['user_session']}.jpg")): ?>
+		<img class='img-rounded' src="../Model/profileimageuploads/<?=$_SESSION['user_session']?>.jpg" width="150" />
+	<?php endif; ?>

@@ -1,78 +1,13 @@
-<?php
-
-require_once '../model/connection.php';
-include 'templates/userFunctions.php';
-
-
-
-//The below should be redundant as long as the button is pushed. 
-//$_POST['biography']
-$error
-
-if (isset ($_POST['btn-bio'])){
-//getting rid of whitespace
-    $biography   = trim($_POST['biography']);
-    
-    if (empty($biography)) {
-
-        $error = "Please enter some text.";
-    } 
-    
-    
-    if (strlen($biography) > 500) {
-    $error = 'Please shorten your bio, it is too long (500 character limit).';
-    }
-
-    else if (!isset($error)){
-        $user->updateBio($biography);
-    }
-}
-
-
-
-
-?>
-
-<!DOCTYPE html>
-
-<html lang="en">
-
-    <head>
-        <meta charset="utf-8">
-        
-        <style> 
-            label {display: block}
-        </style>
-        
-        <title> Add bio </title>
-    </head>
-
-    <body>
-
-        <div><h3>Add Biography</h3>
-        <div class="container">
-        
-        <?php
-        //gives a list of errors under 'Add Biography' heading, if user makes an error
-        if ( isset($errors) && ! empty($errors)){
-            echo '<ul><li>', implode('</li><li>', $errors), '</li></ul>';
-        }
-        ?>
-       
-            
-
-           
-            <div class="form-group">
-                <label for="biography"> Biography </label>
-                <textarea class="form-control" name="biography" rows="3"><?php if ( isset($_POST['biography']) ) {echo $_POST['biography'];} else {echo $thisUserBio;}; ?></textarea>
-            </div>
-        
-                <div>
-                <input type="submit" value="Add Biography" name="btn-bio">
-                </div>
-                       </form>
-            </div>
- 
-        </div>
-    </body>
-</html>
+<form class="form-horizontal" method='post'>
+    <div class="form-group">
+        <label class="control-label" for="biography">Update Biography:</label>
+            <div>
+                <textarea class="form-control col-sm-4" name='bio' rows='4' method='post'><?php echo $thisUserBio?></textarea>
+            </div><br><br><hr/>
+            <div class="form-group col-sm-6">
+             <button type="submit" class="btn btn-block btn-primary" name="btn-bio" method='post'>
+                 Update Bio
+             </button></div>
+            <div class="clearfix"></div><hr />
+    </div>
+</form>
