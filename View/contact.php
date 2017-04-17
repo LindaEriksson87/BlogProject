@@ -1,4 +1,13 @@
 <?php
+
+include '../controllers/display.php';
+include '../controllers/login.php';
+include 'templates/userFunctions.php';
+use function controllers\display\display;
+
+require_once '../model/connection.php';
+
+
 if(isset($_POST['email'])) {
  
     // email to send to & subject line
@@ -83,8 +92,6 @@ $headers = 'From: '.$email_from."\r\n".
  
 }
 ?>
- 
-
 
 <!doctype html>
 <html>
@@ -98,6 +105,7 @@ $headers = 'From: '.$email_from."\r\n".
 <link rel="stylesheet" href="CSS/additionalCSS.css">
 <link href="https://fonts.googleapis.com/css?family=Geostar+Fill|Stalinist+One" rel="stylesheet">
 </head>
+
 
 <body>
     
