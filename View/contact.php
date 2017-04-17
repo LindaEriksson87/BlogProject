@@ -83,6 +83,7 @@ $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_from."\r\n" .
 'X-Mailer: PHP/' . phpversion();
 @mail($email_to, $email_subject, $email_message, $headers);  
+}
 ?>
  
 <h1>Thank you for contacting Get Into Techno. We will be in touch with you very soon.</h1>
@@ -101,7 +102,6 @@ $headers = 'From: '.$email_from."\r\n".
 <link rel="stylesheet" href="CSS/additionalCSS.css">
 <link href="https://fonts.googleapis.com/css?family=Geostar+Fill|Stalinist+One" rel="stylesheet">
 </head>
-
 
 <body>
     
