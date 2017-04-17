@@ -20,7 +20,7 @@ if(isset($_POST['email'])) {
         echo "These errors appear below.<br /><br />";
         echo $error."<br /><br />";
         echo "Please go back and fix these errors.<br /><br />";
-        die();
+        trigger_error();
     }
  
  
@@ -85,11 +85,13 @@ $headers = 'From: '.$email_from."\r\n".
 'X-Mailer: PHP/' . phpversion();
 @mail($email_to, $email_subject, $email_message, $headers);  
 ?>
+Thank you for contacting Get Into Techno. 
+                      We will be in touch with you very soon.
  
-<?php
+ <?php
+} 
+ ?>
  
-}
-?>
 
 <!doctype html>
 <html>
@@ -143,9 +145,9 @@ else
             {
                  ?>
                  <div class="alert alert-info">
-                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Thank you for contacting Get Into Techno. We will be in touch with you very soon.
-  <a href='index.php'>login</a> here
-                 </div>
+                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Thank you for contacting Get Into Techno. 
+                      We will be in touch with you very soon.
+                </div>
                  <?php
             }
             ?>
