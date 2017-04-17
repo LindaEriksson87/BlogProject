@@ -62,8 +62,9 @@ while($row = $stmt->fetch()){
 <!--This code randomly generates a user with the function from userFunctions,
 then a link is added that will take the user to the viewuser page with a GET tag at the end, the 
 GET will be id= + the ID linked to the username, this is also generated in userFunctions. After the name follows the bio for that user -->
-<div class="col-sm-4"><a href="viewUser.php?id=<?= $randomUserID ?>"><?= $randomUsername ?></a><br><br>
+<div class="col-sm-4"><br>
     <?php echo Controllers\display\display('user_image_random',['user' => $user, 'post' => $post, 'randomUserID' => $randomUserID]); ?>
+    <a href="viewUser.php?id=<?= $randomUserID ?>"><?= $randomUsername ?></a><br><br>
     <?=$randomUserBio?></div>
 <br><br><br>
 
