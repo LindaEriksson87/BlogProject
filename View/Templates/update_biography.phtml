@@ -7,6 +7,7 @@ include 'templates/userFunctions.php';
 
 //The below should be redundant as long as the button is pushed. 
 //$_POST['biography']
+$error
 
 if (isset ($_POST['btn-bio'])){
 //getting rid of whitespace
@@ -14,15 +15,15 @@ if (isset ($_POST['btn-bio'])){
     
     if (empty($biography)) {
 
-        $error[] = "Please enter some text.";
+        $error = "Please enter some text.";
     } 
     
     
     if (strlen($biography) > 500) {
-    $errors = 'Please shorten your blog post, it is too long (500 character limit).';
+    $error = 'Please shorten your bio, it is too long (500 character limit).';
     }
 
-    else {
+    else if (!isset($error)){
         $user->updateBio($biography);
     }
 }

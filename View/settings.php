@@ -1,12 +1,97 @@
 <?php
 include '../controllers/display.php';
 include '../controllers/login.php';
+include 'templates/userFunctions.php';
+use function controllers\display\display;
+
 require_once '../model/connection.php';
-//The settings page needs to have all fields working, and it needs to be designed and have bootstrap added. 
+
+
+if(isset($_POST['btn-update']))
+{
+   $filteredFirstname = filter_input(INPUT_POST,'txt_fname', FILTER_SANITIZE_SPECIAL_CHARS);
+   $first_name = trim($filteredFirstname);
+   
+   $filteredLastname = filter_input(INPUT_POST,'txt_lname', FILTER_SANITIZE_SPECIAL_CHARS);
+   $last_name = trim($filteredLastname);
+   
+   $filteredUsername = filter_input(INPUT_POST,'txt_uname', FILTER_SANITIZE_SPECIAL_CHARS);
+   $user_name = trim($filteredUsername);
+   
+   $filteredEmail = filter_input(INPUT_POST,'txt_umail', FILTER_SANITIZE_EMAIL);
+   $email = trim($filteredEmail);
+   
+   if($user_name=="") {
+      $error[] = "Please provide a username."; 
+   }
+   
+   if($email=="") {
+      $error[] = "Please enter a valid email address."; 
+   }
+   
+   if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $error[] = 'Please enter a valid email address.';
+   }
+   
+   else
+   {
+      try
+      {
+         $stmt = $pdo->prepare("SELECT user_name,email FROM users WHERE user_name=:user_name OR email=:email");
+         $stmt->execute(array(':user_name'=>$user_name, ':email'=>$email));
+         $row=$stmt->fetch(PDO::FETCH_ASSOC);
+    
+         if ($row['user_name']!=$_SESSION['username']){
+             
+            if($row['user_name']==$user_name) {
+                $error[] = "Username already taken.";
+            }
+         }
+         // the already registered email error is displaying even if the field is blank 
+         
+         else if($row['email']!=$thisUserEmail){
+             if ($row['email']==$email) {
+                $error[] = "This email address is already registered.";
+                }
+         }
+         else
+         {
+            if($user->update($first_name,$last_name,$user_name,$email,$password))
+            {
+                header("Refresh:0");
+            }
+         }
+     }
+     catch(PDOException $e)
+     {
+        echo $e->getMessage();
+     }
+  } 
+}
+
+if(isset($_POST['btn-password']))
+{
+   $password = trim($_POST['txt_upass']); 
+    
+   if($password=="") {
+      $error[] = "Please enter a password.";
+   }
+   
+   if(strlen($password) < 6){
+      $error[] = "Password must be at least 6 characters"; 
+   }
+   else
+         {
+            $user->updatePassword($password);  
+         }
+}
+
 ?>
 <!doctype html>
 <html>
-<head><title>Get into Techno</title></head>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Register</title>
 <!--Including Bootstrap CSS -->
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -26,20 +111,27 @@ else
     echo Controllers\display\display('nav_bar_signed_out'); 
 }
 ?>
-<body>
-    <header>Settings</header>
-    
-    
-       <?php echo Controllers\display\display('upload_image', ['user' => $user, 'post'=>$post]); ?>
+<div>
+        <form method="post">
+            <h2>My Settings</h2><hr />
+            <?php
+            if(isset($error))
+            {
+               foreach($error as $error)
+               {
+                  ?>
+                  <div class="alert alert-danger">
+                      <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?>
+                  </div>
+                  <?php
+               }
+            }
+            ?>
+           <?php echo Controllers\display\display('update_form',['user' => $user, 'post' => $post, 'thisUserUsername' => $thisUserUsername, 'thisUserFirstName' => $thisUserFirstName, 'thisUserLastName' => $thisUserLastName , 'thisUserEmail' => $thisUserEmail]); ?>
+            <br />
+        </form>
+ </div>
 
-       <?php echo Controllers\display\display('update_email', ['user' => $user, 'post'=>$post]); ?> 
-        
-        <?php echo Controllers\display\display('update_name', ['user' => $user, 'post'=>$post]); ?>
-        
-        <?php echo Controllers\display\display('add_biography', ['user' => $user, 'post'=>$post]); ?>
-
-    </div>  
-    
-  
 </body>
 </html>
+

@@ -1,28 +1,36 @@
-<?php 
+<?php
 
 require_once '../model/connection.php';
-include 'templates/userFunctions.php';
-
- $email = $_POST['email'];
- $sessions = $_SESSION['user'];
-
-  $sql = "UPDATE user_info SET email = '$email', WHERE username = '$sessions'";
-  $result= mysql_query($sql);
-
-  if($result){
-  header("location:../settings_page.php");
-  }
-
-  else {
-  echo error_reporting(E_ALL);
-  } 
+include 'userFunctions.php';
 
 
 
-  
-  
-  mysql_close();
-  ?>
+//The below should be redundant as long as the button is pushed. 
+//$_POST['biography']
+
+if (isset ($_POST['btn-email'])){
+//getting rid of whitespace
+    $biography   = trim($_POST['email']);
+    
+    if (empty($email)) {
+
+        $error = "Please enter some text.";
+    } 
+    
+    
+    if (strlen($biography) > 100) {
+    $error = "Character limit 100";
+    }
+
+    else if (!isset($error)){
+        $user->updateEmail($email);
+    }
+}
+
+
+
+
+?>
 
 <!DOCTYPE html>
 
@@ -37,20 +45,33 @@ include 'templates/userFunctions.php';
         
         <title> Add bio </title>
     </head>
-    
-    <body
 
-   <div class="form-group">
-                <label for="email"> Update Email </label>
-                <textarea class="form-control" name="email" rows="3"><?php if ( isset($_POST['email']) ) {echo $_POST['email'];} else {echo $thisUserEmail;}; ?></textarea>
+    <body>
+
+        <div><h3>Add Biography</h3>
+        <div class="container">
+        
+        <?php
+        //gives a list of errors under 'Add Biography' heading, if user makes an error
+        if ( isset($errors) && ! empty($errors)){
+            echo '<ul><li>', implode('</li><li>', $errors), '</li></ul>';
+        }
+        ?>
+       
+            
+
+           
+            <div class="form-group">
+                <label for="biography"> Biography </label>
+                <textarea class="form-control" name="biography" rows="3"><?php if ( isset($_POST['biography']) ) {echo $_POST['biography'];} else {echo $thisUserBio;}; ?></textarea>
             </div>
         
                 <div>
-                <input type="submit" value="Add Biography" name="btn-email">
+                <input type="submit" value="Add Biography" name="btn-bio">
                 </div>
                        </form>
             </div>
  
         </div>
-</body>   
+    </body>
 </html>

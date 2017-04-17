@@ -36,6 +36,53 @@ class USER
        }    
     }
     
+    public function update($first_name,$last_name,$user_name,$email)
+    {
+       try
+       {      
+           $stmt = $this->db->prepare("UPDATE users 
+                                        SET user_name=:user_name,first_name=:first_name,last_name=:last_name,email=:email 
+                                        WHERE user_id=:user_id");
+              
+           $stmt->bindParam(":first_name", $first_name);
+           $stmt->bindParam(":last_name", $last_name);
+           $stmt->bindParam(":user_name", $user_name);
+           $stmt->bindParam(":email", $email);
+           $stmt->bindParam(":user_id", $_SESSION['user_session']);
+           $stmt->execute(); 
+   
+           return $stmt; 
+       }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }    
+    }
+    
+    
+    public function updatePassword($password)
+    {
+       try
+       {   //The build in password_hash functions turns the given password into a scribbled code.
+           //This password needs to be unscribbled again with the password_verify function later used for logging in.
+           $new_password = password_hash($password, PASSWORD_DEFAULT);
+   
+           $stmt = $this->db->prepare("UPDATE users 
+                                        SET password=:password  
+                                        WHERE user_id=:user_id");
+              
+           $stmt->bindParam(":password", $new_password); 
+           $stmt->bindParam(":user_id", $_SESSION['user_session']);
+           $stmt->execute(); 
+   
+           return $stmt; 
+       }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }    
+    }
+    
     //This function tests the arguments provided in login.php, the user can log in with either the username or email.
     public function login($user_name,$email,$password)
     {
@@ -202,10 +249,10 @@ class USER
        }    
     }
     
-    public function thisUserBio()
+    public function thisUser()
     {
        try
-       {$stmt = $this->db->prepare("SELECT bio FROM users WHERE user_id=:user_id");
+       {$stmt = $this->db->prepare("SELECT * FROM users WHERE user_id=:user_id");
               
            $stmt->bindparam(":user_id", $_SESSION['user_session']);    
            $stmt->execute();

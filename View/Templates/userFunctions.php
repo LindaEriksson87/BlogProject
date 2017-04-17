@@ -33,8 +33,12 @@ $postTags = $viewPost['tags'];
 
 /*Defining variables for viewing a user's biography. */
 //For logged in user
-$viewBio = $user->thisUserBio();
-$thisUserBio = $viewBio[0];
+$thisUserAll = $user->thisUser();
+$thisUserUsername = $thisUserAll['user_name'];
+$thisUserFirstName = $thisUserAll['first_name'];
+$thisUserLastName = $thisUserAll['last_name'];
+$thisUserEmail = $thisUserAll['email'];
+$thisUserBio = $thisUserAll['bio'];
 
 //For user accessed by ID
 $viewRandomBio = $user->userIDBio($randomUserID);
