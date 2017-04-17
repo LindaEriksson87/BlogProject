@@ -34,16 +34,22 @@ else
 ?>
     
 <div class="col-sm-8">
-<h1>Welcome to our blog!</h1>
+<h3 class="tech-center">Welcome to our blog!</h3>
 
 <!-- <p>Welcome paragraph goes here</p>
 carousel of featured bloggers goes here -->
+<p>
+    This blog is the greatest source of Techno music across the whole internet, five of the top techno experts sharing their unrivaled knowledge on the best music genre in the world.
+</p>
+<h4 class="tech-center">Song of the day</h4>    
+<iframe width="100%" height="15%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/35182750&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
 
-
+</br>
+</br>
 
 </div>
 <div class="col-sm-4 well well-lg">
-    <h2>Latest posts</h2>
+    <h3 class="tech-center">Latest posts</h3>
     
   <!-- feed of latest posts -->
   <ul>
@@ -69,8 +75,10 @@ GET will be id= + the ID linked to the username, this is also generated in userF
 
     
 </div>
-
-
-
+    
+    <div class="col-sm-12 border-radius feat-blog">  
+<img src="../Model/blogimages/concertbanner.png" alt="technorave" style="width:100%; height:45%;">
+    </div>
+  
 </body>
 </html>
