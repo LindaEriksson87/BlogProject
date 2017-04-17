@@ -86,8 +86,6 @@ $headers = 'From: '.$email_from."\r\n".
 @mail($email_to, $email_subject, $email_message, $headers);  
 ?>
  
-<h1>Thank you for contacting Get Into Techno. We will be in touch with you very soon.</h1>
- 
 <?php
  
 }
@@ -145,7 +143,8 @@ else
             {
                  ?>
                  <div class="alert alert-info">
-                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Message has been sent <a href='index.php'>login</a> here
+                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Thank you for contacting Get Into Techno. We will be in touch with you very soon.
+  <a href='index.php'>login</a> here
                  </div>
                  <?php
             }
