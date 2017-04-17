@@ -167,7 +167,7 @@ else
 }
 ?>
 <div>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <h2 class='tech-center'>My Settings</h2><hr />
             <?php
             if(isset($error))
