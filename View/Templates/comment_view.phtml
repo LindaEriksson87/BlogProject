@@ -12,6 +12,7 @@ foreach($commentList as $viewComment):
  
 $getUsername = $user->getUsername($viewComment['user_id']);
 $commentUsername = $getUsername[0];
+$commentID = $viewComment['comment_id'];
 ?>
 
 <div class="media">
@@ -26,6 +27,11 @@ $commentUsername = $getUsername[0];
     <h4 class="media-heading"><a href="viewUser.php?id=<?= $viewComment['user_id']; ?>"><b><?= $commentUsername?></b></a> <?=" - " . $viewComment['date']; ?></h4>
     <p><?= htmlspecialchars($viewComment['comment_content']);?></p>
   </div>
-</div>
- 
+<br>
+<?php if ($viewComment['user_id'] == $_SESSION['user_session'] || $adminLevel > 1){ ?>
+                
+                    <?php echo Controllers\display\display('comment_delete_button', ['comment' => $comment, 'user' => $user, 'post' => $post, 'commentID' => $commentID]);
+                        ?><hr><?php
+                    } ?>
+ </div>
 <?php endforeach; ?>
