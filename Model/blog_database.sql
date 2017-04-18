@@ -1,21 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: Apr 19, 2017 at 12:45 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 7.0.13
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `blog_database`
 --
@@ -114,12 +96,14 @@ INSERT INTO `users` (`user_id`, `user_name`, `first_name`, `last_name`, `email`,
 (5, 'lejohnson', 'Lee', 'Johnson', 'lejohnson@tom.com', '$2y$10$aL1M6oBbEhXeB9XPSEOeRuV.1W31tAu6nV0.RoMWvzZna9kZ4HPpW', NULL, NULL),
 (7, 'Admin', 'Admin', 'Account', 'admin@getintotechno.com', '$2y$10$ElSMtcEmRQXAuVrHyEglP.nVa9LjCkdeJd0goWZw7.w/f5QKvhBxW', '', 3),
 (10, 'PartyPat', 'Pat', 'the Bear', 'partypat@adventuretime.com', '$2y$10$7W9XzxC0IuOCGP8Ix/OClu4UOjoJOowZwD8uQJJAaqkp92EdE1eWm', 'Before you talk to the chief, you must party with the chief.', NULL),
-(11, 'BrianTranseau', 'Brian', 'Transeau', 'brian@mail.com', '$2y$10$e3i19E8YLfQFCimBmbX10u7Jv1/220ksSLGsSLl40slP9UDqh16vq', 'An early adopter and widely accredited as a maven of modern sound techniques. My music is an expression of that awe and admiration of the natural world.', NULL),
+(11, 'Rowanne', 'Rowanne', 'Willett', 'rowanne@mail.com', '$2y$10$e3i19E8YLfQFCimBmbX10u7Jv1/220ksSLGsSLl40slP9UDqh16vq', 'One of the Get Into Techno Crew Members. Setting the trends for women in techno.', NULL),
 (12, 'Deadmau5', 'Joel', 'Zimmerman', 'Joel@mail.com', '$2y$10$1fR2s9z2tLjCTsxsYGQ0LuHTx/jvvhVuTUclE09tY5NguB37DCgqi', 'Better known by my stage name deadmau5 (pronounced "dead mouse").  Canadian record producer and DJ from Toronto, Ontario.', NULL),
 (13, 'Prodigy', 'Liam', 'Howlett', 'howlett@mail.com', '$2y$10$iBvpCO6z7tgcdoKXAp/jeu6EXXrdbcaO7N949eYAfJTLyBk/7rHd.', 'Songwriter, record producer, co-founder and leader of the British electronic band The Prodigy, and an occasional DJ.', NULL),
 (14, 'Aphex', 'Richard', 'James', 'Richard@mail.com', '$2y$10$OX.unEwAwPk.rumjxAxCiObsmLszpFUe7eNnYjdEcYnYnF7z482lW', 'Electronic musician and composer. Working in IDM and acid techno. Best known as recording alias Aphex Twin.', NULL),
 (15, 'Tiesto', 'Tijs', 'Verwest', 'Verwest@mail.com', '$2y$10$oWi.mRP83ZQLsvb83jfUSe61CEpy1nogPS7kjFAaShXiVqEAvQKvO', 'Dutch DJ and record producer. Co-founder of Black Hole Recordings. Voted World No. 1 DJ by DJ Magazine in its annual Top 100 DJs readership poll consecutively for three years from 2002â€“04', NULL),
-(16, 'Carry', 'Carryon', 'Dancen', 'carryon@mail.com', '$2y$10$61VmEiCWfYxkQFGmc6dTleHmKpHWpc1oJfrp5jtjiehH6KjyFXGJC', 'All I want to do is dance. Carry on dancing, techno techno, alllll night long.', NULL);
+(16, 'Carry', 'Carryon', 'Dancen', 'carryon@mail.com', '$2y$10$61VmEiCWfYxkQFGmc6dTleHmKpHWpc1oJfrp5jtjiehH6KjyFXGJC', 'All I want to do is dance. Carry on dancing, techno techno, alllll night long.', NULL),
+(17, 'BT', 'Brian', 'Transeau', 'brian@mail.com', '$2y$10$ADxffQKAJpOcRp0cdn/mducHMX.foK3mjsfRbltPaSe5d4BEHeInK', 'An early adopter and widely accredited as a maven of modern sound techniques. My music is an expression of that awe and admiration of the natural world.', NULL),
+(18, 'SteveAoki', 'Steve', 'Aoki', 'steve@mail.com', '$2y$10$LYNhqmn1oUtU74V.yatbkubqDguBFMT/hBp6V39FGaezQJLpjgbb2', 'Musician, record producer, and music executive. Collaborated with producers and vocalists such as will.i.am, Afrojack, LMFAO, Iggy Azalea, Lil Jon, Laidback Luke, and Louis Tomlinson', NULL);
 
 --
 -- Indexes for dumped tables
@@ -164,7 +148,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary key', AUTO_INCREMENT=17;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary key', AUTO_INCREMENT=19;
 --
 -- Constraints for dumped tables
 --
