@@ -49,7 +49,7 @@ else
                 
                     <div class="col-sm-2"></div><div class="col-sm-8">
                     <?php echo Controllers\display\display('comment', ['comment' => $comment]); ?>
-                    <?php echo Controllers\display\display('comment_view', ['comment' => $comment, 'user' => $user]); ?>
+                    <?php echo Controllers\display\display('comment_view', ['comment' => $comment, 'user' => $user, 'post' => $post, 'adminLevel' => $adminLevel]); ?>
                     </div>
                
         </div>
