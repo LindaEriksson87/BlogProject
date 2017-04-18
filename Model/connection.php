@@ -21,7 +21,9 @@ $user = new USER($pdo);
 
 include_once 'postClass.php';
 $post = new POST($pdo);
-//to set error hander
+
+include_once 'commentClass.php';
+$comment = new COMMENT($pdo);
 
 
 ?>
