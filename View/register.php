@@ -106,9 +106,11 @@ else
     echo Controllers\display\display('nav_bar_signed_out'); 
 }
 ?>
-<div>
+<h2 class='tech-center'>Sign Up</h2>
+    <div class="col-sm-2"></div>
+
+    <div class="row well well-lg col-sm-8 justify-content-center">
         <form method="post">
-            <h2>Sign up.</h2><hr />
             <?php
             if(isset($error))
             {
@@ -134,7 +136,9 @@ else
             <br />
         </form>
  </div>
-
+    <div class='col-sm-12'>
+        <?php echo Controllers\display\display('footer') ?>
+    </div>
 </body>
 </html>
 

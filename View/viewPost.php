@@ -49,3 +49,7 @@ else
     
     <div class="col-sm-2"></div>
     
+    <div class='col-sm-12'>
+        <?php echo Controllers\display\display('footer') ?>
+    </div>
+    
