@@ -61,3 +61,6 @@ $adminLevel = $viewUserLevel[0];
 $userList = $user->allUsers();
 $allUsernames = $userList[0];
 $allUserID = $userList[1];
+
+// Read all comments
+

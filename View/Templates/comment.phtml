@@ -1,0 +1,63 @@
+
+<?php
+if(isset($_POST['btn-comment'])){
+        
+        //$user= $_SESSION['user_session'];// replace with actual logged in user
+        $post = filter_input(INPUT_GET, 'id',FILTER_SANITIZE_ENCODED);
+        
+        $filteredComment = filter_input(INPUT_POST,'comment', FILTER_SANITIZE_SPECIAL_CHARS);
+        $commentContent = trim($filteredComment);
+	
+	
+	if(empty($commentContent))
+	{
+		$error[] = 'Comment section is empty. Please enter your comment.';//comment validation
+	}
+        
+	if(strlen($commentContent) > 300)
+	{
+		$error[] = 'Comment is too long. (Character limit is 300)';//comment validation
+	}
+        
+        else if(!isset($error)){
+
+                $comment->newComment($commentContent, $post);
+                $sent = 'success';
+                }
+}
+        
+        ?>
+
+<?php
+            if(isset($error))
+            {
+               foreach($error as $error)
+               {
+                  ?>
+                  <div class="alert alert-danger">
+                      <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?>
+                  </div>
+                  <?php
+               }
+            }
+            ?>
+
+<form class="form-horizontal" method='post'>
+    <div class="form-group">
+        <label class="" for="comment">Add Comment:</label>
+            <div>
+                <textarea class="form-control col-sm-4" name='comment' rows='5' method='post'></textarea>
+            </div><br><br><br><br><br><hr/>
+            <div class="form-group col-sm-6">
+             <button type="submit" class="btn btn-block btn-primary" name="btn-comment" method='post'>
+                 Post Comment
+             </button></div>
+            <div class="clearfix"></div>
+    </div>
+</form>
+
+    </body>
+</html>
+
+
+

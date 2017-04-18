@@ -1,5 +1,6 @@
 <?php
 require_once '../../model/connection.php';
+
 include 'userFunctions.php';
 
 /*This page uses a function to destroy the user session. 

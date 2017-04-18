@@ -5,11 +5,19 @@ include 'userFunctions.php';
 
 
 if (isset ($_POST['btn-post'])){
-//getting rid of whitespace
-    $title     = trim($_POST['title']);
-    $content   = trim($_POST['content']);
+//getting rid of whitespace#
+    
+    $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_STRING);
+    $title     = trim($filteredTitle);
+        
+    $filteredContent = filter_input(INPUT_POST,'content', FILTER_SANITIZE_STRING);
+    $content   = trim($filteredContent);
+        
+    $filteredTags = filter_input(INPUT_POST,'tags', FILTER_SANITIZE_STRING);
+    $tags      = trim($filteredTags);
+
     $ID = $postID;
-    $tags      = trim($_POST['tags']);
+
 
 if (empty ($title)){
         

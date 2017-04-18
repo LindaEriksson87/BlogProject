@@ -1,0 +1,31 @@
+<?php
+/*Creating a variable that calls the read user method in the post class. 
+ * This method will bring up the posts for a certain user based on the id provided from the get in the URL.
+ * This code will then echo the Title, Content and Date Posted, in that order. 
+ */
+
+$sanitizedID = filter_input(INPUT_GET, 'id',FILTER_SANITIZE_ENCODED);
+$commentList = $comment->readAll($sanitizedID);
+
+
+foreach($commentList as $viewComment):
+ 
+$getUsername = $user->getUsername($viewComment['user_id']);
+$commentUsername = $getUsername[0];
+?>
+
+<div class="media">
+  <div class="media-left"><?php
+      if(file_exists("../Model/profileimageuploads/{$viewComment['user_id']}.jpg")): ?>
+		    <img src="../Model/profileimageuploads/<?=$viewComment['user_id']?>.jpg" class="media-object" style="width:60px">
+	<?php else: ?>
+		    <img src="../Model/blogimages/defaultprofile.jpg" class="media-object" style="width:60px">
+        <?php endif ?>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><a href="viewUser.php?id=<?= $viewComment['user_id']; ?>"><b><?= $commentUsername?></b></a> <?=" - " . $viewComment['date']; ?></h4>
+    <p><?= htmlspecialchars($viewComment['comment_content']);?></p>
+  </div>
+</div>
+ 
+<?php endforeach; ?>

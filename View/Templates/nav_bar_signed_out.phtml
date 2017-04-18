@@ -1,24 +1,31 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
         <a class="navbar-brand" href="index.php"><p class='tech'>Get Into Techno</p></a>
     </div>
-    <ul class="nav navbar-nav">
-      <li><a href="index.php">Home</a></li>
-      <li><a href="search.php">Search</a></li>
-      <li><a href="contact.php">Contact</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      
-                    <form method= "post" class="navbar-form navbar-right" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="txt_uname_email" placeholder="Username or Email ID">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" name="txt_password" placeholder="Your Password">
-                    </div>
-                    <button type="submit" name="btn-login" class="btn btn-default">Sign In</button>
-    </ul>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="index.php">Home</a></li>
+          <li><a href="search.php">Search</a></li>
+          <li><a href="contact.php">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+
+                        <form method= "post" class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="txt_uname_email" placeholder="Username or Email ID">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="txt_password" placeholder="Your Password">
+                        </div>
+                        <button type="submit" name="btn-login" class="btn btn-default">Sign In</button>
+        </ul>
+      </div>
   </div>
 </nav>

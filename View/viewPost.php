@@ -36,16 +36,27 @@ else
 ?>
     
     <div class="col-sm-2"></div>
-        <div class="col-sm-8" >
+        <div class="col-sm-8 well well-lg" >
 <!--This part uses the display function to call in the content in the user blog template-->
             <?php echo Controllers\display\display('user_post', ['post' => $post, 'user' => $user]); ?>
                 <br>
             <?php if ($userID == $_SESSION['user_session'] || $adminLevel > 1){ ?>
                 
-               <?php echo Controllers\display\display('delete_update_buttons', ['post' => $post, 'user' => $user, 'thisID' => $thisID]);
+                    <?php echo Controllers\display\display('delete_update_buttons', ['post' => $post, 'user' => $user, 'thisID' => $thisID]);
+                        ?><hr><?php
+                    } ?>
                 
-            } ?>
+                
+                    <div class="col-sm-2"></div><div class="col-sm-8">
+                    <?php echo Controllers\display\display('comment', ['comment' => $comment]); ?>
+                    <?php echo Controllers\display\display('comment_view', ['comment' => $comment, 'user' => $user]); ?>
+                    </div>
+               
         </div>
     
     <div class="col-sm-2"></div>
+    
+    <div class='col-sm-12'>
+        <?php echo Controllers\display\display('footer') ?>
+    </div>
     
