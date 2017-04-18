@@ -122,13 +122,15 @@ else
 }
 ?>
     
+<h2 class='tech-center'>Contact</h2>
+    <div class="col-sm-2"></div>
 
-<h1>Contact</h1>
+    <div class="row well well-lg col-sm-8 justify-content-center">
 
 <p>If you want to get in touch with the webmaster, fill in the form below...</p>
 
-<div class="col-sm-8">
         <form method="post">
+            
             <?php
             if(isset($error))
             {

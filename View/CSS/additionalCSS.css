@@ -73,3 +73,8 @@ a:hover {
 a:active {
     color: green;
 }
+
+#footer {
+    color: #A29C9B;
+    text-align: center;
+}

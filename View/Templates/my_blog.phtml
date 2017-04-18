@@ -23,7 +23,7 @@ foreach($posts as $post):?>
             
             $tagsArray=explode(',',$post['tags']); 
             foreach ($tagsArray as $tag){
-                ?> <a href="search.php?tag=<?= $tag; ?>"> <?= $tag; ?></a><?php echo "";
+                ?> <a href="search.php?tag=<?= $tag; ?>"> <button type="button" class="btn btn-success btn-sm"><?= $tag; ?></button></a><?php echo " ";
             }
         }
         ?>

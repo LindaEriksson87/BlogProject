@@ -26,7 +26,7 @@ if(isset($_POST['btn-update']))
    }
    
    if($email=="") {
-      $error[] = "Please enter a valid email address."; 
+      $error[] = "Email address cannot be empty."; 
    }
    
    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -58,7 +58,7 @@ if(isset($_POST['btn-update']))
          {
             if($user->update($first_name,$last_name,$user_name,$email,$password))
             {
-                header("Refresh:0");
+                //header("Refresh:0");
             }
          }
      }
@@ -97,7 +97,7 @@ if(isset($_POST['btn-bio']))
    }
    else if ($user->updateBio($biography))
          {
-            header("Refresh:0");  
+            //header("Refresh:0");  
          }
 }
 
@@ -119,20 +119,24 @@ if (isset($_POST['btn-img'])){
 
         // Check file size
         if ($_FILES["image"]["size"] > 500000) {
-        echo "Sorry, your file is too large.";
+        $error[] ="Your file is too large. ";
         $uploadOk = 0;
         }
 
         // Allow certain file formats
-        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        && $imageFileType != "gif" ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        if($imageFileType != "jpg") {
+        $error[] ="Only JPG files are supported. ";
         $uploadOk = 0;
         }
 
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
+        $error[] ="Your file was not uploaded. ";
+        }
+        
+        if(file_exists("$target_file") && ($uploadOk == 1)) {
+            unlink("$target_file");
+            move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
         }
     
         else if ($uploadOk == 1){
@@ -168,7 +172,9 @@ else
 ?>
 <div>
         <form method="post" enctype="multipart/form-data">
-            <h2 class='tech-center'>My Settings</h2><hr />
+            <h2 class='tech-center'>My Settings</h2>
+            <div class="col-sm-2"></div>
+            <div class='col-sm-8 well well-lg'>
             <?php
             if(isset($error))
             {
@@ -182,20 +188,24 @@ else
                }
             }
             ?>
-            <div class='col-sm-4 well well-lg'>
+
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
             <?php echo Controllers\display\display('my_image',['user' => $user, 'post' => $post]); ?>
             <?php echo Controllers\display\display('upload_image',['user' => $user, 'post' => $post]); ?>
             <div class='col-sm-12'>   
             <?php echo Controllers\display\display('update_biography',['user' => $user, 'post' => $post, 'thisUserBio' => $thisUserBio]); ?>
             </div>
-            </div>
-            <div class='col-sm-4 well well-lg'>
             <?php echo Controllers\display\display('update_form',['user' => $user, 'post' => $post, 'thisUserUsername' => $thisUserUsername, 'thisUserFirstName' => $thisUserFirstName, 'thisUserLastName' => $thisUserLastName , 'thisUserEmail' => $thisUserEmail]); ?>
             </div>
             
             <br />
         </form>
  </div>
+
+    <div class='col-sm-12'>
+        <?php echo Controllers\display\display('footer') ?>
+    </div>
 
 </body>
 </html>

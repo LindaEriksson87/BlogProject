@@ -49,4 +49,8 @@ else
         <?php echo Controllers\display\display('archive', ['pdo' => $pdo]); ?>
         </div>
     </div>
+    
+    <div class='col-sm-12'>
+        <?php echo Controllers\display\display('footer') ?>
+    </div>
 </html>

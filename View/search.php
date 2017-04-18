@@ -53,8 +53,10 @@ else
 	}
         
         ?>
-    <div class='container'>
-    <div class="row well well-lg col-sm-10 justify-content-center">
+    <h2 class='tech-center'>Search</h2>
+    <div class="col-sm-2"></div>
+
+    <div class="row well well-lg col-sm-8 justify-content-center">
         <div class="form-group">
             <label for ='searchUser'>Search for a user:</label><br>
             <form class='' action='' method='POST'><br>
@@ -160,7 +162,11 @@ else
      
             ?>
     </div>
-    </div>    
+
+       <div class="col-sm-2"></div>
+    <div class='col-sm-12'>
+        <?php echo Controllers\display\display('footer') ?>
+    </div>
         <script>
         <!-- Button trigger modal -->
  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
