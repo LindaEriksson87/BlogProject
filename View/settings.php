@@ -195,9 +195,9 @@ else
             <?php echo Controllers\display\display('upload_image',['user' => $user, 'post' => $post]); ?>
             <div class='col-sm-12'>   
             <?php echo Controllers\display\display('update_biography',['user' => $user, 'post' => $post, 'thisUserBio' => $thisUserBio]); ?>
-            </div>
+            
             <?php echo Controllers\display\display('update_form',['user' => $user, 'post' => $post, 'thisUserUsername' => $thisUserUsername, 'thisUserFirstName' => $thisUserFirstName, 'thisUserLastName' => $thisUserLastName , 'thisUserEmail' => $thisUserEmail]); ?>
-            </div>
+            </div></div>
             
             <br />
         </form>
