@@ -5,15 +5,7 @@
 
 $newFileName = '';
 
-if (isset ($_POST['btn-post'])) {
-    
-  // var_dump($_FILES);
-  // var_dump($_POST);
-
-// Check if image file is a actual image or fake image
-
-    
-    if (($_FILES["image"]['name']) != "") {
+if (isset ($_POST['btn-post']) && ($_FILES["image"]['name']) != "") {
         $temp = explode(".", $_FILES["image"]["name"]);
         $uniqueSaveName=time().uniqid(rand());
         $newFileName = $uniqueSaveName .  '.' . end($temp);
@@ -28,30 +20,65 @@ if (isset ($_POST['btn-post'])) {
         } else {
             $uploadOk = 0;
         }
+        
+        $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_STRING);
+        $title     = trim($filteredTitle);
+        
+        $filteredContent = filter_input(INPUT_POST,'content', FILTER_SANITIZE_STRING);
+        $content   = trim($filteredContent);
+        
+        $filteredTags = filter_input(INPUT_POST,'tags', FILTER_SANITIZE_STRING);
+        $tags      = trim($filteredTags);
 
         // Check file size
         if ($_FILES["image"]["size"] > 500000) {
-        echo "Sorry, your file is too large.";
+        $error[] = "Sorry, your file is too large. ";
         $uploadOk = 0;
         }
 
         // Allow certain file formats
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
         && $imageFileType != "gif" ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $error[] =  "Sorry, only JPG, JPEG, PNG & GIF files are allowed. ";
         $uploadOk = 0;
         }
 
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
-        }
+            $error[] = "Your file was not uploaded.";
+            }
+        
+        if (empty ($title)){
+        
+            $error[] = "Please enter a title."; 
+            }
     
-        else if ($uploadOk == 1){
-        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-        }
-        }
-    
+        if (empty($content)) {
+
+                $error[] = "Please enter some text.";
+                } 
+
+        if (strlen($title) > 250) {
+                $error[] = 'Please shorten your title, it is too long (250 character limit).';
+                }
+
+        if (strlen($content) > 5000) {
+                $error[] = 'Please shorten your blog post, it is too long (5000 character limit).';
+                }
+
+        if (strlen($tags) > 100) {
+                $error[] = 'Tags cannot be longer than 100 characters.';
+                }
+
+
+        else if ((!isset($error)) && ($uploadOk == 1)) {
+                $post->newPost($title, $content, $newFileName, $tags);
+                move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+                }
+        
+}
+
+else if (isset ($_POST['btn-post'])) {
         //getting rid of whitespace
     $title     = trim($_POST['title']);
     $content   = trim($_POST['content']);
@@ -59,31 +86,31 @@ if (isset ($_POST['btn-post'])) {
 
     if (empty ($title)){
         
-    $errors = "Please enter a title."; 
+    $error[] = "Please enter a title."; 
     }
     
     if (empty($content)) {
 
-    $errors = "Please enter some text.";
+    $error[] = "Please enter some text.";
     } 
     
     if (strlen($title) > 250) {
-    $errors = 'Please shorten your title, it is too long (250 character limit).';
+    $error[] = 'Please shorten your title, it is too long (250 character limit).';
     }
     
     if (strlen($content) > 5000) {
-    $errors = 'Please shorten your blog post, it is too long (5000 character limit).';
+    $error[] = 'Please shorten your blog post, it is too long (5000 character limit).';
     }
 
     if (strlen($tags) > 100) {
-    $errors = 'Tags cannot be longer than 100 characters.';
+    $error[] = 'Tags cannot be longer than 100 characters.';
     }
     
-    if (isset($errors)) {
-        echo $errors;
-    }
+    //if (isset($errors)) {
+    //    echo $errors;
+    //}
     
-    else if (!isset($errors)) {
+    else if (!isset($error)) {
         $post->newPost($title, $content, $newFileName, $tags);
     }
 }
@@ -104,6 +131,19 @@ if (isset ($_POST['btn-post'])) {
     </head>
 
     <body>
+        <?php
+            if(isset($error))
+            {
+               foreach($error as $error)
+               {
+                  ?>
+                  <div class="alert alert-danger">
+                      <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?>
+                  </div>
+                  <?php
+               }
+            }
+            ?>
         <?php echo Controllers\display\display('add_post'); ?>
     </body>
     
