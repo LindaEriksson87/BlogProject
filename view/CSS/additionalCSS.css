@@ -1,0 +1,80 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16-Apr-2017, 01:57:02
+    Author     : Linda
+*/
+body {
+    font-family: 'Roboto', sans-serif; 
+    background-color: #56494E;
+    padding-top: 10%;
+    color: black;
+  }
+
+.tech-center {
+    text-align: center;
+    font-family: 'Stalinist One', cursive;
+    text-transform: uppercase;
+    color: #26C40D;
+}
+
+.tech-center-black {
+    text-align: center;
+    font-family: 'Stalinist One', cursive;
+    text-transform: uppercase;
+    color: black;
+}
+
+.tech{
+    font-family: 'Stalinist One', cursive;
+    text-transform: uppercase;
+}
+
+.img-rightmargin {
+    margin-right: 20px; 
+}
+
+.feat-blog {
+    background-color: #A29C9B !important;
+    background-image: none !important;
+    min-height: 200px !important;
+}
+
+.introduction {
+    padding-left: 10%;
+    padding-right: 10%;
+    color: #F0EFF4;
+}
+
+.tech-titles {
+    font-family: 'Raleway', sans-serif;
+}
+
+
+/* unvisited link */
+a:link {
+    color: black;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+}
+
+/* mouse over link */
+a:hover {
+    color: #26C40D;
+}
+
+/* selected link */
+a:active {
+    color: green;
+}
+
+#footer {
+    color: #A29C9B;
+    text-align: center;
+}

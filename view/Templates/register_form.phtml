@@ -1,0 +1,29 @@
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label" for="firstname">First Name:</label>
+            <div>
+            <input type="text" class="form-control" id="firstname" name="txt_fname" placeholder="Enter First Name" value="<?php if(isset($error)){echo $fname;}?>" />
+            </div><br>
+        <label class="control-label" for="lastname">Last Name:</label>
+            <div>
+            <input type="text" class="form-control" id="lastname" name="txt_lname" placeholder="Enter Last Name" value="<?php if(isset($error)){echo $lname;}?>" />
+            </div><br>
+        <label class="control-label" for="username">Choose a Username:</label>
+            <div>
+            <input type="text" class="form-control" id="username" name="txt_uname" placeholder="Enter Username" value="<?php if(isset($error)){echo $uname;}?>" />
+            </div><br>
+            <label class="control-label" for="email">Email:</label>
+            <div>
+            <input type="email" class="form-control" id="email" name="txt_umail" placeholder="Enter email" value="<?php if(isset($error)){echo $umail;}?>" />
+            </div><br>
+        <label class="control-label" for="password">Choose a Password:</label>
+            <div>
+             <input type="password" class="form-control" id="password" name="txt_upass" placeholder="Enter Password" />
+            </div><br>
+            <div class="clearfix"></div><hr />
+            <div class="form-group col-sm-4">
+             <button type="submit" class="btn btn-block btn-primary" name="btn-signup">
+                 <i class="glyphicon glyphicon-open-file"></i>&nbsp;SIGN UP
+                </button>
+            </div>
+

@@ -1,0 +1,37 @@
+
+<form class="form-horizontal" method='post'>
+    <div class="form-group">
+        <label class="control-label" for="firstname">New First Name:</label>
+            <div>
+            <input type="text" class="form-control" id="firstname" name="txt_fname" placeholder="Enter First Name" value="<?= $_POST['txt_fname'] ?? $thisUserFirstName?>" />
+            </div><br>
+        <label class="control-label" for="lastname">New Last Name:</label>
+            <div>
+            <input type="text" class="form-control" id="lastname" name="txt_lname" placeholder="Enter Last Name" value="<?= $_POST['txt_lname'] ?? $thisUserLastName ?>" />
+            </div><br>
+        <label class="control-label" for="username">New Username:</label>
+            <div>
+            <input type="text" class="form-control" id="username" name="txt_uname" placeholder="Enter Username" value="<?= $_POST['txt_uname'] ?? $thisUserUsername ?>" />
+            </div><br>
+            <label class="control-label" for="email">New Email:</label>
+            <div>
+            <input type="email" class="form-control" id="email" name="txt_umail" placeholder="Enter email" value="<?= $_POST['txt_umail'] ?? $thisUserEmail?>" />
+            </div><br>
+            
+            <div class="form-group col-sm-6">
+             <button type="submit" class="btn btn-block btn-primary" name="btn-update">
+                 Update
+             </button></div>
+            <div class="clearfix"></div><hr />
+        <label class="control-label" for="password">New Password:</label>
+            <div>
+             <input type="password" class="form-control" id="password" name="txt_upass" placeholder="Enter Password" />
+            </div><br>
+
+            <div class="form-group col-sm-6">
+             <button type="submit" class="btn btn-block btn-primary" name="btn-password">
+                 Change Password
+                </button>
+            </div>
+    </div>
+</form>

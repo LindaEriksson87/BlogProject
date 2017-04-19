@@ -1,0 +1,37 @@
+<?php require_once '../model/connection.php'; ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Blog - Archives</title>
+    </head> 
+
+
+
+		<h4 class="tech-center">Archive</h4>
+		
+<?php
+if (isset ($_GET['id'])){
+    
+    $currentUser = filter_input(INPUT_GET, 'id',FILTER_SANITIZE_ENCODED);
+        
+    } else {
+    
+    $currentUser = $_SESSION['user_session'];
+    
+    }
+    
+$stmt = $pdo->query('SELECT Month (date) as Month, Year(date) as Year,post_title, post_id FROM posts WHERE user_id="'.$currentUser.'" ORDER BY date DESC LIMIT 10');
+
+while($row = $stmt->fetch()){
+    echo '<li><a href="viewPost.php?id='.$row['post_id'].'">'.$row['post_title'].'</a></li>';
+}
+
+?>
+               
+</body>
+</html> 
+		
+
+

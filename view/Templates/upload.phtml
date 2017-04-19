@@ -1,0 +1,149 @@
+<?php
+
+//RW
+//require_once '../../model/connection.php';
+
+$newFileName = '';
+
+if (isset ($_POST['btn-post']) && ($_FILES["image"]['name']) != "") {
+        $temp = explode(".", $_FILES["image"]["name"]);
+        $uniqueSaveName=time().uniqid(rand());
+        $newFileName = $uniqueSaveName .  '.' . end($temp);
+       
+        $target_dir = "../Model/blogimageuploads/";
+        $target_file = $target_dir . $newFileName;
+        $uploadOk = 1;
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        if($check !== false) {
+            $uploadOk = 1;
+        } else {
+            $uploadOk = 0;
+        }
+        
+        $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_STRING);
+        $title     = trim($filteredTitle);
+        
+        $filteredContent = filter_input(INPUT_POST,'content', FILTER_SANITIZE_STRING);
+        $content   = trim($filteredContent);
+        
+        $filteredTags = filter_input(INPUT_POST,'tags', FILTER_SANITIZE_STRING);
+        $tags      = trim($filteredTags);
+
+        // Check file size
+        if ($_FILES["image"]["size"] > 500000) {
+        $error[] = "Sorry, your file is too large. ";
+        $uploadOk = 0;
+        }
+
+        // Allow certain file formats
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif" ) {
+        $error[] =  "Sorry, only JPG, JPEG, PNG & GIF files are allowed. ";
+        $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            $error[] = "Your file was not uploaded.";
+            }
+        
+        if (empty ($title)){
+        
+            $error[] = "Please enter a title."; 
+            }
+    
+        if (empty($content)) {
+
+                $error[] = "Please enter some text.";
+                } 
+
+        if (strlen($title) > 250) {
+                $error[] = 'Please shorten your title, it is too long (250 character limit).';
+                }
+
+        if (strlen($content) > 5000) {
+                $error[] = 'Please shorten your blog post, it is too long (5000 character limit).';
+                }
+
+        if (strlen($tags) > 100) {
+                $error[] = 'Tags cannot be longer than 100 characters.';
+                }
+
+
+        else if ((!isset($error)) && ($uploadOk == 1)) {
+                $post->newPost($title, $content, $newFileName, $tags);
+                move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+                }
+        
+}
+
+else if (isset ($_POST['btn-post'])) {
+        //getting rid of whitespace
+    $title     = trim($_POST['title']);
+    $content   = trim($_POST['content']);
+    $tags      = trim($_POST['tags']);
+
+    if (empty ($title)){
+        
+    $error[] = "Please enter a title."; 
+    }
+    
+    if (empty($content)) {
+
+    $error[] = "Please enter some text.";
+    } 
+    
+    if (strlen($title) > 250) {
+    $error[] = 'Please shorten your title, it is too long (250 character limit).';
+    }
+    
+    if (strlen($content) > 5000) {
+    $error[] = 'Please shorten your blog post, it is too long (5000 character limit).';
+    }
+
+    if (strlen($tags) > 100) {
+    $error[] = 'Tags cannot be longer than 100 characters.';
+    }
+    
+    //if (isset($errors)) {
+    //    echo $errors;
+    //}
+    
+    else if (!isset($error)) {
+        $post->newPost($title, $content, $newFileName, $tags);
+    }
+}
+
+?>
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        
+        <style> 
+            label {display: block}
+        </style>
+        
+        <title> Add Post </title>
+    </head>
+
+    <body>
+        <?php
+            if(isset($error))
+            {
+               foreach($error as $error)
+               {
+                  ?>
+                  <div class="alert alert-danger">
+                      <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?>
+                  </div>
+                  <?php
+               }
+            }
+            ?>
+        <?php echo controllers\display\display('add_post'); ?>
+    </body>
+    
