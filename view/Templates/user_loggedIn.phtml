@@ -12,5 +12,5 @@
 
     <h4 class='tech-center'>About <?=$_SESSION['username']?></h4>
     <?php echo controllers\display\display('my_image',['user' => $user, 'post' => $post]); ?>
-    <?=$thisUserBio?>
+    <?=strip_tags($thisUserBio)?>
 		

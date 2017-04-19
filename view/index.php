@@ -47,7 +47,7 @@ carousel of featured bloggers goes here -->
 <h4 class="tech-center">Song of the day</h4>    
 <iframe width="100%" height="10%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/35182750&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
 
-<br>
+<br><br>
 
 </div>
 <div class="col-sm-4 well well-lg">
@@ -66,7 +66,7 @@ while($row = $stmt->fetch()){
 </div>
     
     <div class="col-sm-12  feat-blog" >
-    <h4 class="tech-center-black">Featured blogger</h4>
+        <br><h4 class="tech-center-black">Featured blogger</h4>
 <!--This code randomly generates a user with the function from userFunctions,
 then a link is added that will take the user to the viewuser page with a GET tag at the end, the 
 GET will be id= + the ID linked to the username, this is also generated in userFunctions. After the name follows the bio for that user -->
@@ -81,7 +81,7 @@ GET will be id= + the ID linked to the username, this is also generated in userF
 
     
     <div class="col-sm-12 feat-blog">  
-<img src="../model/blogimages/concertbanner.png" alt="technorave" style="width:100%; height:45%;">
+<img class='img-responsive' src="../model/blogimages/concertbanner.png" alt="technorave" style="width:100%; height:45%;">
     </div>
   
 

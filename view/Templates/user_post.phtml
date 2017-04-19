@@ -11,20 +11,20 @@ $thisUser = $user->getUsername($userID);
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-      <b><?= htmlspecialchars($posts[1]);?></b> by <a href="viewUser.php?id=<?= $userID ?>"><?=$thisUser[0]?></a>
+      <b><?= strip_tags($posts[1]);?></b> by <a href="viewUser.php?id=<?= $userID ?>"><?=$thisUser[0]?></a>
     </div>
     <div class="panel-body">
         <?php if($posts['image'] != NULL) { ?>
             <a href="../model/blogimageuploads/<?=$posts['image'];?>" target="_blank"><img src="../model/blogimageuploads/<?=$posts['image'];?>" width="150" class="img-thumbnail img-responsive pull-left img-rightmargin" /></a>
             <?php } ?>
-    <?= htmlspecialchars($posts[2]);?>
+    <?= strip_tags($posts[2], '<br><b><i>');?>
     </div>
     <div class='panel-footer'>
         <?php if($posts['tags'] != ''){
             
             $tagsArray=explode(',',$posts['tags']); 
             foreach ($tagsArray as $tag){
-                ?> <a href="search.php?tag=<?= $tag; ?>"> <button type="button" class="btn btn-success btn-sm"><?= htmlspecialchars($tag); ?></button></a><?php echo " ";
+                ?> <a href="search.php?tag=<?= $tag; ?>"> <button type="button" class="btn btn-success btn-sm"><?= strip_tags($tag); ?></button></a><?php echo " ";
             }
         }
         ?>

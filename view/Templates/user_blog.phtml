@@ -11,21 +11,21 @@ foreach($posts as $post):?>
  
 <div class="panel panel-default">
   <div class="panel-heading">
-      <a href="viewPost.php?id=<?= $post['post_id']; ?>"><b><?= htmlspecialchars($post['post_title']);?></b></a>
+      <a href="viewPost.php?id=<?= $post['post_id']; ?>"><b><?= strip_tags($post['post_title']);?></b></a>
   </div>
     <div class="panel-body">
         
         <?php if($post['image'] != NULL) { ?>
         <a href="../model/blogimageuploads/<?=$post['image'];?>" target="_blank"><img src="../model/blogimageuploads/<?=$post['image'];?>" width="150" class="img-thumbnail img-responsive pull-left img-rightmargin" /></a>
         <?php } ?>
-<?= htmlspecialchars($post['post_content']);?>
+<?= strip_tags($post['post_content'], '<br><b><i>');?>
     </div>
     <div class='panel-footer'>
         <?php if($post['tags'] != ''){
             
             $tagsArray=explode(',',$post['tags']); 
             foreach ($tagsArray as $tag){
-                ?> <a href="search.php?tag=<?= $tag; ?>"> <button type="button" class="btn btn-success btn-sm"><?= htmlspecialchars($tag); ?></button></a><?php echo " ";
+                ?> <a href="search.php?tag=<?= $tag; ?>"> <button type="button" class="btn btn-success btn-sm"><?= strip_tags($tag); ?></button></a><?php echo " ";
             }
         }
         ?>
