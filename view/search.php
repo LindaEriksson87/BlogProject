@@ -75,7 +75,7 @@ else
                 $searchtermUser = trim($_POST['searchUser']);
                 $cleanedSearchtermUser = $searchtermUser; //mysqli_real_escape_string($pdo, $searchterm);//removes any unwanted code submitted by the user before saving to database
                 $sql = "SELECT user_id, user_name, first_name, last_name 
-                FROM blog_database.users
+                FROM users
                 where user_name <> 'Admin' and user_name like '%$cleanedSearchtermUser%' or user_name <> 'Admin' and first_name like '%$cleanedSearchtermUser%' or user_name <> 'Admin' and last_name like '%$cleanedSearchtermUser%';"; 
 
                 $stmt = $pdo->query($sql);
@@ -116,8 +116,8 @@ else
                 $searchtermTag = trim($_POST['searchTag']);
                 $cleanedSearchtermTag = $searchtermTag; //mysqli_real_escape_string($pdo, $searchterm);//removes any unwanted code submitted by the user before saving to database
                 $sql = "SELECT post_title, post_id, user_name, tags
-                FROM blog_database.posts
-                INNER JOIN blog_database.users ON posts.user_id = users.user_id
+                FROM posts
+                INNER JOIN users ON posts.user_id = users.user_id
                 WHERE tags LIKE '%$cleanedSearchtermTag%';"; 
 
                 $stmt = $pdo->query($sql);
@@ -139,8 +139,8 @@ else
                 $searchtermTag = trim($_GET['tag']);
                 $cleanedSearchtermTag = $searchtermTag; //mysqli_real_escape_string($pdo, $searchterm);//removes any unwanted code submitted by the user before saving to database
                 $sql = "SELECT post_title, post_id, user_name, tags
-                FROM blog_database.posts
-                INNER JOIN blog_database.users ON posts.user_id = users.user_id
+                FROM posts
+                INNER JOIN users ON posts.user_id = users.user_id
                 WHERE tags LIKE '%$cleanedSearchtermTag%';"; 
 
                 $stmt = $pdo->query($sql);
