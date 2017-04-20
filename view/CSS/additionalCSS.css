@@ -78,3 +78,7 @@ a:active {
     color: #A29C9B;
     text-align: center;
 }
+
+.navbar-brand {
+    font-size:14px;
+}

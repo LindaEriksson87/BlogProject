@@ -160,6 +160,7 @@ if (isset($_POST['btn-img'])){
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="CSS/additionalCSS.css">
 <link href="https://fonts.googleapis.com/css?family=Geostar+Fill|Raleway|Roboto|Stalinist+One" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
     
 <?php 
