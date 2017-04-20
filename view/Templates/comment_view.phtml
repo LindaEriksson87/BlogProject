@@ -17,7 +17,7 @@ $commentID = $viewComment['comment_id'];
 
 <div class="media">
   <div class="media-left"><?php
-      if(file_exists("../Model/profileimageuploads/{$viewComment['user_id']}.jpg")): ?>
+      if(file_exists("../model/profileimageuploads/{$viewComment['user_id']}.jpg")): ?>
 		    <img src="../model/profileimageuploads/<?=$viewComment['user_id']?>.jpg" class="media-object" style="width:60px">
 	<?php else: ?>
 		    <img src="../model/blogimages/defaultprofile.jpg" class="media-object" style="width:60px">

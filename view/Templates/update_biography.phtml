@@ -2,7 +2,7 @@
     <div class="form-group">
         <label class="control-label" for="biography">Update Biography:</label>
             <div>
-                <textarea class="form-control col-sm-4" name='bio' rows='4' method='post'><?= $_POST['bio'] ??  $thisUserBio?></textarea>
+                <textarea class="form-control col-sm-4" name='bio' rows='4' method='post'><?php if (isset($_POST['bio'])) { echo $_POST['bio'];} else echo $thisUserBio;?></textarea>
             </div><br><br><br><br><hr/>
             <div class="form-group col-sm-6">
              <button type="submit" class="btn btn-block btn-primary" name="btn-bio" method='post'>
